@@ -92,6 +92,42 @@
 
         -   git stash drop
 
+-   submodule
+
+    -   submodule 讓一個 repo 可以使用其他 repo，且每個 repo 可以是不同版本
+
+    -   為 repo 加入一個 submodule
+    
+        -   git submodule add {URI}
+
+    -   把一個含有 submodule 的 repo clone 下來
+
+        -   git clone {URI}
+
+        -   cd {repo}
+
+        -   git submodule init
+
+        -   git submodule update
+
+    -   更新 repo 內的 submodule
+
+        -   cd {submodule}
+
+        -   git pull origin master
+
+        -   cd ..
+
+        -   git commit -m "Update submodule"
+
+        -   git push origin
+        
+        -   其他 main repo 也需要更新
+
+            -   git pull origin
+
+            -   git submodule update
+
 Branch 相關
 -----------
 
