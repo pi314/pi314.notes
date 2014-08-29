@@ -1,0 +1,35 @@
+<!-- 在 LinearLayout 中，只讓一個 widget 設定 weight="1" 可以使它佔滿剩下的空間 -->
+<LinearLayout  
+  android:layout_height="wrap_content"  
+  android:layout_width="fill_parent"
+  android:paddingTop="10dp">
+
+  <TextView  
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:text="To: "
+    android:textColor="#000000"
+    android:paddingTop="10dp"
+    android:layout_marginLeft="10dp"/> 
+
+  <EditText
+    android:id="@+id/editText_recipient"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"   
+    android:hint="Enter Number"  
+    android:inputType="number"
+    android:textSize="12sp"
+    android:layout_marginLeft="5dp"
+    android:layout_weight="1" 
+    />
+
+  <Button  
+    android:id="@+id/button_recipient_picker" 
+    android:layout_height="wrap_content"   
+    android:layout_width="wrap_content"  
+    android:text="Browse .."  
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:onClick="doLaunchContactPicker"/>
+
+</LinearLayout>

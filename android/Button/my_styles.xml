@@ -1,0 +1,19 @@
+<style name="thin_small_button" parent="@android:style/Widget.Holo.Light.Button.Small">
+    <item name="android:minHeight">0dp</item>
+    <item name="android:minWidth">0dp</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:padding">10dp</item>
+    <item name="android:layout_gravity">center_vertical</item>
+    <item name="android:textSize">15sp</item>
+</style>
+
+<style name="thin_small_toggle_button" parent="@android:style/Widget.Holo.Light.Button.Toggle">
+    <item name="android:minHeight">0dp</item>
+    <item name="android:minWidth">0dp</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:padding">10dp</item>
+    <item name="android:layout_gravity">center_vertical</item>
+    <item name="android:textSize">15sp</item>
+</style>

@@ -1,0 +1,15 @@
+<LinearLayout
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+
+  <Button android:layout_width="0sp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="somebutton">
+
+  <TextView android:layout_width="0sp"
+    android:layout_height="Wrap_content"
+    android:layout_weight="1">
+
+</LinearLayout>

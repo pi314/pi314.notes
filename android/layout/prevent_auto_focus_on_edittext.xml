@@ -1,0 +1,40 @@
+刪除
+<requestFocus />
+
+======
+<!-- MUST BE PLACED RIGHT BEFORE the focusable element -->
+<LinearLayout
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:layout_width="0dip"
+    android:layout_height="0dip"
+    />
+
+如果 EditText 在 TableLayout 中就不能用了
+
+======
+在 AndroidManifest.xml 中加上
+<activity
+  ...
+  android:windowSoftInputMode="stateHidden"
+  ... >
+</activity>
+
+這不會阻止 EditText 被 focus，但是小鍵盤不會跳出來
+
+======
+清除所有的 focus
+myLayout.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
+myLayout.setFocusableInTouchMode(true);
+
+清除一個 focus
+edittext = (EditText) findViewById(R.id.edittext);
+edittext.clearFocus();
+
+清除現在正在被 focus 的 edittext
+EditText.clearFocus();
+
+取得一個 focus
+button = (Button) findViewById(R.id.button);
+button.requestFocus();

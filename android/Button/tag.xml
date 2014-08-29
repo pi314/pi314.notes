@@ -1,0 +1,10 @@
+<Button
+    android:id="@+id/tag_gray"
+    
+    android:onClick="tag_clicked"
+    android:tag="gray"
+    
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    android:layout_margin="5dp"
+    android:background="@color/gray" />

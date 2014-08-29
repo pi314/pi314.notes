@@ -1,0 +1,1 @@
+myEditText.setHint("My text");
