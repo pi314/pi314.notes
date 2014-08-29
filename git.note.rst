@@ -2,6 +2,35 @@
 = Git 筆記 =
 ============
 
+概念
+----
+
+-   特色
+
+    -   分散式
+
+        -   每個人都有完整的 repo
+
+        -   開發時不一定要網路，同步時才要
+
+    -   非線性開發
+
+        -   不一定只能依靠上一個版本
+
+-   repo 目錄結構
+
+    -   working directory
+
+        working directory 中的檔案在 add 後會進入 staging area
+
+    -   staging area
+
+        staging area 中的檔案在 commit 後會進入 repository
+
+    -   repository
+
+        repository 中的檔案在 checkout 後會進入 working directory
+
 基本
 ----
 
