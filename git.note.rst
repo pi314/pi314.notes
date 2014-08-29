@@ -47,9 +47,9 @@
 
             -   有敏感資訊的檔案一定要加入 .gitignore
 
-        -   一次性 (只有這次需要暫時 untrack)
+        -   一次性 (只有這次需要暫時 unstage)
 
-            -   git rm --cached {filename}
+            -   git reset {filename}
 
     -   刪除追蹤中的檔案 (會真的把檔案刪掉)
 
@@ -201,7 +201,7 @@ Github 相關
 
 假設該 project 名稱為 A
 
-1.  在 github 上 for A, A 會複製一份到自己的帳號底下 (稱為 B
+1.  在 github 上 fork A, A 會複製一份到自己的帳號底下 (稱為 B
 
 2.  git clone B
 
