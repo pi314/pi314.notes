@@ -5,25 +5,25 @@
 CLI 參數
 ========
 
-    -   vim file1 file2 file3
-        
-        -   用 buffer 模式開啟
+-   vim file1 file2 file3
+    
+    -   用 buffer 模式開啟
 
-    -   vim -p file1 file2 file3
+-   vim -p file1 file2 file3
 
-        -   用 tab 模式開啟
+    -   用 tab 模式開啟
 
-        -   有數量上限，約為 10 頁，超出的檔案不會被開啟
+    -   有數量上限，約為 10 頁，超出的檔案不會被開啟
 
-    -   vim -M
-        
-        -   用唯讀模式開啟
+-   vim -M
+    
+    -   用唯讀模式開啟
 
-    -   sudoedit
+-   sudoedit
 
-        -   sudoedit 是 sudo 和 vim 的組合，會將檔案先複製到 /tmp 下，在 :wq 以後再用 root 權限置換掉原本的檔案
+    -   sudoedit 是 sudo 和 vim 的組合，會將檔案先複製到 /tmp 下，在 :wq 以後再用 root 權限置換掉原本的檔案
 
-        -   只有第一個分頁有 sudo 效果
+    -   只有第一個分頁有 sudo 效果
 
 快捷鍵們
 ========
