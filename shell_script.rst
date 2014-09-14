@@ -134,4 +134,12 @@ csh/tcsh
 
     -   /etc/csh.cshrc
 
--   無限迴圈
+-   alias 參數
+
+    -   \!:1 代表第一個參數，依此類推
+
+    -   alias t echo test_\!:1_test
+
+-   每次更新的 prompt
+
+    -   alias precmd "`date`"
