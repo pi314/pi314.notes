@@ -109,8 +109,9 @@
         1.  cd {submodule}
         2.  git pull origin master
         3.  cd ..
-        4.  git commit -m "Update submodule"
-        5.  git push origin
+        4.  git add {submodule}
+        5.  git commit -m "Update submodule"
+        6.  git push origin
         -   其他 main repo 也需要更新
             -   git pull origin
             -   git submodule update
