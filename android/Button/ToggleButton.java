@@ -2,9 +2,9 @@ final ToggleButton btn = (ToggleButton) findViewById(R.id.btn);
 btn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
-            // The toggle is enabled
+            // The toggle is now enabled
         } else {
-            // The toggle is disabled
+            // The toggle is now disabled
         }
     }
 });
