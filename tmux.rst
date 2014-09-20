@@ -46,6 +46,9 @@ hot keys
         -   重新命名當前的 window
         -   與指令 rename-window 相同，可在 ^b ? 中查詢到
 
+    -   ^b [
+        -   進入 copy mode，按下 enter 離開
+
 -   pane 功能
 
     -   ^b "
@@ -62,6 +65,9 @@ hot keys
 
     -   ^b !
         -   把當前的 pane 分出去變成 window
+
+    -   ^b ^(arrow key)
+        -   調整 pane 的大小
 
 -   其他
 
