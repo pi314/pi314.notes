@@ -316,15 +316,15 @@
 
 * ``grep``
 
-  - 列出含有 ``"test"`` 的行 ::
+  - 列出含有 ``test`` 的行 ::
 
       cat file | grep "test"
 
-  - 列出不含有 ``"test"`` 的行 ::
+  - 列出不含有 ``test`` 的行 ::
 
       cat file | grep -v "test"
 
-  - 在當前目錄遞迴的尋找所有檔案中的 ``"test"`` 字串 ::
+  - 在當前目錄遞迴的尋找所有檔案中的 ``test`` 字串 ::
 
       grep -R "test" .
 
