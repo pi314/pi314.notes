@@ -439,6 +439,7 @@
       rename .htm .html *.html
 
 * ``portsnap``
+
   - 請參考 ``ports.rst``
 
 * ``pkg_info``
@@ -456,6 +457,7 @@
       pkg_info -Rx vim
 
 * ``zpool`` ::
+
     zpool status -v
     zpool export ZPOOL
     zpool import ZPOOL ZPOOLDD
