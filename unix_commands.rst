@@ -38,11 +38,11 @@
 
         find DIR -exec sh -c "printf \$(stat -c %a {})'text'" \;
 
-  - 把 DIR 目錄裡的目錄權限設為 755 ::
+  - 把 ``DIR`` 目錄裡的目錄權限設為 755 ::
 
       find . -type d ! -perm 755 -exec sh -c "chmod 755 '{}'" \;
 
-  - 把 DIR 目錄裡的檔案權限設為 644 ::
+  - 把 ``DIR`` 目錄裡的檔案權限設為 644 ::
 
       find . -type f ! -perm 644 -exec sh -c "chmod 644 '{}'" \;
 
@@ -81,10 +81,11 @@
 
   - 例子 ::
 
-    $ getopt f:abc -c -f file -ab
-    -c -f file -a -b --
+      $ getopt f:abc -c -f file -ab
+      -c -f file -a -b --
 
   - 在 Shell Script 中使用 ::
+
       #!/bin/sh set -- `getopt :f $@`
       force_replace=0
       while [ $# -gt 0 ]; do
@@ -93,6 +94,7 @@
           esac
           shift
       done
+
     - 上述程式 parse "-f" 參數, 若有該參數則 force_replace 被設為 1
 
 * ``tar``
