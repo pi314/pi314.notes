@@ -190,9 +190,9 @@
 
   - 產生 hash ::
 
-    openssl passwd -crypt -salt 5W 123456
+      openssl passwd -crypt -salt 5W 123456
 
-  - 讓 CMD 的執行過程被 openssl 包裝 ::
+  - 讓 CMD 的執行過程被 ``openssl`` 包裝 ::
 
       openssl s_client CMD
 
