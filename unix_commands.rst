@@ -61,15 +61,19 @@
       ls -r
 
 + getopt
+
   - 過濾出有效的參數
   - getopt 和 getopts 不一樣, 據說 getopts 比較強, 但因為 bourne shell 沒有內建, 所以我選擇 getopt
 
   - 基本用法
+  
     - getopt OPTSTRING PARAMETERS
     - OPTSTRING 格式
-      - "abc,def:"
-      - def 參數會以 -d value 的形式被處理
-      - abc 會以 -a 的形式被處理
+    
+      - ``"abc,def:"``
+      - ``def`` 參數會以 ``-d value`` 的形式被處理
+      - ``abc`` 會以 ``-a`` 的形式被處理
+      
     - PARAMETERS
       - 待 parse 的字串
   - 例子
