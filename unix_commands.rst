@@ -332,7 +332,7 @@
 
   - 等於 ``grep -E`` ，使用擴充的 regex ::
 
-    ls | egrep "mp4|avi"
+      ls | egrep "mp4|avi"
 
 * ``xargs``
 
