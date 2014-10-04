@@ -86,15 +86,15 @@
 
   - 在 Shell Script 中使用 ::
 
-        #!/bin/sh
-        set -- `getopt :f $@`
-        force_replace=0
-        while [ $# -gt 0 ]; do
-            case "$1" in
-                -f) force_replace=1;;
-            esac
-            shift
-        done
+      #!/bin/sh
+      set -- `getopt :f $@`
+      force_replace=0
+      while [ $# -gt 0 ]; do
+          case "$1" in
+              -f) force_replace=1;;
+          esac
+          shift
+      done
 
     - 上述程式 parse ``"-f"`` 參數，若有該參數則 ``force_replace`` 被設為 1
 
