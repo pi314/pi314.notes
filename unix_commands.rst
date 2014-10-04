@@ -106,7 +106,7 @@
 
     - 把壓縮結果輸出到 ``stdout`` ::
 
-      tar cvf - src_dir
+        tar cvf - src_dir
 
   - 解壓縮 ::
 
