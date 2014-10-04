@@ -206,7 +206,7 @@
 
 * ``dig``
 
-  - 查詢 ``cs.nctu.edu.tw`` domain 的 mx record ::
+  - 查詢 ``cs.nctu.edu.tw`` domain 的 ``mx`` record ::
 
       dig mx cs.nctu.edu.tw
 
@@ -216,7 +216,7 @@
 
       dig @140.113.1.1 bsd1.cs.nctu.edu.tw
 
-  - 指定向 DNS server ``140.113.1.1`` 查詢 mx record ::
+  - 指定向 DNS server ``140.113.1.1`` 查詢 ``mx`` record ::
 
       dig @140.113.1.1 mx cs.nctu.edu.tw
 
