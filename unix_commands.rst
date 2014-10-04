@@ -86,7 +86,8 @@
 
   - 在 Shell Script 中使用 ::
 
-        #!/bin/sh set -- `getopt :f $@`
+        #!/bin/sh
+        set -- `getopt :f $@`
         force_replace=0
         while [ $# -gt 0 ]; do
             case "$1" in
