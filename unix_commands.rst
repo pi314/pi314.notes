@@ -2,7 +2,7 @@
 指令筆記
 ========
 
-* find
+* ``find``
 
   - 用各種條件尋找檔案
 
@@ -26,15 +26,15 @@
 
       find DIR ! -perm 755
 
-  - 對於每一個項目，都執行後面的指令, {} 會被代換成檔名 ::
+  - 對於每一個項目，都執行後面的指令, ``{}`` 會被代換成檔名 ::
 
       find DIR -exec sh -c "...{}..."
 
-    - 後面餵給 sh 的參數中, backtick 中的 {} 不會被代換 ::
+    - 後面餵給 ``sh`` 的參數中, backtick 中的 ``{}`` 不會被代換 ::
 
         find DIR -exec sh -c "printf `stat -c %a {}`'text'" \; 會失敗
 
-    - 需要改用 $(), 並把 $ escape 掉 ::
+    - 需要改用 ``$()``, 並把 ``$`` escape 掉 ::
 
         find DIR -exec sh -c "printf \$(stat -c %a {})'text'" \;
 
@@ -46,7 +46,7 @@
 
       find . -type f ! -perm 644 -exec sh -c "chmod 644 '{}'" \;
 
-+ ls
+* ``ls``
 
   - 按照修改時間排序, 最新的在最前面 ::
 
@@ -60,25 +60,30 @@
 
       ls -r
 
-+ getopt
+* ``getopt``
 
   - 過濾出有效的參數
-  - getopt 和 getopts 不一樣, 據說 getopts 比較強, 但因為 bourne shell 沒有內建, 所以我選擇 getopt
+
+  - ``getopt`` 和 ``getopts`` 不一樣, 據說 ``getopts`` 比較強, 但因為 bourne shell 沒有內建, 所以我選擇 ``getopt``
 
   - 基本用法
   
-    - getopt OPTSTRING PARAMETERS
-    - OPTSTRING 格式
+    - ``getopt OPTSTRING PARAMETERS``
+    - ``OPTSTRING`` 格式
     
       - ``"abc,def:"``
       - ``def`` 參數會以 ``-d value`` 的形式被處理
       - ``abc`` 會以 ``-a`` 的形式被處理
       
-    - PARAMETERS
+    - ``PARAMETERS``
+
       - 待 parse 的字串
-  - 例子
-    - getopt f:abc -c -f file -ab
-    - output: -c -f file -a -b --
+
+  - 例子 ::
+
+    $ getopt f:abc -c -f file -ab
+    -c -f file -a -b --
+
   - 在 Shell Script 中使用 ::
       #!/bin/sh set -- `getopt :f $@`
       force_replace=0
@@ -90,7 +95,7 @@
       done
     - 上述程式 parse "-f" 參數, 若有該參數則 force_replace 被設為 1
 
-+ tar
+* ``tar``
   - 壓縮
     - tar cvf dst src
       - dst = "-" 代表 stdout
@@ -99,7 +104,7 @@
       - src = "-" 代表 stdin
       - 會在當前目錄展開
 
-+ nc
+* nc
   - listen ::
       nc -l {PORT}
   - send ::
@@ -126,7 +131,7 @@
         echo "one connection ends, start another."
       done
 
-+ ping
+* ping
   - 改變 ping 的 interval ::
       ping -i 0.1 x.x.x.x    # 每 0.1 秒 ping 一次
     - 0.2 秒以下需要 root permission
@@ -141,21 +146,21 @@
       ping -s 100 x.x.x.x
     - 實際送出的封包會再加上 header 28 bytes
 
-+ nmap ::
+* nmap ::
     nmap -v {host}
 
-+ openssl
+* openssl
   - 產生 hash ::
     openssl passwd -crypt -salt 5W 123456
   - 讓 CMD 的執行過程被 openssl 包裝
     - openssl s_client CMD
 
-+ df
+* df
   - 檢查硬碟使用量以及剩下容量
   - 用 MB GB 等單位顯示 ::
       df -h
 
-+ dig
+* dig
   - 查詢 cs.nctu.edu.tw domain 的 mx record ::
       dig mx cs.nctu.edu.tw
     - mx, A, AAAA, ns, cname, txt, axfr, soa 也都可以查詢
@@ -167,7 +172,7 @@
       dig -x 140.113.1.1
   - 在 FreeBSD 10 已被 drill 指令取代, 可到 bind-tools ports 裡安裝
 
-+ nslookup
+* nslookup
   - 查詢 pi314.nctucs.net 的 IP ::
       nslookup pi314.nctucs.net
   - 指定向 DNS server 140.113.1.1 查詢 ::
@@ -176,7 +181,7 @@
       nslookup 140.113.1.1
   - 在 FreeBSD 10 已被 drill 指令取代, 可到 bind-tools ports 裡安裝
 
-+ host
+* host
   - 查詢 pi314.nctucs.net 的 IP ::
       host pi314.nctucs.net
   - 指定向 DNS server 140.113.1.1 查詢 ::
@@ -184,7 +189,7 @@
   - 查反解 ::
       host 140.113.1.1
 
-+ dd
+* dd
   - 低階檔案輸出寫入工具
   - 指定輸出到 TARGET ::
       echo test | dd of=TARGET
@@ -196,20 +201,20 @@
   - 把硬碟資料透過網路傳送 ::
       dd if=/dev/da0 | nc BACKUP_SERVER PORT
 
-+ seq
+* seq
   - 產生 1 ~ 10 的數字作為 output ::
       seq 10
   - 使用在 shell script 中 ::
       for i in $(seq 10); do; echo $i; done
 
-+ nl
+* nl
   - 把 stdin 加上行號後輸出
 
-+ ln
+* ln
   - 製作軟連結 ::
       ln -s source link_name
 
-+ pushd, popd, dirs
+* pushd, popd, dirs
   - 操作 shell 中的目錄堆疊
   - 把目前目錄 push 到 stack，並 cd 到 dir ::
       pushd dir
@@ -218,7 +223,7 @@
   - 列出現在的 stack，左邊的是最上層的 ::
       dirs
 
-+ grep
+* grep
   - 列出含有 "test" 的行 ::
       cat file | grep "test"
   - 列出不含有 "test" 的行 ::
@@ -226,11 +231,11 @@
   - 在當前目錄遞迴的尋找所有檔案中的 "test" 字串 ::
       grep -R "test" .
 
-+ egrep
+* egrep
   - 等於 grep -E，使用擴充的 regex ::
     ls | egrep "mp4|avi"
 
-+ xargs
+* xargs
   - 把前面的 output 當成 xargs 指令的 參數
   - 各系統的 xargs 實作不同 (參數也不同)
     - FreeBSD, GNU ::
@@ -239,11 +244,11 @@
   - 在 xargs 中使用 pipe（fork 出一個 sh 來執行） ::
       something | xargs -I% sh -c "echo % | nl"
 
-+ sh
+* sh
   - 印出實際上執行了什麼 ::
       sh -xc "something"
 
-+ date
+* date
   - 顯示目前時間 ::
     date "+%Y/%m/%d %H:%M:%S"
   - 顯示時區 ::
@@ -253,18 +258,18 @@
   - 修改時間 ::
       date -s 22:10:30
 
-+ cp
+* cp
   - 備份 ::
       cp -nvr SRC DST
     - n: 不覆寫原檔
     - v: 列出所做的動作
     - r: recursive
 
-+ diff
+* diff
   - 比較兩個目錄的差異, 另有參數可以只比較檔案列表 ::
       diff -r DIR1 DIR2
 
-+ wget
+* wget
   - 範例 ::
       wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains website.org --no-parent HTTP://URL
     - --recursive
@@ -284,16 +289,16 @@
     - --no-clobber
       - 不覆寫舊檔
 
-+ rename
+* rename
   - 把 {file} 中符合 {expressoin} 的部份換成 {replacement}
     - rename {expression} {replacement} {file}
   - Example ::
       rename .htm .html *.html
 
-+ portsnap
+* portsnap
   - 請參考 ports.rst
 
-+ pkg_info
+* pkg_info
   - 列出安裝套件列表 ::
       pkg_info
   - 查看 dependency ::
@@ -301,13 +306,13 @@
   - 查看 "被" dependency ::
       pkg_info -Rx vim
 
-+ zpool
+* zpool
   - zpool status -v
   - zpool export ZPOOL
   - zpool import ZPOOL ZPOOLDD
   - zpool status -v
 
-+ pfctl
+* pfctl
   - 在 table 裡增加 IP ::
       pfctl -t {table} -T add {IP}
   - 從 table 中刪除 IP ::
@@ -317,7 +322,7 @@
   - 重新載入設定檔 ::
       pfctl -f /etc/pf.conf
 
-+ ftp
+* ftp
   - 開啟 FreeBSD 內建的 ftp server ::
       /usr/libexec/ftpd -D -l -l
     - -D 讓 ftp 以 daemon 的方式啟動
@@ -331,20 +336,20 @@
       put local-file {remote-file}
       quit
 
-+ portmaster
+* portmaster
   - 請參考 ports.rst
 
-+ portaudit
+* portaudit
   - 掃漏洞 ::
       portaudit
     - 漏洞在更新該 ports 後常常可以解決
   - 在 FreeBSD 10 後已棄置, 改用 pkg audit
 
-+ pw
+* pw
   - 把一個 user 從一個 group 中刪除 (未測試) ::
     pw groupmod groupname -d userName
 
-+ ifconfig
+* ifconfig
   - 把 em0 interface 關掉 ::
       ifconfig em0 down
   - 把 em0 interface 打開 ::
@@ -352,11 +357,11 @@
   - 手動設定 IP 給 em0 ::
       ifconfig em0 inet x.x.x.x netmask x.x.x.x
 
-+ tcpdump
+* tcpdump
   - dump 出可被 wireshark 開啟的格式 ::
       tcpdump -i <interface> -s 65535 -w <some-file>
 
-+ rsync
+* rsync
   - 參數格式 ::
       rsync options source destination
   - 取代 cp，一樣是 copy 但是有進度條 ::
@@ -371,12 +376,12 @@
     - z: 傳送時壓縮資料
     - h: 用人類好讀方式顯示資訊
 
-+ chmod
+* chmod
   - 遞迴的把所有 exec bit "復原" ::
       chmod -R +r+X
     - Linux 和 FreeBSD 的 man page 寫得不太一樣
 
-+ 其他
+* 其他
 
   - 印出一個檔案，但前 5 行不要印出來 ::
       cat example.txt | awk '{ if(NR > 5) print $0;}' 可以把 cat 改成用 nl 確認真的只有前 5 行沒有印出
