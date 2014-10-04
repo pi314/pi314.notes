@@ -137,18 +137,18 @@
     - From wiki: netcat ::
 
         #!/usr/bin/sh
-        if [ -p "backpipe" ]; then
+        if [ -p "backpipe" ]; then
           echo "backpipe exists."
         else
           mkfifo backpipe
         fi
 
-        if [ -z $1 ] || [ -z $2 ] || [ -z $3 ]; then
+        if [ -z $1 ] || [ -z $2 ] || [ -z $3 ]; then
           echo "Usage: $0 port host port"
           exit
         fi
 
-        while [ 1 ]; do
+        while [ 1 ]; do
           echo "listening on port $1 and redirect to $2:$3"
           nc -l $1 0<backpipe | nc $2 $3 1>backpipe
           echo "one connection ends, start another."
