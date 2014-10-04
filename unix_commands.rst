@@ -576,7 +576,9 @@
 
   - 印出一個檔案，但前 5 行不要印出來 ::
 
-      cat example.txt | awk '{ if(NR > 5) print $0;}' 可以把 cat 改成用 nl 確認真的只有前 5 行沒有印出
+      cat example.txt | awk '{ if(NR > 5) print $0;}'
+
+    - 可以把 cat 改成用 nl 確認真的只有前 5 行沒有印出
 
   - 把目錄 DIR 從 A host 丟到 B host
 
