@@ -264,7 +264,7 @@
 
       echo test | dd of=TARGET
 
-    - TARGET 可以是檔案或是硬碟的 device file
+    - ``TARGET`` 可以是檔案或是硬碟的 device file
 
   - 指定從 ``TARGET`` 輸入 ::
 
@@ -289,6 +289,7 @@
       for i in $(seq 10); do; echo $i; done
 
 * ``nl``
+
   - 把 ``stdin`` 加上行號後輸出
 
 * ``ln``
