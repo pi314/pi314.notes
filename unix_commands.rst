@@ -580,7 +580,7 @@
 
     - 可以把 cat 改成用 nl 確認真的只有前 5 行沒有印出
 
-  - 把目錄 DIR 從 A host 丟到 B host
+  - 把目錄 ``DIR`` 從 A host 丟到 B host
 
     - A ::
 
