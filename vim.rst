@@ -5,8 +5,9 @@
 CLI 參數
 ========
 
-- vim file1 file2 file3
-  - 用 buffer 模式開啟
+- 用 buffer 模式開啟 ::
+
+    vim file1 file2 file3
 
 - vim -p file1 file2 file3
   - 用 tab 模式開啟
