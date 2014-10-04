@@ -12,14 +12,4 @@
 MacPorts
 --------
 
--   更新 port tree ::
-
-      port selfupdate
-
--   搜尋 ::
-
-      port search <package_name>
-
--   安裝 ::
-
-      port install <package_name>
+請參考 ``ports.rst``
