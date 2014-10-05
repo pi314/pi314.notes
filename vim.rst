@@ -239,7 +239,7 @@ CLI 參數
 
     :bw
 
-  - 查看開啟 vim 時傳入的 CLI 參數 ::
+  - 查看開啟 ``vim`` 時傳入的 CLI 參數 ::
 
     :args
 
@@ -283,7 +283,7 @@ CLI 參數
 
       "*
 
-    - vim 需要在編譯時開啟 ``clipboard`` module
+    - ``vim`` 需要在編譯時開啟 ``clipboard`` module
 
   - 複製的預設剪貼簿 ::
 
@@ -317,7 +317,7 @@ CLI 參數
 
         <C-w>gf
 
-  - 讓 vim 以 ``scp`` 方式抓取遠端檔案，如果不用 ``scp`` 而是用 ``sftp`` 或 ``ftp`` 的話需打出絕對路徑 ::
+  - 讓 ``vim`` 以 ``scp`` 方式抓取遠端檔案，如果不用 ``scp`` 而是用 ``sftp`` 或 ``ftp`` 的話需打出絕對路徑 ::
 
       vim scp://pi314@HOST/FILE
 
@@ -355,7 +355,7 @@ CLI 參數
 
       :set
 
-    - 修改檔案格式為 unix ::
+    - 修改檔案格式為 ``unix`` ::
 
         :set ff=unix
 
