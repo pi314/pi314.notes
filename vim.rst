@@ -208,125 +208,166 @@ CLI 參數
 
 * Split
 
-  - :vertical resize 50
-    - 把 split 視窗寬度設定為 50 字元
-    - 也可使用 +50 來增加 50 字元
+  - 把 split 視窗寬度設定為 50 字元 ::
 
-  - <C-w>H / J / K / L
-    - 移動 split 視窗的位置
+      :vertical resize 50
 
-  - :set mouse=a
-    - 可以用滑鼠調整視窗大小
+    - 也可使用 ``+50`` 來增加 50 字元
 
-- Buffer
+  - 移動 split 視窗的位置 ::
 
-  - :bn
-    - 下一個檔案
+      <C-w>H
+      <C-w>J
+      <C-w>K
+      <C-w>L
 
-  - :bp
-    - 上一個檔案
+  - 可以用滑鼠調整視窗大小 ::
 
-  - :bw
-    - 關掉檔案
+      :set mouse=a
 
-  - :args
-    - 查看開啟 vim 時傳入的 CLI 參數
+* Buffer
 
-  - :set autowrite, :bufdo COMMAND
-    - 設定「自動存檔」，再對每一個 buffer 都執行 COMMAND
+  - 下一個檔案 ::
+
+      :bn
+
+  - 上一個檔案 ::
+
+      :bp
+
+  - 關掉檔案 ::
+
+    :bw
+
+  - 查看開啟 vim 時傳入的 CLI 參數 ::
+
+    :args
+
+  - 設定「自動存檔」，再對每一個 buffer 都執行 ``COMMAND`` ::
+      :set autowrite, :bufdo COMMAND
+
     - 自動存檔是指在切換 buffer 時會自動存檔
-    - 需要自動存檔是因為切換 buffer 時需要先存檔, 不設定的話就不能對每個 buffer 執行指令
 
-- 外部指令
+    - 需要自動存檔是因為切換 buffer 時需要先存檔，不設定的話就不能對每個 buffer 執行指令
 
-  - :% !sort
-    - 把當前內容用 sort 指令處理過，再直接取代現在的內容
+* 外部指令
 
-  - :w !python
-    - 把當前內容 pipe 給 python
+  - 把當前內容用 sort 指令處理過，再直接取代現在的內容 ::
 
-  - [normal] !!COMMAND
-    - 用指令的結果取代該行內容
+      :% !sort
 
-  - :r !cal
-    - 在游標所在下一行插入指令結果
+  - 把當前內容 pipe 給 python ::
 
-  - [visual] !COMMAND
-    - 把反白的區域當成 stdin 送給外部指令，並把結果取代掉反白區
+      :w !python
 
-- 取代
+  - 用指令的結果取代該行內容
 
-  - :%s/^/\=(1 - line("'<") + line(".")) . "\. "/
+    -  [normal] ``!!COMMAND``
 
-- Register
+  - 在游標所在下一行插入指令結果 ::
 
-  - "*
-    - 系統剪貼簿（目前只在 Cygwin 測試成功
+      :r !cal
 
-  - "0
-    - 複製的預設剪貼簿
+  - 把反白的區域當成 ``stdin`` 送給外部指令，並把結果取代掉反白區
 
-  - ""
-    - 刪除 / 剪下的預設剪貼簿
+    - [visual] ``!COMMAND``
 
-- 其他
+* 取代 ::
 
-  - <C-[>
-    - 等於 ESC 鍵
+    ``:%s/^/\=(1 - line("'<") + line(".")) . "\. "/``
 
-  - <C-v><TAB>
-    - 插入 tab 字元，有些設定會讓 tab 字元在輸入時直接置換成空格
+* Register
 
-  - gf
-    - Go File，以游標所在的字串為標名開啟檔案
-    - :bf
-      - 跳回原檔
+  - 系統剪貼簿 ::
 
-    - <C-o>
-      - 跳到 "上一個位置"
+      "*
 
-    - <C-w>gf
-      - 在新分頁中開檔
+    - vim 需要在編譯時開啟 ``clipboard`` module
 
-  - vim scp://pi314@HOST/FILE
-    - 讓 vim 以 scp 方式抓取遠端檔案，如果不用 scp 而是用 sftp 或 ftp 的話需打出絕對路徑
+  - 複製的預設剪貼簿 ::
 
-  - :TOhtml
-    - 把目前的畫面做成 html file
+      "0
 
-  - "ayy
-    - 把該行複製進 "a register 中
+  - 刪除 / 剪下的預設剪貼簿 ::
 
-  - :noh
-    - 把本次搜尋的上色清除，但 search pattern 仍存在，故按下 n 還是可以繼續搜尋
+      ""
 
-  - vim 的 regex
-    - () 如果不 escape，就視為普通的括號
-    - [] 需要 escape 才會是普通的括號
-    - \<abc\> 可以只比對到 abc 單字，不會 match aabcc 中間的 abc
-      - 是 [normal] # 預設的行為
+* 其他
 
-  - 移除檔首的 BOM
-    - :set nobomb
+  - ``<C-[>`` 等於 ``<ESC>`` 鍵
 
-  - [insert][replace] <C-o>
-    - 暫時回到 normal mode，按一個按鍵後即回到 insert mode
+  - 輸入 ``tab`` 字元
+      ``<C-v><TAB>``
 
-  - :set
+  - 以游標所在的字串為標名開啟檔案 ::
 
-    - 列出一些設定
+      gf
 
-    - :set ff=unix
-      - 修改檔案格式為 unix
+    - 跳回原檔 ::
 
-  - :retab
-    - 把檔案中的 tab 都置換成適合長度的 space
+        :bf
 
-  - :nnoremap k gk
-    - 在太長斷行的字串上垂直移動
+    - 跳到 "上一個位置" ::
 
-- 特殊設定
+        <C-o>
 
-  - 對每個檔案套用不同的縮排寬度
-    - autocmd FileType html serlocal shiftwidth=2 tabstop=2
-    - autocmd FileType make setlocal noexpandtab
+    - 在新分頁中開檔 ::
+        <C-w>gf
+
+  - 讓 vim 以 ``scp`` 方式抓取遠端檔案，如果不用 ``scp`` 而是用 ``sftp`` 或 ``ftp`` 的話需打出絕對路徑 ::
+
+      vim scp://pi314@HOST/FILE
+
+  - 把目前的畫面做成 html file ::
+
+      :TOhtml
+
+  - 把該行複製進 ``"a`` register 中 ::
+
+      "ayy
+
+  - 把本次搜尋的上色清除，但 search pattern 仍存在，故按下 ``n`` 還是可以繼續搜尋 ::
+
+      :noh
+
+  - ``vim`` 的 regex
+
+    - ``()`` 如果不 escape，就視為普通的括號
+
+    - ``[]`` 需要 escape 才會是普通的括號
+
+    - ``\<abc\>`` 可以只比對到 ``abc`` 單字，不會 match ``aabcc`` 中間的 ``abc``
+
+      - 是 [normal] ``#`` 預設的行為
+
+  - 移除檔首的 BOM ::
+
+      :set nobomb
+
+  - 暫時回到 normal mode，按一個按鍵後即回到 insert mode
+
+    - [insert][replace] ``<C-o>``
+
+  - 列出一些設定 ::
+
+      :set
+
+    - 修改檔案格式為 unix ::
+
+        :set ff=unix
+
+  - 把檔案中的 tab 都置換成適合長度的 space ::
+
+      :retab
+
+
+  - 在太長斷行的字串上垂直移動 ::
+
+      :nnoremap k gk
+
+* 特殊設定
+
+  - 對每個檔案套用不同的縮排寬度 ::
+
+      autocmd FileType html serlocal shiftwidth=2 tabstop=2
+      autocmd FileType make setlocal noexpandtab
