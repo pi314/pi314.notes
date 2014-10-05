@@ -5,19 +5,25 @@
 CLI 參數
 ========
 
--   vim file1 file2 file3
-    -   用 buffer 模式開啟
+- 用 buffer 模式開啟 ::
 
--   vim -p file1 file2 file3
-    -   用 tab 模式開啟
-    -   有數量上限，約為 10 頁，超出的檔案不會被開啟
+    vim file1 file2 file3
 
--   vim -M
-    -   用唯讀模式開啟
+- 用 tab 模式開啟 ::
 
--   sudoedit
-    -   sudoedit 是 sudo 和 vim 的組合，會將檔案先複製到 /tmp 下，在 :wq 以後再用 root 權限置換掉原本的檔案
-    -   只有第一個分頁有 sudo 效果
+    vim -p file1 file2 file3
+
+  - 有數量上限，約為 10 頁，超出的檔案不會被開啟
+
+- 用唯讀模式開啟 ::
+
+    vim -M
+
+- ``sudoedit``
+
+  - ``sudoedit`` 是 ``sudo`` 和 ``vim`` 的組合，會將檔案先複製到 ``/tmp`` 下，在 ``:wq`` 以後才會用 root 權限置換掉原本的檔案
+
+  - 只有第一個分頁有 ``sudo`` 效果
 
 快捷鍵們
 ========
@@ -25,259 +31,346 @@ CLI 參數
 移動
 ----
 
--   移游標
+* 移游標
 
-    -   gg
-        -   回到檔首
+  - 回到檔首 ::
 
-    -   G
-        -   跳到檔尾
+      gg
 
-    -   H / L / M
-        -   頁首 / 頁尾 / 中間
+  - 跳到檔尾 ::
 
-    -   <C-f> / <C-b>
-        -   一次翻動一頁
+      G
 
-    -   <C-u> / <C-d>
-        -   一次翻動半頁
+  - 移到頁首 / 頁尾 / 中間
 
-    -   ^ / $
-        -   行首行尾
+    - ``H`` / ``L`` / ``M``
 
-    -   f_
-        -   向右尋找，把游標移到 C 字元處
-        -   FC 會向左尋找
+  - 一次翻動一頁
 
-    -   <C-o>
-        -   跳回游標的上一個位置，可在檔案之間跳躍
+    - ``<C-f>`` / ``<C-b>``
 
--   移畫面
+  - 一次翻動半頁
 
-    -   <C-e> / <C-y>
-        -   只移畫面，類似設多文字編輯器的 Ctrl+UP, Ctrl+Down
+    - ``<C-u>`` / ``<C-d>``
 
-    -   zz / zt / zb
-        -   把游標所在的行移到畫面中間 / 上面 / 下面
+  - 移到行首 / 行尾
 
--   貼上
+    - ``^`` / ``$``
 
-    -   <C-r>_
-        -   在 insert/replace/command mode 下，從 register _ 貼上內容
+  - 向右尋找，把游標移到第一個找到的 ``C`` 字元處 ::
 
-    -   "0p
-        -   指定從 yank 的 register 貼上
+      fC
 
-    -   在多行前面貼上同樣的字串
-        -   先用 <C-v> 選取一整條，大寫 I，<C-r>0
+    - ``FC`` 會向左尋找
 
--   反白
-    
-    -   v
-        -   以字元為單位反白
+  - 跳回游標的上一個位置，可在檔案之間跳躍 ::
 
-    -   V
-        -   以行為單位反白
+      <C-o>
 
-    -   <C-v>
-        -   區塊反白
-        -   o / O 可以在區塊反白時讓游標跳到反白區的對面
+* 移畫面
 
-    -   反白後按下 u / U
-        -   把反白內容轉為 小/大 寫
+  - 只移畫面，類似設多文字編輯器的 Ctrl+UP, Ctrl+Down
 
--   刪除
-    
-    -   dt_
-        -   從游標開始刪除直到 _ 為止，_ 不被刪除
+    - ``<C-e>`` / ``<C-y>``
 
-    -   df_
-        -   從游標開始刪除，刪到 _ 為止，_ 也被刪除
+  - 把游標所在的行移到畫面中間 / 上面 / 下面
 
-    -   d3j
-        -   從游標開始從下刪 3 行，共刪四行
+    - ``zz`` / ``zt`` / ``zb``
 
-    -   di[
-        -   刪除 [] 內的字，{} () <> "" '' 都可用
-        -   diB == di{
-        -   dib == di(
+* 貼上
 
-    -   dit
-        -   刪除一個 html tag 內的字
-    
-    -   D
-        -   從游標刪到行尾，游標處的字也刪除
+  - 在 insert/replace/command mode 下，從 register ``a`` 貼上內容 ::
 
-    -   C
-    -   從游標刪到行尾，並進入 insert mode
+      <C-r>a
 
-    -   cc / S
-        -   把整行清除，留下一空行，並進入 insert mode
+  - 指定從 yank 的 register 貼上 ::
 
-    -   di[vhp
-        -   把 [abc] 變成 abc
-        -   "刪除" 的把內容放入 ""，也是貼上的預設來源
+      "0p
 
-    -   [insert mode] <C-w>
-        -   和許多 shell CLI 的行為一樣，從游標開始往回刪除一個單字，最後維持在 insert mode
-        -   <C-u> 也可用
+  - 在多行前面貼上同樣的字串
 
--   書籤
+    1.  用 ``<C-v>`` 選取一整條
 
-    -   ma
-        -   在游標所在行設定書籤 a
+    2.  大寫 ``I``
 
-    -   'a
-        -   跳至書籤 a
+    3.  ``<C-r>0``
 
--   分頁
+* 反白
+  
+  - 以字元為單位反白 ::
 
-    -   :tab ball
-        -   把 buffer 轉為 tab
+      v
 
-    -   <C-w>T
-        -   把 split 轉為 tab
+  - 以行為單位反白 ::
 
-    -   :tabm +1
-        -   把 tab 往下一個位子移動
+      V
 
-    -   :Vex
-        -   Vertical splite 的檔案總管
-        -   在中文環境下有問題
+  - 區塊反白 ::
 
-    -   gt / :tabn
-        -   跳到下一個分頁
+      <C-v>
 
-    -   gT / :tabp
-        -   跳到上一個分頁
+    - ``o`` / ``O`` 可以在區塊反白時讓游標跳到反白區的對面
 
-    -   :tabdo COMMAND
-        -   對每一個 tab 都執行 COMMAND
+  - 把反白內容轉為 小/大 寫
 
-    -   :Tex
-        -   分頁模式的檔案總管
+    - 反白後按下 ``u`` / ``U``
 
--   Split
+* 刪除
+  
+  - 從游標開始刪除直到字元 ``C`` 為止， ``C`` 不被刪除 ::
 
-    -   :vertical resize 50
-        -   把 split 視窗寬度設定為 50 字元
-        -   也可使用 +50 來增加 50 字元
+      dtC
 
-    -   <C-w>H / J / K / L
-        -   移動 split 視窗的位置
+  - 從游標開始刪除，刪到 ``C`` 為止， ``C`` 也被刪除 ::
 
-    -   :set mouse=a
-        -   可以用滑鼠調整視窗大小
+      dfC
 
--   Buffer
+  - 從游標開始從下刪 3 行，共刪 4 行 ::
 
-    -   :bn
-        -   下一個檔案
+      d3j
 
-    -   :bp
-        -   上一個檔案
+  - 刪除 ``[`` ``]`` 內的字， ``{}()<>""''`` 都可用 ::
 
-    -   :bw
-        -   關掉檔案
+      di[
 
-    -   :args
-        -   查看開啟 vim 時傳入的 CLI 參數
+    - ``diB`` == ``di{``
+    - ``dib`` == ``di(``
 
-    -   :set autowrite, :bufdo COMMAND
-        -   設定「自動存檔」，再對每一個 buffer 都執行 COMMAND
-        -   自動存檔是指在切換 buffer 時會自動存檔
-        -   需要自動存檔是因為切換 buffer 時需要先存檔, 不設定的話就不能對每個 buffer 執行指令
+  - 刪除一個 html tag 內的字 ::
 
--   外部指令
+      dit
+  
+  - 從游標刪到行尾，游標處的字也刪除 ::
 
-    -   :% !sort
-        -   把當前內容用 sort 指令處理過，再直接取代現在的內容
+      D
 
-    -   :w !python
-        -   把當前內容 pipe 給 python
+  - 從游標刪到行尾，並進入 insert mode ::
 
-    -   [normal] !!COMMAND
-        -   用指令的結果取代該行內容
+      C
 
-    -   :r !cal
-        -   在游標所在下一行插入指令結果
+  - 把整行清除，留下一空行，並進入 insert mode
 
-    -   [visual] !COMMAND
-        -   把反白的區域當成 stdin 送給外部指令，並把結果取代掉反白區
+    - ``cc`` / ``S``
 
--   取代
+  - 把 ``[abc]`` 變成 ``abc`` ::
 
-    -   :%s/^/\=(1 - line("'<") + line(".")) . "\. "/
+      di[vhp
 
--   Register
+    - 解說: "刪除" 會把內容放入 register ``"`` ，也是貼上的預設來源
 
-    -   "*
-        -   系統剪貼簿（目前只在 Cygwin 測試成功
+  - 在 insert mode 中往回刪除一個單字
 
-    -   "0
-        -   複製的預設剪貼簿
+    - [insert mode] ``<C-w>``
 
-    -   ""
-        -   刪除 / 剪下的預設剪貼簿
+    - 和許多 shell CLI 的行為一樣，從游標開始往回刪除一個單字，最後維持在 insert mode
 
--   其他
+    - ``<C-u>`` 可用來刪除一整行
 
-    -   <C-[>
-        -   等於 ESC 鍵
+* 書籤
 
-    -   <C-v><TAB>
-        -   插入 tab 字元，有些設定會讓 tab 字元在輸入時直接置換成空格
+  - 在游標所在行設定書籤 ``a`` ::
 
-    -   gf
-        -   Go File，以游標所在的字串為標名開啟檔案
-        -   :bf
-            -   跳回原檔
+      ma
 
-        -   <C-o>
-            -   跳到 "上一個位置"
+  - 跳至書籤 ``a`` ::
 
-        -   <C-w>gf
-            -   在新分頁中開檔
+      'a
 
-    -   vim scp://pi314@HOST/FILE
-        -   讓 vim 以 scp 方式抓取遠端檔案，如果不用 scp 而是用 sftp 或 ftp 的話需打出絕對路徑
+- 分頁
 
-    -   :TOhtml
-        -   把目前的畫面做成 html file
+  - 把 buffer 轉為 tab ::
 
-    -   "ayy
-        -   把該行複製進 "a register 中
+      :tab ball
 
-    -   :noh
-        -   把本次搜尋的上色清除，但 search pattern 仍存在，故按下 n 還是可以繼續搜尋
+  - 把 split 轉為 tab ::
 
-    -   vim 的 regex
-        -   () 如果不 escape，就視為普通的括號
-        -   [] 需要 escape 才會是普通的括號
-        -   \<abc\> 可以只比對到 abc 單字，不會 match aabcc 中間的 abc
-            -   是 [normal] # 預設的行為
+      <C-w>T
 
-    -   移除檔首的 BOM
-        -   :set nobomb
+  - 把 tab 往下一個位子移動 ::
 
-    -   [insert][replace] <C-o>
-        -   暫時回到 normal mode，按一個按鍵後即回到 insert mode
+      ``:tabm +1``
 
-    -   :set
+  - 檔案瀏覽器 ::
 
-        -   列出一些設定
+      :Vex
+      :Sex
+      :Tex
 
-        -   :set ff=unix
-            -   修改檔案格式為 unix
+    - 在中文環境下可能會有問題
 
-    -   :retab
-        -   把檔案中的 tab 都置換成適合長度的 space
+  - 跳到相鄰的分頁
 
-    -   :nnoremap k gk
-        -   在太長斷行的字串上垂直移動
+    - ``gt`` / ``:tabn`` / ``gT`` / ``:tabp``
 
--   特殊設定
+  - 對每一個 tab 都執行 ``COMMAND`` ::
 
-    -   對每個檔案套用不同的縮排寬度
-        -   autocmd FileType html serlocal shiftwidth=2 tabstop=2
-        -   autocmd FileType make setlocal noexpandtab
+      :tabdo COMMAND
+
+* Split
+
+  - 把 split 視窗寬度設定為 50 字元 ::
+
+      :vertical resize 50
+
+    - 也可使用 ``+50`` 來增加 50 字元
+
+  - 移動 split 視窗的位置 ::
+
+      <C-w>H
+      <C-w>J
+      <C-w>K
+      <C-w>L
+
+  - 可以用滑鼠調整視窗大小 ::
+
+      :set mouse=a
+
+* Buffer
+
+  - 下一個檔案 ::
+
+      :bn
+
+  - 上一個檔案 ::
+
+      :bp
+
+  - 關掉檔案 ::
+
+    :bw
+
+  - 查看開啟 ``vim`` 時傳入的 CLI 參數 ::
+
+    :args
+
+  - 設定「自動存檔」，再對每一個 buffer 都執行 ``COMMAND`` ::
+
+      :set autowrite, :bufdo COMMAND
+
+    - 自動存檔是指在切換 buffer 時會自動存檔
+
+    - 需要自動存檔是因為切換 buffer 時需要先存檔，不設定的話就不能對每個 buffer 執行指令
+
+* 外部指令
+
+  - 把當前內容用 ``sort`` 指令處理過，再直接取代現在的內容 ::
+
+      :% !sort
+
+  - 把當前內容 pipe 給 ``python`` ::
+
+      :w !python
+
+  - 用指令的結果取代該行內容
+
+    -  [normal] ``!!COMMAND``
+
+  - 在游標所在下一行插入指令結果 ::
+
+      :r !cal
+
+  - 把反白的區域當成 ``stdin`` 送給外部指令，並把結果取代掉反白區
+
+    - [visual] ``!COMMAND``
+
+* 取代 ::
+
+    ``:%s/^/\=(1 - line("'<") + line(".")) . "\. "/``
+
+* Register
+
+  - 系統剪貼簿 ::
+
+      "*
+
+    - ``vim`` 需要在編譯時開啟 ``clipboard`` module
+
+  - 複製的預設剪貼簿 ::
+
+      "0
+
+  - 刪除 / 剪下的預設剪貼簿 ::
+
+      ""
+
+* 其他
+
+  - ``<C-[>`` 等於 ``<ESC>`` 鍵
+
+  - 輸入 ``tab`` 字元 ::
+
+      <C-v><TAB>
+
+  - 以游標所在的字串為標名開啟檔案 ::
+
+      gf
+
+    - 跳回原檔 ::
+
+        :bf
+
+    - 跳到 "上一個位置" ::
+
+        <C-o>
+
+    - 在新分頁中開檔 ::
+
+        <C-w>gf
+
+  - 讓 ``vim`` 以 ``scp`` 方式抓取遠端檔案，如果不用 ``scp`` 而是用 ``sftp`` 或 ``ftp`` 的話需打出絕對路徑 ::
+
+      vim scp://pi314@HOST/FILE
+
+  - 把目前的畫面做成 html file ::
+
+      :TOhtml
+
+  - 把該行複製進 ``"a`` register 中 ::
+
+      "ayy
+
+  - 把本次搜尋的上色清除，但 search pattern 仍存在，故按下 ``n`` 還是可以繼續搜尋 ::
+
+      :noh
+
+  - ``vim`` 的 regex
+
+    - ``()`` 如果不 escape，就視為普通的括號
+
+    - ``[]`` 需要 escape 才會是普通的括號
+
+    - ``\<abc\>`` 可以只比對到 ``abc`` 單字，不會 match ``aabcc`` 中間的 ``abc``
+
+      - 是 [normal] ``#`` 預設的行為
+
+  - 移除檔首的 BOM ::
+
+      :set nobomb
+
+  - 暫時回到 normal mode，按一個按鍵後即回到 insert mode
+
+    - [insert][replace] ``<C-o>``
+
+  - 列出一些設定 ::
+
+      :set
+
+    - 修改檔案格式為 ``unix`` ::
+
+        :set ff=unix
+
+  - 把檔案中的 tab 都置換成適合長度的 space ::
+
+      :retab
+
+
+  - 在太長斷行的字串上垂直移動 ::
+
+      :nnoremap k gk
+
+* 特殊設定
+
+  - 對每個檔案套用不同的縮排寬度 ::
+
+      autocmd FileType html serlocal shiftwidth=2 tabstop=2
+      autocmd FileType make setlocal noexpandtab
