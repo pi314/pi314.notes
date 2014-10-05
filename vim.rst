@@ -178,32 +178,35 @@ CLI 參數
 
 - 分頁
 
-  - :tab ball
-    - 把 buffer 轉為 tab
+  - 把 buffer 轉為 tab ::
 
-  - <C-w>T
-    - 把 split 轉為 tab
+      :tab ball
 
-  - :tabm +1
-    - 把 tab 往下一個位子移動
+  - 把 split 轉為 tab ::
 
-  - :Vex
-    - Vertical splite 的檔案總管
-    - 在中文環境下有問題
+      <C-w>T
 
-  - gt / :tabn
-    - 跳到下一個分頁
+  - 把 tab 往下一個位子移動 ::
 
-  - gT / :tabp
-    - 跳到上一個分頁
+      ``:tabm +1``
 
-  - :tabdo COMMAND
-    - 對每一個 tab 都執行 COMMAND
+  - 檔案瀏覽器 ::
 
-  - :Tex
-    - 分頁模式的檔案總管
+      :Vex
+      :Sex
+      :Tex
 
-- Split
+    - 在中文環境下可能會有問題
+
+  - 跳到相鄰的分頁
+
+    - ``gt`` / ``:tabn`` / ``gT`` / ``:tabp``
+
+  - 對每一個 tab 都執行 ``COMMAND`` ::
+
+      :tabdo COMMAND
+
+* Split
 
   - :vertical resize 50
     - 把 split 視窗寬度設定為 50 字元
