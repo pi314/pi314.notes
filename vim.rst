@@ -244,6 +244,7 @@ CLI 參數
     :args
 
   - 設定「自動存檔」，再對每一個 buffer 都執行 ``COMMAND`` ::
+
       :set autowrite, :bufdo COMMAND
 
     - 自動存檔是指在切換 buffer 時會自動存檔
