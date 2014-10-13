@@ -151,65 +151,67 @@
 Branch 相關
 -----------
 
-- 列出 branch
+- 列出 branch ::
 
-  - git branch
+    git branch
 
-- 創造一個 branch
+- 創造一個 branch ::
 
-  - git branch {name}
+    git branch {name}
 
-- 跳到另一個 branch
+- 跳到另一個 branch ::
 
-  - git checkout {name}
+    git checkout {name}
 
-- 回到某個 commit 的狀態
+- 回到某個 commit 的狀態 ::
 
-  - git reset {hash}
+    git reset {hash}
 
 - 把一個 branch push 到 github 上
 
-  - git push origin {branch_name}
-  - git push origin master
+  - ``git push origin {branch_name}``
+  - ``git push origin master``
 
-- 把一個 remote branch pull 下來而不 merge
+- 把一個 remote branch pull 下來而不 merge ::
 
-  - git fetch origin {remote branch name}:{local branch name}
-  - 有時會失敗的方法
+    git fetch origin {remote branch name}:{local branch name}
 
-    - git checkout --track origin/{branch_name}
+  - 有時會失敗的方法 ::
 
-- 避免把 branch 上的所有  history 都 merge 進 master
+      git checkout --track origin/{branch_name}
 
-  - git checkout master
-  - git merge --edit --no-ff {branch_name}
+- 避免把 branch 上的所有 history 都 merge 進 master
 
-- 刪除 remote branch
+  - ``git checkout master``
+  - ``git merge --edit --no-ff {branch_name}``
 
-  - git push origin --delete {branch_name}
+- 刪除 remote branch ::
 
-- 更新 branch database
+    git push origin --delete {branch_name}
 
-  - git fetch -p
+- 更新 branch database ::
+
+    git fetch -p
 
 Github 相關
 -----------
 
-- git pull
+- ``git pull``
 
 - 設定目的地
 
-  - git remote add origin {URI}
-  - git remote add origin http://github.com/pi314/{}.git
+  - ``git remote add origin {URI}``
+  - ``git remote add origin http://github.com/{username}/{}.git``
+
   - 有設定 ssh key 的話，可用 ssh
 
-    - git remote add origin git@github.com:pi314/{}.git
+    - ``git remote add origin git@github.com:{username}/{}.git``
 
-  - add 可改成 set-url
+  - ``add`` 可改成 ``set-url``
 
-- 在 github 上隱藏前一個 commit
+- 在 github 上隱藏前一個 commit ::
 
-  - git push -f origin HEAD^:master
+    git push -f origin HEAD^:master
 
 協作 - 在 github 上貢獻別人的 Project
 -------------------------------------
