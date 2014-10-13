@@ -33,62 +33,66 @@
 基本
 ----
 
-- 初始化
+- 初始化 ::
 
-  - git init
+    git init
 
-- 設定自己的資料
+- 設定自己的資料 ::
 
-  - git config --global user.name "Cychih"
-  - git config --global user.email "michael66230@gmail.com"
+    git config --global user.name "Cychih"
+    git config --global user.email "michael66230@gmail.com"
 
-- 把一個 repo 複製到 local 端
+- 把一個 repo 複製到 local 端 ::
 
-  - git clone {URI}
+    git clone {URI}
 
-- 查看 commit history
+- 查看 commit history ::
 
-  - git log
+    git log
 
-- 把所有檔案加入 commit
+- 把所有檔案加入 commit ::
 
-  - git add -A
+    git add -A
 
 - 查看 commit repository 和 working directory 的差異
 
-  - git status
-  - git diff
+  - ``git status``
+
+  - ``git diff``
 
 - 追蹤檔案
 
-  - 列出追蹤中的檔案
+  - 列出追蹤中的檔案 ::
 
-    - git ls-files
+      git ls-files
 
   - 設定不要被追蹤的檔案
 
     - 永久性
 
-      - .gitignore
-      - 有敏感資訊的檔案一定要加入 .gitignore
+      - ``.gitignore``
 
-    - 一次性 (只有這次需要暫時 unstage)
+      - 有敏感資訊的檔案一定要加入 ``.gitignore``
 
-      - git reset {filename}
+    - 一次性 (只有這次需要暫時 unstage) ::
 
-  - 刪除追蹤中的檔案 (會真的把檔案刪掉)
+        git reset {filename}
 
-    - git rm {filename}
-    - 建議不要手動 rm，不然 tracking list 中仍然會存在該檔名，導致 repo dirty
+  - 刪除追蹤中的檔案 (會真的把檔案刪掉) ::
 
-  - 重新命名追蹤中的檔案
+      git rm {filename`
 
-    - git mv {name1} {name2}
-    - 建議不要手動 mv，不然 tracking list 中仍然在存在該檔名，導致 repo dirty
+    - 建議不要手動 ``rm`` ，不然 tracking list 中仍然會存在該檔名，導致 repo dirty
 
-- 回到最新的 commit 的狀態
+  - 重新命名追蹤中的檔案 ::
 
-  - git reset --hard HEAD
+      git mv {name1} {name2}
+
+    - 建議不要手動 ``mv`` ，不然 tracking list 中仍然在存在該檔名，導致 repo dirty
+
+- 回到最新的 commit 的狀態 ::
+
+    git reset --hard HEAD
 
 進階
 ----
