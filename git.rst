@@ -101,51 +101,52 @@
 
   - stash 是一個 stack，可以把未 commit 的內容暫存起來，避免因正在修改某些檔案而導致無法做其他操作，如切換 branch 等等
 
-  - 把未 commit 的更動暫存起來
+  - 把未 commit 的更動暫存起來 ::
 
-    - git stash
+      git stash
+
     - 同時會把檔案內容復原成 branch 的最新狀態
 
-  - 把暫存的更動放回原檔
+  - 把暫存的更動放回原檔 ::
 
-    - git stash apply
+      git stash apply
 
-  - 列出最新 stash 的改動
+  - 列出最新 stash 的改動 ::
 
-    - git stash show
+      git stash show
 
-  - 放棄一個 stash
+  - 放棄一個 stash ::
 
-    - git stash drop
+      git stash drop
 
 - submodule
 
   - submodule 讓一個 repo 可以使用其他 repo，且每個 repo 可以是不同版本
 
-  - 為 repo 加入一個 submodule
+  - 為 repo 加入一個 submodule ::
 
-    - git submodule add {URI}
+      git submodule add {URI}
 
   - 把一個含有 submodule 的 repo clone 下來
 
-    1.  git clone {URI}
-    2.  cd {repo}
-    3.  git submodule init
-    4.  git submodule update
+    1.  ``git clone {URI}``
+    2.  ``cd {repo}``
+    3.  ``git submodule init``
+    4.  ``git submodule update``
 
   - 更新 repo 內的 submodule
 
-    1.  cd {submodule}
-    2.  git pull origin master
-    3.  cd ..
-    4.  git add {submodule}
-    5.  git commit -m "Update submodule"
-    6.  git push origin
+    1.  ``cd {submodule}``
+    2.  ``git pull origin master``
+    3.  ``cd ..``
+    4.  ``git add {submodule}``
+    5.  ``git commit -m "Update submodule"``
+    6.  ``git push origin``
 
     - 其他 main repo 也需要更新
 
-      - git pull origin
-      - git submodule update
+      1. ``git pull origin``
+      2. ``git submodule update``
 
 Branch 相關
 -----------
