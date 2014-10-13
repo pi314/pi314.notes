@@ -218,10 +218,10 @@ Github 相關
 
 假設該 project 名稱為 A
 
-1.  在 github 上 fork A, A 會複製一份到自己的帳號底下 (稱為 B
-2.  git clone B
-3.  git remote add upstream A
-4.  git fetch upstream
+1.  在 github 上 fork A, A 會複製一份到自己的帳號底下 (稱為 B)
+2.  ``git clone B``
+3.  ``git remote add upstream A``
+4.  ``git fetch upstream``
 5.  修改 repo 內的東西
-6.  git push origin master (或是其他想要 push 合併回原 repo 的 branch)
+6.  ``git push origin master`` (或是其他想要 push 合併回原 repo 的 branch)
 7.  在 github 上的 A 頁面發出 pull request
