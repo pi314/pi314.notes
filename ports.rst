@@ -5,7 +5,7 @@
 FreeBSD Ports
 -------------
 
-- ``portmaster``
+* ``portmaster``
 
   - 第一次下載 port tree（``/usr/ports`` 不存在） ::
 
@@ -40,7 +40,7 @@ FreeBSD Ports
     + ``-B``: 不要備份舊的 ports
     + ``-a``: 全部更新
 
-- ``pkg``
+* ``pkg``
   
   - 列出所有已安裝的 ports ::
 
@@ -49,6 +49,16 @@ FreeBSD Ports
   - 搜尋 ports ::
 
       $ pkg search <package-name>
+
+  - Dependency
+
+    - 列出 ``vim`` 的 dependency ports ::
+
+        $ pkg info -d vim
+
+    - 列出 depend on ``python`` 的 ports ::
+
+        $ pkg info -r python
 
   - 安裝新的 ports ::
 
