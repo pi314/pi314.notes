@@ -57,6 +57,10 @@ hot keys
 
       ^b [
 
+  - 更換 layout 方向（直的變成橫的） ::
+
+      ^b <SPACE>
+
 - ``pane`` 功能
 
   - 在當前 ``window`` 中新增一個水平分割的 ``pane`` ::
