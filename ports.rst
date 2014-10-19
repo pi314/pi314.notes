@@ -60,6 +60,11 @@ FreeBSD Ports
 
         $ pkg info -r python
 
+    - 用一個 port 取代另一個 port ::
+
+        $ pkg set -o lang/perl5.12:lang/perl5.14
+        $ pkg install -Rf lang/perl5.14
+
   - 安裝新的 ports ::
 
       # pkg install <package-name>
