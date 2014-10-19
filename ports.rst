@@ -45,6 +45,13 @@ FreeBSD Ports
 Mac OS X Ports
 --------------
 
+- 刪除沒被 reference 到的 ports ::
+
+    port uninstall leaves
+
+  + 需要不斷重覆執行，因為每清理一次就會有別的 ports 變成 leave
+  + 建議在更新前先清理乾淨，避免卡在一些其實沒有用到的軟體
+
 - 更新 port tree ::
 
     port selfupdate
