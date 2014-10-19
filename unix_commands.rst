@@ -154,6 +154,11 @@
           echo "one connection ends, start another."
         done
 
+  - 有些機器需要加上 ``-N`` option 才能正常結束連線
+
+    - 有些 FreeBSD 10 需要
+    - Mac OS X 沒有這個 option
+
 * ``ping``
 
   - 改變 ``ping`` 的 interval ::
@@ -328,6 +333,24 @@
 
       grep -R "test" .
 
+  - 只印出比對到的部份 ::
+
+      grep -o "test"
+
+  - 印出比對到的前後行
+
+    - 印出比對到的前一行 ::
+
+        grep -A 1
+
+    - 印出比對到的後一行 ::
+
+        grep -B 1
+
+    - 印出比對到的前後一行 ::
+
+        grep -C 1
+
 * ``egrep``
 
   - 等於 ``grep -E`` ，使用擴充的 regex ::
@@ -441,20 +464,6 @@
 * ``portsnap``
 
   - 請參考 ``ports.rst``
-
-* ``pkg_info``
-
-  - 列出安裝套件列表 ::
-
-      pkg_info
-
-  - 查看 dependency ::
-
-      pkg_info -rx vim
-
-  - 查看 "被" dependency ::
-
-      pkg_info -Rx vim
 
 * ``zpool`` ::
 
