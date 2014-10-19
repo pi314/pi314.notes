@@ -368,6 +368,14 @@ CLI 參數
 
       :nnoremap k gk
 
+  - 設定 unicode ambiguous width 字元的寬度 ::
+
+      :set ambiwidth=single
+      :set ambiwidth=double
+
+    - terminal 也需要做相同的設定，才不會顯示錯誤
+    - http://vim.1045645.n5.nabble.com/Real-displayed-width-of-a-character-td1223323.html
+
 * 特殊設定
 
   - 對每個檔案套用不同的縮排寬度 ::
