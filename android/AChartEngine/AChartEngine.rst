@@ -9,20 +9,27 @@
       layoutParams.
 
   2.  包一層 view，固定外面的 view 大小
+      - worked
 
 - 設定 chart view 的顯示範圍 ::
 
-    XYMultipleSeriesRenderer.setRange()
-    setYAxisMax(double max) // 設定 y 座標軸的範圍
-    setYAxisMin(double min) // 設定 y 座標軸的範圍
-
-    setXLabels(int xLabels) // 設定 x 座標點的數量
-    XYMultipleSeriesRenderer.mRenderer.setXAxisMin(minX);
-    XYMultipleSeriesRenderer.mRenderer.setXAxisMax(maxX);
+    XYMultipleSeriesRenderer mRenderer;
+    mRenderer.setXAxisMin(minX);
+    mRenderer.setXAxisMax(maxX);
     mChartView.repaint();
 
 - 設定 chart 的背景色 ::
 
+    XYMultipleSeriesRenderer mRenderer;
     mRenderer.setApplyBackgroundColor(true);
     mRenderer.setBackgroundColor(Color.RED);
     mRenderer.setMarginsColor(Color.RED);
+
+- 設定座標軸的顏色 ::
+
+    XYMultipleSeriesRenderer mRenderer;
+    mRenderer.setYLabelsColor(0, Color.BLACK);  // 依 renderer 數量及順序而定
+
+- 其他 ::
+
+    renderer.setShowGrid(true);
