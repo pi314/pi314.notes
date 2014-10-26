@@ -9,6 +9,17 @@
 
 資料來源 http://codeblog.niwyclin.org/posts/196511-unicode-in-python，感謝 wdv4758h 的分享。
 
+Before Unicode
+--------------
+
+- ASCII code
+
+  定義了 0 ~ 127 的字元
+
+- ISO Latin 1 (ISO 8859-1)
+
+  定義 0 ~ 255 的字元
+
 Unicode
 -------
 
@@ -17,6 +28,8 @@ Unicode
 例如 ``U+2602`` 字元，只代表一個「Unicode 編號 2602（16 進位）」的字元，該怎麼存在電腦裡，隨便
 
 ``U+2602`` 被稱為 code point 2602
+
+目前 unicode 已定義 110122 個字元（不含控制字元等
 
 UTF-16
 ------
