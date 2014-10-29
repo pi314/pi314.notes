@@ -201,6 +201,16 @@
 
       openssl s_client CMD
 
+  - 傳輸檔案
+
+    1.  接收端 ::
+
+          nc -l 12345 | openssl enc -d -aes-256-cbc -nosalt  | base64 -D | <data-receive>
+
+    2.  發送端 ::
+
+          <data-source> | base64 | openssl enc -e -aes-256-cbc -nosalt | nc localhost 12345
+
 * ``df``
 
   - 檢查硬碟使用量以及剩下容量
