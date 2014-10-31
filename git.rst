@@ -193,6 +193,32 @@ Branch 相關
 
     git fetch -p
 
+- 移動一串 commits
+
+  - 例子
+    
+    1.  移動前
+
+    ::
+
+        o---o---o---o---o  master
+             \
+               o---o---o---o---o  next
+                                 \
+                                   o---o---o  topic
+
+    2.  ``git rebase --onto master next topic``
+
+    3.  移動後
+        
+    ::
+
+        o---o---o---o---o  master
+            |            \
+            |             o'--o'--o' topic
+             \
+              o---o---o---o---o  next
+
 Github 相關
 -----------
 
