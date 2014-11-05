@@ -39,21 +39,66 @@
 
 - 字串比對
 
-  - 避免使用 ==，因為其 case sensitive 設定是根據 set ignorecase
+  - 避免使用 ``==`` ，因為其 case sensitive 設定是根據 set ignorecase
 
-  - case sensitive 的字串比對 ==#
+  - case sensitive 的字串比對 ``==#``
 
-  - case insensitive 的字串比對 ==?
+  - case insensitive 的字串比對 ``==?``
 
   - 字串 match
 
-    - case sensitive =~#
+    - case sensitive ``=~#``
 
-    - case insensitive =~?
+    - case insensitive ``=~?``
+
+    - pattern 建議用單引號字串
+
+- 字串長度 (bytes) ::
+  
+    strlen(s)
+
+- 字串 "外觀" 長度 ::
+  
+    strdisplaywidth(s)
+
+- 重複字串 ::
+
+    repeat('-', 80)
+
+編輯區
+======
+
+- 取得編輯區內的內容
+  
+  - 取得游標所在的行的內容 ::
+    
+      getline('.')
+
+  - 取得第 3 行的內容 ::
+    
+      getline(3)
+
+- 取得游標所在的行數 ::
+  
+    line('.')
+
+- 取得游標的 column number ::
+  
+    col('.')
+    
+  - 1 indexed
+
+- 設定游標所在行的內容 ::
+
+    call setline('.', "abcd")
+
+- 在游標所在行的下一行插入一行字串 ``xxx`` ::
+
+    call append('.', "xxx")
 
 內建函式
 ========
 
-- 字串長度 ``strlen(s)``
-
-- 長度 ``len(list_a)``
+- 長度 ::
+  
+    len(list_a)
