@@ -15,7 +15,7 @@ bourne sh
 
   - 語法 ::
 
-      if [ "$1" == "test" ]; then
+      if [ "$1" = "test" ]; then
         ...
 
       elif; then
@@ -80,6 +80,11 @@ bourne sh
       unset var 
 
 - 字串處理
+
+  - 字串相等 ::
+
+      if [ "$str" == "a" ]; then
+      fi
 
   - 以下範例使用假設 ::
 
