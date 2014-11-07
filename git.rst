@@ -5,7 +5,7 @@
 概念
 ----
 
-- 特色
+* 特色
 
   - 分散式
 
@@ -16,7 +16,7 @@
 
     - 不一定只能依靠上一個版本
 
-- repo 目錄結構
+* repo 目錄結構
 
   - working directory
 
@@ -33,34 +33,34 @@
 基本
 ----
 
-- 初始化 ::
+* 初始化 ::
 
     git init
 
-- 設定自己的資料 ::
+* 設定自己的資料 ::
 
     git config --global user.name "Cychih"
     git config --global user.email "michael66230@gmail.com"
 
-- 把一個 repo 複製到 local 端 ::
+* 把一個 repo 複製到 local 端 ::
 
     git clone {URI}
 
-- 查看 commit history ::
+* 查看 commit history ::
 
     git log
 
-- 把所有檔案加入 commit ::
+* 把所有檔案加入 commit ::
 
     git add -A
 
-- 查看 commit repository 和 working directory 的差異
+* 查看 commit repository 和 working directory 的差異
 
   - ``git status``
 
   - ``git diff``
 
-- 追蹤檔案
+* 追蹤檔案
 
   - 列出追蹤中的檔案 ::
 
@@ -90,14 +90,14 @@
 
     - 建議不要手動 ``mv`` ，不然 tracking list 中仍然在存在該檔名，導致 repo dirty
 
-- 回到最新的 commit 的狀態 ::
+* 回到最新的 commit 的狀態 ::
 
     git reset --hard HEAD
 
 進階
 ----
 
-- 更動暫存系統 - stash
+* 更動暫存系統 - stash
 
   - stash 是一個 stack，可以把未 commit 的內容暫存起來，避免因正在修改某些檔案而導致無法做其他操作，如切換 branch 等等
 
@@ -119,7 +119,7 @@
 
       git stash drop
 
-- submodule
+* submodule
 
   - submodule 讓一個 repo 可以使用其他 repo，且每個 repo 可以是不同版本
 
@@ -148,31 +148,43 @@
       1. ``git pull origin``
       2. ``git submodule update``
 
+* Bare repository
+
+  - bare repo 可以讓你不架設 git server，卻又可以 push/pull
+  - 建立方式
+
+    1.  新增一個目錄，暫時叫 ``bare_repo``
+    2.  ``cd bare_repo``
+    3.  ``git init --bare``
+    4.  在所有其他需要 push/pull 的 repo 中，加上 remote
+
+        - ``git remote add origin {username}@{host}:{bare-repo-path}``
+
 Branch 相關
 -----------
 
-- 列出 branch ::
+* 列出 branch ::
 
     git branch
 
-- 創造一個 branch ::
+* 創造一個 branch ::
 
     git branch {name}
 
-- 跳到另一個 branch ::
+* 跳到另一個 branch ::
 
     git checkout {name}
 
-- 回到某個 commit 的狀態 ::
+* 回到某個 commit 的狀態 ::
 
     git reset {hash}
 
-- 把一個 branch push 到 github 上
+* 把一個 branch push 到 github 上
 
   - ``git push origin {branch_name}``
   - ``git push origin master``
 
-- 把一個 remote branch pull 下來而不 merge ::
+* 把一個 remote branch pull 下來而不 merge ::
 
     git fetch origin {remote branch name}:{local branch name}
 
@@ -180,20 +192,20 @@ Branch 相關
 
       git checkout --track origin/{branch_name}
 
-- 避免把 branch 上的所有 history 都 merge 進 master
+* 避免把 branch 上的所有 history 都 merge 進 master
 
   - ``git checkout master``
   - ``git merge --edit --no-ff {branch_name}``
 
-- 刪除 remote branch ::
+* 刪除 remote branch ::
 
     git push origin --delete {branch_name}
 
-- 更新 branch database ::
+* 更新 branch database ::
 
     git fetch -p
 
-- 移動一串 commits
+* 移動一串 commits
 
   - 例子
     
@@ -222,9 +234,9 @@ Branch 相關
 Github 相關
 -----------
 
-- ``git pull``
+* ``git pull``
 
-- 設定目的地
+* 設定目的地
 
   - ``git remote add origin {URI}``
   - ``git remote add origin http://github.com/{username}/{}.git``
@@ -235,7 +247,7 @@ Github 相關
 
   - ``add`` 可改成 ``set-url``
 
-- 在 github 上隱藏前一個 commit ::
+* 在 github 上隱藏前一個 commit ::
 
     git push -f origin HEAD^:master
 
