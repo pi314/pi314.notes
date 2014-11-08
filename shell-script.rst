@@ -83,7 +83,7 @@ bourne sh
 
   - 字串相等 ::
 
-      if [ "$str" == "a" ]; then
+      if [ "$str" = "a" ]; then
       fi
 
   - 以下範例使用假設 ::
