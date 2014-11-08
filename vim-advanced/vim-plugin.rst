@@ -15,11 +15,11 @@
     syntax/
     vimrc
 
-- ``bundle``
+* ``bundle``
 
   - 包含你所安裝的 plugin
     
-- ``filetype.vim``
+* ``filetype.vim``
 
   - 定義各種你需要的 filetype，例如 ::
 
@@ -27,26 +27,26 @@
 
   - 定義了一個 filetype ``todo``
 
-- ``ftplugin/``
+* ``ftplugin/``
 
   - 定義每個 filetype 的 key map，例如 filetype ``todo`` 的 map 就放在 ``todo.vim`` 裡面
 
-- ``plugin/``
+* ``plugin/``
 
   - 放置其他會被載入的 vim script
 
-- ``syntax/``
+* ``syntax/``
 
   - 定義每個 filetype 的語法上色，例如 filetype ``todo`` 的語法上色就定義在 ``todo.vim`` 裡面
 
-- ``vimrc``
+* ``vimrc``
 
   - 和 ``~/.vimrc`` 相同用途
 
 編寫 vim 語法上色檔
 ===================
 
-- 基本方法 ::
+* 基本方法 ::
   
     syn match {name} {regex}
     hi def {name} {argument}
@@ -59,3 +59,21 @@
 
     - 分別設定前景和背景，若 terminal 支援的話也可以使用底線或其他功能
 
+* Regex lookahead/behind
+
+  - 可以 regex 中判斷前後文 (其實這已經超過 formal language 中 regex 的範圍了)
+
+  - ``\@<=`` positive lookbehind
+  - ``\@<!`` negative lookbehind
+  - ``\@=`` positive lookahead
+  - ``\@!`` negative lookahead
+
+  - 範例
+
+    - 比對所有的 ``foo`` ，但後面不能接 ``bar`` ::
+      
+        foo\(bar\)\@!
+
+    - 比對所有的 ``bar`` ，但前面不能接 ``foo`` ::
+
+        \(foo\)\@<!bar
