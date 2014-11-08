@@ -591,6 +591,19 @@
 
     - Linux 和 FreeBSD 的 man page 寫得不太一樣
 
+* ``command``
+
+  - 檢查指令的實際位置
+
+      ``command -v python3``
+
+  - bourne shell 內建指令
+
+  - 和 ``which`` 的差異
+
+    - ``command`` 為內建指令，比較便宜，且行為比較能被確定
+    - ``which`` 指令只用 ``stdout`` 做為結果，exit status 都是 ``0``
+
 * 其他
 
   - 印出一個檔案，但前 5 行不要印出來 ::
