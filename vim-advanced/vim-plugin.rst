@@ -52,7 +52,10 @@
     hi def {name} {argument}
 
   - ``name`` 為該語法定義一個名稱
-  - ``regex`` 用來定義語法的內容，要注意不同的語法 match 區塊之間不能直接相連，例如 ::
+  - ``regex`` 用來定義語法的內容，如果 ``regex`` 的結尾是空格，可能會讓下一個語法區塊出問題
+  - ``argument`` 定義該語法的顏色，例如 ::
 
-      {rst-list-bullet}{number}
+      hi def agdaXXX cterm=bold,underline ctermfg=1
+
+    - 分別設定前景和背景，若 terminal 支援的話也可以使用底線或其他功能
 
