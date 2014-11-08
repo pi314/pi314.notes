@@ -80,7 +80,7 @@
 
   - 刪除追蹤中的檔案 (會真的把檔案刪掉) ::
 
-      git rm {filename`
+      git rm {filename}
 
     - 建議不要手動 ``rm`` ，不然 tracking list 中仍然會存在該檔名，導致 repo dirty
 
