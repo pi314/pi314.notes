@@ -81,3 +81,9 @@ CC = Creative Commons
 共通的部份是需附上作者姓名
 
 參考: http://creativecommons.org/licenses/
+
+Public Domain
+-------------
+
+以 Public Domain 發佈的資料 (不只限於軟體) ，任何人都可以自由使用，但著作權不在任何人身上，這些資料也不能被任何人佔有。
+(應該是自由度最高的授權)
