@@ -21,18 +21,30 @@
 * if condition ::
 
     if <condition> 
+      ...
     elseif <condition>
+      ...
     endif
 
 * while loop ::
 
     while <condition>
+      ...
     endwhile
 
 * for loop ::
 
     for i in list
+      ...
     endfor
+
+* function definition ::
+
+    function! <function-name> (<arguments>)
+      ...
+    endfunction
+
+  - ``function!`` 代表要 override 同名的 function
 
 字串
 ====
@@ -108,3 +120,10 @@
 * 長度 ::
   
     len(list_a)
+
+指令
+====
+
+* 執行 normal mode 下的動作 ::
+
+    normal! <movements>
