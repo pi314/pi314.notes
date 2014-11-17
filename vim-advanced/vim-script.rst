@@ -15,6 +15,10 @@
 
 * 使用 ``let a = 3`` 來賦值
 
+* 取得設定值 ::
+
+    let a = &shiftwidth
+
 語法
 ====
 
@@ -57,7 +61,7 @@
 
   - case insensitive 的字串比對 ``==?``
 
-  - 字串 match
+  - 字串 regex match
 
     - case sensitive ``=~#``
 
