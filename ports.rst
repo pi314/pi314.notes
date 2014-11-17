@@ -7,7 +7,7 @@ FreeBSD Ports
 
 * ``portmaster``
 
-  - 第一次下載 port tree（``/usr/ports`` 不存在） ::
+  - 第一次下載 port tree（ ``/usr/ports`` 不存在） ::
 
       # portsnap fetch extract update
 
