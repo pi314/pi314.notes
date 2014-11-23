@@ -81,6 +81,8 @@
     15    7*   White
     ===== ==== ================================
 
+    - 要注意 ``cyan`` 指的其實是亮色 (不論是否有 ``cterm=bold``)， ``darkcyan`` 才是暗色
+
 * Regex lookahead/behind
 
   - 可以 regex 中判斷前後文 (其實這已經超過 formal language 中 regex 的範圍了)
