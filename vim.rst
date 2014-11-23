@@ -5,21 +5,21 @@
 CLI 參數
 ========
 
-- 用 buffer 模式開啟 ::
+* 用 buffer 模式開啟 ::
 
     vim file1 file2 file3
 
-- 用 tab 模式開啟 ::
+* 用 tab 模式開啟 ::
 
     vim -p file1 file2 file3
 
   - 有數量上限，約為 10 頁，超出的檔案不會被開啟
 
-- 用唯讀模式開啟 ::
+* 用唯讀模式開啟 ::
 
     vim -M
 
-- ``sudoedit``
+* ``sudoedit``
 
   - ``sudoedit`` 是 ``sudo`` 和 ``vim`` 的組合，會將檔案先複製到 ``/tmp`` 下，在 ``:wq`` 以後才會用 root 權限置換掉原本的檔案
 
@@ -43,25 +43,25 @@ CLI 參數
 
   - 移到頁首 / 頁尾 / 中間
 
-    - ``H`` / ``L`` / ``M``
+    + ``H`` / ``L`` / ``M``
 
   - 一次翻動一頁
 
-    - ``<C-f>`` / ``<C-b>``
+    + ``<C-f>`` / ``<C-b>``
 
   - 一次翻動半頁
 
-    - ``<C-u>`` / ``<C-d>``
+    + ``<C-u>`` / ``<C-d>``
 
   - 移到行首 / 行尾
 
-    - ``^`` / ``$``
+    + ``^`` / ``$``
 
   - 向右尋找，把游標移到第一個找到的 ``C`` 字元處 ::
 
       fC
 
-    - ``FC`` 會向左尋找
+    + ``FC`` 會向左尋找
 
   - 跳回游標的上一個位置，可在檔案之間跳躍 ::
 
@@ -71,11 +71,11 @@ CLI 參數
 
   - 只移畫面，類似設多文字編輯器的 Ctrl+UP, Ctrl+Down
 
-    - ``<C-e>`` / ``<C-y>``
+    + ``<C-e>`` / ``<C-y>``
 
   - 把游標所在的行移到畫面中間 / 上面 / 下面
 
-    - ``zz`` / ``zt`` / ``zb``
+    + ``zz`` / ``zt`` / ``zb``
 
 * 貼上
 
@@ -109,11 +109,11 @@ CLI 參數
 
       <C-v>
 
-    - ``o`` / ``O`` 可以在區塊反白時讓游標跳到反白區的對面
+    + ``o`` / ``O`` 可以在區塊反白時讓游標跳到反白區的對面
 
   - 把反白內容轉為 小/大 寫
 
-    - 反白後按下 ``u`` / ``U``
+    + 反白後按下 ``u`` / ``U``
 
 * 刪除
   
@@ -133,8 +133,8 @@ CLI 參數
 
       di[
 
-    - ``diB`` == ``di{``
-    - ``dib`` == ``di(``
+    + ``diB`` == ``di{``
+    + ``dib`` == ``di(``
 
   - 刪除一個 html tag 內的字 ::
 
@@ -150,21 +150,21 @@ CLI 參數
 
   - 把整行清除，留下一空行，並進入 insert mode
 
-    - ``cc`` / ``S``
+    + ``cc`` / ``S``
 
   - 把 ``[abc]`` 變成 ``abc`` ::
 
       di[vhp
 
-    - 解說: "刪除" 會把內容放入 register ``"`` ，也是貼上的預設來源
+    + 解說: "刪除" 會把內容放入 register ``"`` ，也是貼上的預設來源
 
   - 在 insert mode 中往回刪除一個單字
 
-    - [insert mode] ``<C-w>``
+    + [insert mode] ``<C-w>``
 
-    - 和許多 shell CLI 的行為一樣，從游標開始往回刪除一個單字，最後維持在 insert mode
+    + 和許多 shell CLI 的行為一樣，從游標開始往回刪除一個單字，最後維持在 insert mode
 
-    - ``<C-u>`` 可用來刪除一整行
+    + ``<C-u>`` 可用來刪除一整行
 
 * 書籤
 
@@ -196,11 +196,11 @@ CLI 參數
       :Sex
       :Tex
 
-    - 在中文環境下可能會有問題
+    + 在中文環境下可能會有問題
 
   - 跳到相鄰的分頁
 
-    - ``gt`` / ``:tabn`` / ``gT`` / ``:tabp``
+    + ``gt`` / ``:tabn`` / ``gT`` / ``:tabp``
 
   - 對每一個 tab 都執行 ``COMMAND`` ::
 
@@ -212,7 +212,7 @@ CLI 參數
 
       :vertical resize 50
 
-    - 也可使用 ``+50`` 來增加 50 字元
+    + 也可使用 ``+50`` 來增加 50 字元
 
   - 移動 split 視窗的位置 ::
 
@@ -247,9 +247,9 @@ CLI 參數
 
       :set autowrite, :bufdo COMMAND
 
-    - 自動存檔是指在切換 buffer 時會自動存檔
+    + 自動存檔是指在切換 buffer 時會自動存檔
 
-    - 需要自動存檔是因為切換 buffer 時需要先存檔，不設定的話就不能對每個 buffer 執行指令
+    + 需要自動存檔是因為切換 buffer 時需要先存檔，不設定的話就不能對每個 buffer 執行指令
 
 * 外部指令
 
@@ -263,7 +263,7 @@ CLI 參數
 
   - 用指令的結果取代該行內容
 
-    -  [normal] ``!!COMMAND``
+    + [normal] ``!!COMMAND``
 
   - 在游標所在下一行插入指令結果 ::
 
@@ -271,7 +271,7 @@ CLI 參數
 
   - 把反白的區域當成 ``stdin`` 送給外部指令，並把結果取代掉反白區
 
-    - [visual] ``!COMMAND``
+    + [visual] ``!COMMAND``
 
 * 取代 ::
 
@@ -283,7 +283,7 @@ CLI 參數
 
       "*
 
-    - ``vim`` 需要在編譯時開啟 ``clipboard`` module
+    + ``vim`` 需要在編譯時開啟 ``clipboard`` module
 
   - 複製的預設剪貼簿 ::
 
@@ -315,15 +315,15 @@ CLI 參數
 
       gf
 
-    - 跳回原檔 ::
+    + 跳回原檔 ::
 
         :bf
 
-    - 跳到 "上一個位置" ::
+    + 跳到 "上一個位置" ::
 
         <C-o>
 
-    - 在新分頁中開檔 ::
+    + 在新分頁中開檔 ::
 
         <C-w>gf
 
@@ -345,13 +345,13 @@ CLI 參數
 
   - ``vim`` 的 regex
 
-    - ``()`` 如果不 escape，就視為普通的括號
+    + ``()`` 如果不 escape，就視為普通的括號
 
-    - ``[]`` 需要 escape 才會是普通的括號
+    + ``[]`` 需要 escape 才會是普通的括號
 
-    - ``\<abc\>`` 可以只比對到 ``abc`` 單字，不會 match ``aabcc`` 中間的 ``abc``
+    + ``\<abc\>`` 可以只比對到 ``abc`` 單字，不會 match ``aabcc`` 中間的 ``abc``
 
-      - 是 [normal] ``#`` 預設的行為
+      * 是 [normal] ``#`` 預設的行為
 
   - 移除檔首的 BOM ::
 
@@ -359,13 +359,13 @@ CLI 參數
 
   - 暫時回到 normal mode，按一個按鍵後即回到 insert mode
 
-    - [insert][replace] ``<C-o>``
+    + [insert][replace] ``<C-o>``
 
   - 列出一些設定 ::
 
       :set
 
-    - 修改檔案格式為 ``unix`` ::
+    + 修改檔案格式為 ``unix`` ::
 
         :set ff=unix
 
@@ -383,8 +383,14 @@ CLI 參數
       :set ambiwidth=single
       :set ambiwidth=double
 
-    - terminal 也需要做相同的設定，才不會顯示錯誤
-    - http://vim.1045645.n5.nabble.com/Real-displayed-width-of-a-character-td1223323.html
+    + terminal 也需要做相同的設定，才不會顯示錯誤
+    + http://vim.1045645.n5.nabble.com/Real-displayed-width-of-a-character-td1223323.html
+
+  - 把 vim 內部的指令導到檔案中
+
+    1.  ``redir >{file_name}``
+    2.  ``{command}``
+    3.  ``redir END``
 
 * 特殊設定
 
