@@ -39,6 +39,10 @@ virtualenv 甚至可以隔離不同版本的 Python，讓 Python2.7 和 Python3.
       
       $ pip install {package-name}
 
+4.  離開 virtualenv 環境 ::
+
+      $ deactivate
+
 
 隔離 Python 環境
 ----------------
