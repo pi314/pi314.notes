@@ -5,6 +5,24 @@
 FreeBSD Ports
 -------------
 
+目錄結構
+~~~~~~~~
+
+FreeBSD 的 Ports 系統維護一個 Ports Tree
+
+Ports Tree 的位置在 ``/usr/ports/`` ，每個軟體各自佔一個目錄，裡面存放該軟體的安裝資訊
+
+在 Ports Tree 中搜尋，可用 ::
+
+  $ make search name="{name}"
+
+  $ make quicksearch key="{keyword}"
+
+傳統
+
+使用
+~~~~
+
 * ``portmaster``
 
   - 第一次下載 port tree（ ``/usr/ports`` 不存在） ::
