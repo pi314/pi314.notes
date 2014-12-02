@@ -401,6 +401,11 @@ CLI 參數
     2.  ``{command}``
     3.  ``redir END``
 
+  - 修改 encoding ::
+
+      :w ++enc=utf-8
+      :w ++enc=utf-8 {another_filename}
+
 * 特殊設定
 
   - 對每個檔案套用不同的縮排寬度 ::
