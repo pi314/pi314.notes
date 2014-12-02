@@ -5,99 +5,97 @@
 FreeBSD Ports
 -------------
 
-目錄結構
-~~~~~~~~
-
-FreeBSD 的 Ports 系統維護一個 Ports Tree
-
-Ports Tree 的位置在 ``/usr/ports/`` ，每個軟體各自佔一個目錄，裡面存放該軟體的安裝資訊
-
-在 Ports Tree 中搜尋，可用 ::
-
-  $ make search name="{name}"
-
-  $ make quicksearch key="{keyword}"
-
-傳統
-
-使用
+簡介
 ~~~~
 
-* ``portmaster``
+FreeBSD 的 Ports 系統維護一個 Ports Tree，位置在 ``/usr/ports/`` ，每個軟體各自佔一個目錄，裡面存放該軟體的安裝資訊
 
-  - 第一次下載 port tree（ ``/usr/ports`` 不存在） ::
+Ports Tree
+~~~~~~~~~~
 
-      # portsnap fetch extract update
+* 第一次下載 port tree（ ``/usr/ports`` 不存在） ::
 
-  - 指定主機 ::
+    # portsnap fetch extract update
 
-      # portsnap -s portsnap.freebsd.org fetch extract
+* 指定主機 ::
 
-  - 更新 port tree ::
+    # portsnap -s portsnap.freebsd.org fetch extract
 
-      # portsnap fetch update
+* 更新 port tree ::
 
-  - 務必檢查 ``/usr/ports/UPDATING`` 裡面的資訊 ::
+    # portsnap fetch update
 
-      # pkg updating
+使用 Make 指令
+~~~~~~~~~~~~~~
 
-  - 檢查已安裝的 ports 中有沒有新版本 ::
+* 搜尋某個 Ports ::
 
-      $ portmaster -L | grep avail
+  $ make search name="{name}"
+  $ make quicksearch key="{keyword}"
 
-  - 更新一個或多個 ports ::
+Portmaster
+~~~~~~~~~~
 
-      # portmaster -dyB editors/vim lang/python
+* 務必檢查 ``/usr/ports/UPDATING`` 裡面的資訊
 
-  - 直接更新所有已安裝的 ports ::
+* 檢查已安裝的 ports 中有沒有新版本 ::
 
-      # portmaster -dyBa
+    $ portmaster -L | grep avail
 
-    + ``-d``: 不要保留 dist file
-    + ``-y``: 全部用預設選項
-    + ``-B``: 不要備份舊的 ports
-    + ``-a``: 全部更新
+* 更新一個或多個 ports ::
 
-* ``pkg``
-  
-  - 列出所有已安裝的 ports ::
+    # portmaster -dyB editors/vim lang/python
 
-      $ pkg info
+* 直接更新所有已安裝的 ports ::
 
-  - 搜尋 ports ::
+    # portmaster -dyBa
 
-      $ pkg search <package-name>
+  - ``-d``: 不要保留 dist file
+  - ``-y``: 全部用預設選項
+  - ``-B``: 不要備份舊的 ports
+  - ``-a``: 全部更新
 
-  - Dependency
+pkg
+~~~
 
-    - 列出 ``vim`` 的 dependency ports ::
+* 列出所有已安裝的 ports ::
 
-        $ pkg info -d vim
+    $ pkg info
 
-    - 列出 depend on ``python`` 的 ports ::
+* 搜尋 ports ::
 
-        $ pkg info -r python
+    $ pkg search <package-name>
 
-    - 用一個 port 取代另一個 port ::
+* Dependency
 
-        $ pkg set -o lang/perl5.12:lang/perl5.14
-        $ pkg install -Rf lang/perl5.14
+  - 列出 ``vim`` 的 dependency ports ::
 
-  - 安裝新的 ports ::
+      $ pkg info -d vim
 
-      # pkg install <package-name>
+  - 列出 depend on ``python`` 的 ports ::
 
-  - 直接更新所有已安裝的 ports ::
+      $ pkg info -r python
 
-      # pkg upgrade
+  - 用一個 port 取代另一個 port ::
 
-  - 刪除沒有用的 ports (沒有被用到) ::
+      $ pkg set -o lang/perl5.12:lang/perl5.14
+      $ pkg install -Rf lang/perl5.14
 
-      # pkg autoremove
+* 安裝新的 ports ::
 
-  - 刪除distfiles ::
+    # pkg install <package-name>
 
-      # pkg clean
+* 直接更新所有已安裝的 ports ::
+
+    # pkg upgrade
+
+* 刪除沒有用的 ports (沒有被用到) ::
+
+    # pkg autoremove
+
+* 刪除distfiles ::
+
+    # pkg clean
 
 Mac OS X Ports
 --------------
