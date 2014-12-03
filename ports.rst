@@ -30,8 +30,10 @@ Ports Tree
 
 * 搜尋某個 Ports ::
 
-  $ make search name="{name}"
-  $ make quicksearch key="{keyword}"
+    $ make search name="{name}"
+    $ make quicksearch key="{keyword}"
+
+  - 可以列出 Build Dependency、Run Dependency 以及簡介和網頁
 
 Portmaster
 ~~~~~~~~~~
