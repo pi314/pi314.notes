@@ -9,26 +9,26 @@
 
   - 分散式
 
-    - 每個人都有完整的 repo
-    - 開發時不一定要網路，同步時才要
+    + 每個人都有完整的 repo
+    + 開發時不一定要網路，同步時才要
 
   - 非線性開發
 
-    - 不一定只能依靠上一個版本
+    + 不一定只能依靠上一個版本
 
 * repo 目錄結構
 
   - working directory
 
-    - working directory 中的檔案在 add 後會進入 staging area
+    + working directory 中的檔案在 add 後會進入 staging area
 
   - staging area
 
-    - staging area 中的檔案在 commit 後會進入 repository
+    + staging area 中的檔案在 commit 後會進入 repository
 
   - repository
 
-    - repository 中的檔案在 checkout 後會進入 working directory
+    + repository 中的檔案在 checkout 後會進入 working directory
 
 基本
 ----
@@ -68,13 +68,13 @@
 
   - 設定不要被追蹤的檔案
 
-    - 永久性
+    + 永久性
 
-      - ``.gitignore``
+      * ``.gitignore``
 
-      - 有敏感資訊的檔案一定要加入 ``.gitignore``
+      * 有敏感資訊的檔案一定要加入 ``.gitignore``
 
-    - 一次性 (只有這次需要暫時 unstage) ::
+    + 一次性 (只有這次需要暫時 unstage) ::
 
         git reset {filename}
 
@@ -82,13 +82,13 @@
 
       git rm {filename}
 
-    - 建議不要手動 ``rm`` ，不然 tracking list 中仍然會存在該檔名，導致 repo dirty
+    + 建議不要手動 ``rm`` ，不然 tracking list 中仍然會存在該檔名，導致 repo dirty
 
   - 重新命名追蹤中的檔案 ::
 
       git mv {name1} {name2}
 
-    - 建議不要手動 ``mv`` ，不然 tracking list 中仍然在存在該檔名，導致 repo dirty
+    + 建議不要手動 ``mv`` ，不然 tracking list 中仍然在存在該檔名，導致 repo dirty
 
 * 回到最新的 commit 的狀態 ::
 
@@ -105,7 +105,7 @@
 
       git stash
 
-    - 同時會把檔案內容復原成 branch 的最新狀態
+    + 同時會把檔案內容復原成 branch 的最新狀態
 
   - 把暫存的更動放回原檔 ::
 
@@ -143,7 +143,7 @@
     5.  ``git commit -m "Update submodule"``
     6.  ``git push origin``
 
-    - 其他 main repo 也需要更新
+    + 其他 main repo 也需要更新
 
       1. ``git pull origin``
       2. ``git submodule update``
@@ -156,9 +156,9 @@
     1.  新增一個目錄，暫時叫 ``bare_repo``
     2.  ``cd bare_repo``
     3.  ``git init --bare``
-    4.  在所有其他需要 push/pull 的 repo 中，加上 remote
+    4.  在所有其他需要 push/pull 的 repo 中，加上 remote ::
 
-        - ``git remote add origin {username}@{host}:{bare-repo-path}``
+          git remote add origin {username}@{host}:{bare-repo-path}
 
 Branch 相關
 -----------
@@ -243,7 +243,7 @@ Github 相關
 
   - 有設定 ssh key 的話，可用 ssh
 
-    - ``git remote add origin git@github.com:{username}/{}.git``
+    + ``git remote add origin git@github.com:{username}/{}.git``
 
   - ``add`` 可改成 ``set-url``
 
