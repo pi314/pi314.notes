@@ -279,6 +279,10 @@ CLI 參數
 
 * Register
 
+  - 把該行複製進 ``"a`` register 中 ::
+
+      "ayy
+
   - 系統剪貼簿 ::
 
       "*
@@ -344,10 +348,6 @@ CLI 參數
 
       :TOhtml
 
-  - 把該行複製進 ``"a`` register 中 ::
-
-      "ayy
-
   - 把本次搜尋的上色清除，但 search pattern 仍存在，故按下 ``n`` 還是可以繼續搜尋 ::
 
       :noh
@@ -405,6 +405,10 @@ CLI 參數
 
       :w ++enc=utf-8
       :w ++enc=utf-8 {another_filename}
+
+  - 有時 vim 的語法上色會壞掉 (例如整頁都變成藍色)，可能是因為失去追蹤語法結構，可以用下列指令重新同步 ::
+
+      :syntax sync fromstart
 
 * 特殊設定
 
