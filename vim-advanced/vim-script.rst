@@ -87,11 +87,20 @@
 
     repeat('-', 80)
 
-* 切片 ::
+* 切片
 
-    "abcdefg"[1:3] ==# "bcd"
+  - slice ::
 
-  - 和 Python 不同，Vim 的 slice 是上下都包含的
+      "abcdefg"[1:3] ==# "bcd"
+
+    + 和 Python 不同，Vim 的 slice 是上下都包含的
+
+  - strpart ::
+
+      strpart("abcdefg", 3, 2)    == "de"
+      strpart("abcdefg", -2, 4)   == "ab"
+      strpart("abcdefg", 5, 4)    == "fg"
+      strpart("abcdefg", 3)       == "defg"
 
 編輯區
 ======
