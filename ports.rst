@@ -138,3 +138,12 @@ Mac OS X Ports
 
     # port install <package-name>
 
+* 調整參數
+
+  - 查詢可用參數 ::
+
+      $ port variants vim
+
+  - 安裝時增加參數 ::
+
+      # port install vim +python34
