@@ -46,16 +46,17 @@ Portmaster
 
 * 更新一個或多個 ports ::
 
-    # portmaster -dyB editors/vim lang/python
+    # portmaster -dBw editors/vim lang/python
 
 * 直接更新所有已安裝的 ports ::
 
-    # portmaster -dyBa
+    # portmaster -dBaw --no-confirm
 
   - ``-d``: 不要保留 dist file
-  - ``-y``: 全部用預設選項
   - ``-B``: 不要備份舊的 ports
   - ``-a``: 全部更新
+  - ``-w``: 保留舊的 Share Library
+  - ``--no-confirm``: 不要問
 
 pkg
 ~~~
