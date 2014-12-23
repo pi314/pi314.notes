@@ -410,6 +410,15 @@ CLI 參數
 
       :syntax sync fromstart
 
+  - 列出 vim 開啟時所存取的檔案及存取時間
+
+    + ``$ vim --startuptime <vim-log-filename>``
+
+  - 避免 vim 去連接 X Server
+
+    + ``$ vim -X``
+    + 在 ``vimrc`` 中加上 ``set clipboard=exclude:.*``
+
 * 特殊設定
 
   - 對每個檔案套用不同的縮排寬度 ::
