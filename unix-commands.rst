@@ -30,11 +30,11 @@
 
       find DIR -exec sh -c "...{}..."
 
-    - 後面餵給 ``sh`` 的參數中, backtick 中的 ``{}`` 不會被代換 ::
+    + 後面餵給 ``sh`` 的參數中, backtick 中的 ``{}`` 不會被代換 ::
 
         find DIR -exec sh -c "printf `stat -c %a {}`'text'" \; 會失敗
 
-    - 需要改用 ``$()``, 並把 ``$`` escape 掉 ::
+    + 需要改用 ``$()``, 並把 ``$`` escape 掉 ::
 
         find DIR -exec sh -c "printf \$(stat -c %a {})'text'" \;
 
@@ -68,16 +68,16 @@
 
   - 基本用法
   
-    - ``getopt OPTSTRING PARAMETERS``
-    - ``OPTSTRING`` 格式
+    + ``getopt OPTSTRING PARAMETERS``
+    + ``OPTSTRING`` 格式
     
-      - ``"abc,def:"``
-      - ``def`` 參數會以 ``-d value`` 的形式被處理
-      - ``abc`` 會以 ``-a`` 的形式被處理
+      * ``"abc,def:"``
+      * ``def`` 參數會以 ``-d value`` 的形式被處理
+      * ``abc`` 會以 ``-a`` 的形式被處理
       
-    - ``PARAMETERS``
+    + ``PARAMETERS``
 
-      - 待 parse 的字串
+      * 待 parse 的字串
 
   - 例子 ::
 
@@ -96,7 +96,7 @@
           shift
       done
 
-    - 上述程式 parse ``"-f"`` 參數，若有該參數則 ``force_replace`` 被設為 1
+    + 上述程式 parse ``"-f"`` 參數，若有該參數則 ``force_replace`` 被設為 1
 
 * ``tar``
 
@@ -104,7 +104,7 @@
 
       tar cvf dst src_dir
 
-    - 把壓縮結果輸出到 ``stdout`` ::
+    + 把壓縮結果輸出到 ``stdout`` ::
 
         tar cvf - src_dir
 
@@ -112,11 +112,11 @@
 
       tar xvf src
 
-    - 從 ``stdin`` 輸入並解壓縮 ::
+    + 從 ``stdin`` 輸入並解壓縮 ::
 
         tar xvf -
 
-    - 會在當前目錄展開
+    + 會在當前目錄展開
 
 * ``nc``
 
@@ -134,7 +134,7 @@
 
   - 範例: ``nc`` as TCP proxy
 
-    - From wiki: netcat ::
+    + From wiki: netcat ::
 
         #!/usr/bin/sh
         if [ -p "backpipe" ]; then
@@ -156,8 +156,8 @@
 
   - 有些機器需要加上 ``-N`` option 才能正常結束連線
 
-    - 有些 FreeBSD 10 需要
-    - Mac OS X 沒有這個 option
+    + 有些 FreeBSD 10 需要
+    + Mac OS X 沒有這個 option
 
 * ``ping``
 
@@ -165,7 +165,7 @@
 
       ping -i 0.1 x.x.x.x    # 每 0.1 秒 ping 一次
 
-    - 0.2 秒以下需要 root permission
+    + 0.2 秒以下需要 root permission
 
   - 指定從某個 interface 發出封包 ::
 
@@ -179,13 +179,13 @@
 
       ping -f localhost
 
-    - 需要 root permission
+    + 需要 root permission
 
   - 改變 ``ping`` 的封包大小 ::
 
       ping -s 100 x.x.x.x
 
-    - 實際送出的封包會再加上 header 28 bytes
+    + 實際送出的封包會再加上 header 28 bytes
 
 * ``nmap`` ::
 
@@ -203,11 +203,11 @@
 
   - 傳輸檔案
 
-    1.  接收端 ::
+    a.  接收端 ::
 
           nc -l 12345 | openssl enc -d -aes-256-cbc -nosalt  | base64 -D | <data-receive>
 
-    2.  發送端 ::
+    a.  發送端 ::
 
           <data-source> | base64 | openssl enc -e -aes-256-cbc -nosalt | nc localhost 12345
 
@@ -225,7 +225,7 @@
 
       dig mx cs.nctu.edu.tw
 
-    - ``mx``, ``A``, ``AAAA``, ``ns``, ``cname``, ``txt``, ``axfr``, ``soa`` 也都可以查詢
+    + ``mx``, ``A``, ``AAAA``, ``ns``, ``cname``, ``txt``, ``axfr``, ``soa`` 也都可以查詢
 
   - 指定向 DNS server ``140.113.1.1`` 查詢 ::
 
@@ -279,7 +279,7 @@
 
       echo test | dd of=TARGET
 
-    - ``TARGET`` 可以是檔案或是硬碟的 device file
+    + ``TARGET`` 可以是檔案或是硬碟的 device file
 
   - 指定從 ``TARGET`` 輸入 ::
 
@@ -349,15 +349,15 @@
 
   - 印出比對到的前後行
 
-    - 印出比對到的前一行 ::
+    + 印出比對到的前一行 ::
 
         grep -A 1
 
-    - 印出比對到的後一行 ::
+    + 印出比對到的後一行 ::
 
         grep -B 1
 
-    - 印出比對到的前後一行 ::
+    + 印出比對到的前後一行 ::
 
         grep -C 1
 
@@ -373,11 +373,11 @@
 
   - 各系統的 ``xargs`` 實作不同 (參數也不同)
 
-    - FreeBSD, GNU ::
+    + FreeBSD, GNU ::
 
         find . -type f | xargs -I% echo test%test
 
-      - ``-I%`` 設定 ``stdin`` 的取代符號，並把 ``stdin`` 的每一行獨立餵給 ``echo``
+      * ``-I%`` 設定 ``stdin`` 的取代符號，並把 ``stdin`` 的每一行獨立餵給 ``echo``
 
   - 在 ``xargs`` 中使用 pipe（fork 出一個 ``sh`` 來執行） ::
 
@@ -413,9 +413,9 @@
 
       cp -nvr SRC DST
 
-    - ``-n``: 不覆寫原檔
-    - ``-v``: 列出所做的動作
-    - ``-r``: recursive
+    + ``-n``: 不覆寫原檔
+    + ``-v``: 列出所做的動作
+    + ``-r``: recursive
 
 * ``diff``
 
@@ -429,37 +429,37 @@
 
       wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains website.org --no-parent HTTP://URL
 
-    - ``--recursive``
+    + ``--recursive``
 
-      - 下載整個網站
+      * 下載整個網站
 
-    - ``--domains website.org``
+    + ``--domains website.org``
 
-      - 只備份 ``website.org`` 內的網頁
+      * 只備份 ``website.org`` 內的網頁
 
-    - ``--no-parent``
+    + ``--no-parent``
 
-      - 不往上層目錄備份
+      * 不往上層目錄備份
 
-    - ``--page-requisites``
+    + ``--page-requisites``
 
-      - 把 image 和 CSS 等資料也備份
+      * 把 image 和 CSS 等資料也備份
 
-    - ``--html-extension``
+    + ``--html-extension``
 
-      - 副檔名設為 .html
+      * 副檔名設為 .html
 
-    - ``--convert-links``
+    + ``--convert-links``
 
-      - 把 link 改寫為相對路徑
+      * 把 link 改寫為相對路徑
 
-    - ``--restrict-file-names=windows``
+    + ``--restrict-file-names=windows``
 
-      - 必要時修改檔名
+      * 必要時修改檔名
 
-    - ``--no-clobber``
+    + ``--no-clobber``
 
-      - 不覆寫舊檔
+      * 不覆寫舊檔
 
 * ``rename``
 
@@ -506,9 +506,9 @@
 
       /usr/libexec/ftpd -D -l -l
 
-    - ``-D`` 讓 ftp 以 daemon 的方式啟動
-    - ``-l -l`` 叫 ``syslogd`` 記錄每次的連線，用兩次 ``-l`` 則可以連使用的動作都記錄
-    - ``-l`` 要留下連線記錄還需要配合修改 ``/etc/syslog.conf`` 才會啟動記錄
+    + ``-D`` 讓 ftp 以 daemon 的方式啟動
+    + ``-l -l`` 叫 ``syslogd`` 記錄每次的連線，用兩次 ``-l`` 則可以連使用的動作都記錄
+    + ``-l`` 要留下連線記錄還需要配合修改 ``/etc/syslog.conf`` 才會啟動記錄
 
   - 指令列表（在連上 ftp server 後） ::
 
@@ -529,7 +529,7 @@
 
       portaudit
 
-    - 漏洞在更新該 ports 後常常可以解決
+    + 漏洞在更新該 ports 後常常可以解決
 
   - 在 FreeBSD 10 後已被 ``pkg audit`` 取代
 
@@ -581,11 +581,11 @@
 
       rsync -arvzh --progress
 
-    - ``-a``: archive mode，保留大部份資訊
-    - ``-r``: recursive
-    - ``-v``: verbose
-    - ``-z``: 傳送時壓縮資料
-    - ``-h``: 用人類好讀方式顯示資訊
+    + ``-a``: archive mode，保留大部份資訊
+    + ``-r``: recursive
+    + ``-v``: verbose
+    + ``-z``: 傳送時壓縮資料
+    + ``-h``: 用人類好讀方式顯示資訊
 
 * ``chmod``
 
@@ -593,7 +593,7 @@
 
       chmod -R +r+X
 
-    - Linux 和 FreeBSD 的 man page 寫得不太一樣
+    + Linux 和 FreeBSD 的 man page 寫得不太一樣
 
 * ``command``
 
@@ -605,8 +605,19 @@
 
   - 和 ``which`` 的差異
 
-    - ``command`` 為內建指令，比較便宜，且行為比較能被確定
-    - ``which`` 指令只用 ``stdout`` 做為結果，exit status 都是 ``0``
+    + ``command`` 為內建指令，比較便宜，且行為比較能被確定
+    + ``which`` 指令只用 ``stdout`` 做為結果，exit status 都是 ``0``
+
+* ``mosh``
+
+  - 開啟 Mosh Server ::
+
+      mosh-server new -p port
+
+  - Client 連上 Mosh Server ::
+
+      $ export MOSH_KEY=<key>
+      $ mosh-client <server-ip> <port>
 
 * 其他
 
@@ -614,20 +625,20 @@
 
       cat example.txt | awk '{ if(NR > 5) print $0;}'
 
-    - 可以把 cat 改成用 nl 確認真的只有前 5 行沒有印出
+    + 可以把 cat 改成用 nl 確認真的只有前 5 行沒有印出
 
   - 把目錄 ``DIR`` 從 A host 丟到 B host
 
-    - A ::
+    + A ::
 
         tar cvf - DIR | nc -l 12345
 
-    - B ::
+    + B ::
 
         nc {A's IP} 12345 > DIR.tar
         nc {A's IP} 12345 | tar xvf -
 
-    - 如果 A 沒有 public IP 的話就改把 port 開在 B 上
+    + 如果 A 沒有 public IP 的話就改把 port 開在 B 上
 
   - 查看系統安裝的記憶體 ::
 
@@ -643,22 +654,22 @@
 
   - 把漫畫檔名重新編為流水號
 
-    - 假設檔案的修改時間是照實際順序的 ::
+    + 假設檔案的修改時間是照實際順序的 ::
 
         ls -1tr |
         nl |
         awk '{print "mv " $2 " " $1 ".jpg"; }' |
         xargs -I% sh -c %
 
-    - 想法
+    + 想法
 
-      - 先用 ``ls -1tr`` 依序列出檔名
+      * 先用 ``ls -1tr`` 依序列出檔名
 
-      - 用 ``nl`` 產生流水號
+      * 用 ``nl`` 產生流水號
 
-      - 用 ``awk`` 輸出 ``mv origin.jpg {n}.jpg`` 的 shell script
+      * 用 ``awk`` 輸出 ``mv origin.jpg {n}.jpg`` 的 shell script
 
-      - 用 ``xargs`` 一行一行丟給 ``sh`` 執行
+      * 用 ``xargs`` 一行一行丟給 ``sh`` 執行
 
   - 可愛的小時鐘 ::
 
