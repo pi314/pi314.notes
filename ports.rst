@@ -103,40 +103,44 @@ pkg
 Mac OS X Ports
 --------------
 
-- 參數格式 ::
+* 參數格式 ::
 
     port <action> <option>
 
-  + ``action`` 可以是安裝、刪除、更新等動作
-  + ``option`` 可以是某特定的 ports，也可以是一群 ports 的集合如 ``installed``, ``requested``, ``leave`` 等等
+  - ``action`` 可以是安裝、刪除、更新等動作
+  - ``option`` 可以是某特定的 ports，也可以是一群 ports 的集合如 ``installed``, ``requested``, ``leave`` 等等
 
-- 刪除沒被 reference 到的 ports ::
+* 刪除沒被 reference 到的 ports ::
 
     # port uninstall leaves
 
-  + 需要手動重覆執行，因為每清理一次就會有別的 port 變成 leaf
-  + 建議在更新前先清理乾淨，避免卡在一些其實沒有用到的軟體
+  - 需要手動重覆執行，因為每清理一次就會有別的 port 變成 leaf
+  - 建議在更新前先清理乾淨，避免卡在一些其實沒有用到的軟體
 
-- 更新 port tree ::
+* 更新 port tree ::
 
     # port selfupdate
 
-- 列出已安裝的 ports ::
+* 列出已安裝的 ports ::
 
     $ port list installed
     $ port list requested
 
-- 更新 ports ::
+* 更新 ports ::
 
     # port upgrade outdated
 
-- 搜尋 ::
+* 搜尋 ::
 
     $ port search <package-name>
 
-- 安裝 ::
+* 安裝 ::
 
     # port install <package-name>
+
+* 確認安裝的檔案 ::
+
+    $ port contents <package-name>
 
 * 調整參數
 
