@@ -57,8 +57,8 @@
 
       hi def agdaXXX cterm=bold,underline ctermfg=1
 
-    - 前景和背景需分別設定，若 terminal 支援的話也可以使用底線或其他功能
-    - ``ctermfg`` 和 ``ctermbg`` 都可以使用顏色的名稱或是顏色的代碼
+    + 前景和背景需分別設定，若 terminal 支援的話也可以使用底線或其他功能
+    + ``ctermfg`` 和 ``ctermbg`` 都可以使用顏色的名稱或是顏色的代碼
 
     ===== ==== ================================
     NR-16 NR-8 COLOR NAME 
@@ -81,23 +81,5 @@
     15    7*   White
     ===== ==== ================================
 
-    - 要注意 ``cyan`` 指的其實是亮色 (不論是否有 ``cterm=bold``)， ``darkcyan`` 才是暗色
+    + 要注意 ``cyan`` 指的其實是亮色 (不論是否有 ``cterm=bold``)， ``darkcyan`` 才是暗色
 
-* Regex lookahead/behind
-
-  - 可以 regex 中判斷前後文 (其實這已經超過 formal language 中 regex 的範圍了)
-
-  - ``\@<=`` positive lookbehind
-  - ``\@<!`` negative lookbehind
-  - ``\@=`` positive lookahead
-  - ``\@!`` negative lookahead
-
-  - 範例
-
-    - 比對所有的 ``foo`` ，但後面不能接 ``bar`` ::
-      
-        foo\(bar\)\@!
-
-    - 比對所有的 ``bar`` ，但前面不能接 ``foo`` ::
-
-        \(foo\)\@<!bar
