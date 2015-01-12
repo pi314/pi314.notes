@@ -205,9 +205,9 @@
 
     a.  接收端 ::
 
-          nc -l 12345 | openssl enc -d -aes-256-cbc -nosalt  | base64 -D | <data-receive>
+          nc -l 12345 | openssl enc -d -aes-256-cbc -nosalt | base64 -D | <data-receive>
 
-    a.  發送端 ::
+    b.  發送端 ::
 
           <data-source> | base64 | openssl enc -e -aes-256-cbc -nosalt | nc localhost 12345
 
