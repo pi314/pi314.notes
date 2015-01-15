@@ -5,13 +5,13 @@
 bourne sh
 ---------
 
-- 各種語法的開頭結尾
+* 各種語法的開頭結尾
 
   - ``if`` - ``fi``
   - loop - ``do`` - ``done``
   - ``case`` - ``esac``
 
-- ``if`` condition
+* ``if`` condition
 
   - 語法 ::
 
@@ -34,7 +34,7 @@ bourne sh
 
       if [ -d dir ]
 
-- ``while`` loop
+* ``while`` loop
 
   - 語法 ::
 
@@ -42,7 +42,7 @@ bourne sh
         ...
       done
 
-- ``for`` loop
+* ``for`` loop
 
   - 語法 ::
 
@@ -57,7 +57,7 @@ bourne sh
         echo $i
       done
 
-- ``case``
+* ``case``
 
   - 語法 ::
 
@@ -69,7 +69,7 @@ bourne sh
         shift
       done
 
-- 把 local 變數傳給 subprocess
+* 把 local 變數傳給 subprocess
 
   - 把 ``var`` 變為自己的環境變數 (才可以傳給 subprocess) ::
 
@@ -79,7 +79,7 @@ bourne sh
 
       unset var 
 
-- 字串處理
+* 字串處理
 
   - 字串相等 ::
 
@@ -93,31 +93,31 @@ bourne sh
 
   - 切掉左邊
 
-    - 從左邊開始尋找 ``fo`` ，找到最後一個 ``fo`` ，右邊剩下的字串為結果 (不包含比對到的 ``fo``) ::
+    + 從左邊開始尋找 ``fo`` ，找到最後一個 ``fo`` ，右邊剩下的字串為結果 (不包含比對到的 ``fo``) ::
 
         ${var##*fo}
 
-    - 從左邊開始尋找 ``fo`` ，找到第一個 ``fo`` ，右邊剩下的字串為結果 (不包含比對到的 ``fo``) ::
+    + 從左邊開始尋找 ``fo`` ，找到第一個 ``fo`` ，右邊剩下的字串為結果 (不包含比對到的 ``fo``) ::
 
         ${var#*fo}
 
   - 切掉右邊
 
-    - 從右邊開始尋找 ``fo`` ，找到最後一個 ``fo`` ，左邊剩下的字串為結果 (不包含比對到的 ``fo``) ::
+    + 從右邊開始尋找 ``fo`` ，找到最後一個 ``fo`` ，左邊剩下的字串為結果 (不包含比對到的 ``fo``) ::
 
         ${var%%fo*}
 
-    - 從右邊開始尋找 ``fo`` ，找到第一個 ``fo`` ，左邊剩下的字串為結果 (不包含比對到的 ``fo``) ::
+    + 從右邊開始尋找 ``fo`` ，找到第一個 ``fo`` ，左邊剩下的字串為結果 (不包含比對到的 ``fo``) ::
 
         ${var%fo*}
 
   - slice
 
-    - 取出第 1 到第 5 個字元，包含第 1 及第 5 個，字串從 0 開始算 ::
+    + 取出第 1 到第 5 個字元，包含第 1 及第 5 個，字串從 0 開始算 ::
 
         ${var:1:5}
 
-- IO重導向
+* IO重導向
 
   - 去除 stderr ::
 
@@ -130,14 +130,14 @@ bourne sh
 csh/tcsh
 --------
 
-- Global 的設定檔: ``/etc/csh.cshrc``
+* Global 的設定檔: ``/etc/csh.cshrc``
 
-- ``alias`` 參數
+* ``alias`` 參數
 
   - ``\!:1`` 代表第一個參數，依此類推
 
   - ``alias t echo test_\!:1_test``
 
-- 每次更新的 prompt ::
+* 每次更新的 prompt ::
 
     alias precmd "`date`"
