@@ -58,6 +58,10 @@ Portmaster
   - ``-w``: 保留舊的 Share Library
   - ``--no-confirm``: 不要問
 
+* 重新編譯某 port，並重新編譯所有 Depend 到該 port 的 ports ::
+
+    # portmaster -r python3-3_2
+
 pkg
 ~~~
 
