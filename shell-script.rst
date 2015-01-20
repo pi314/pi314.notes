@@ -18,7 +18,7 @@ bourne sh
       if [ "$1" = "test" ]; then
         ...
 
-      elif; then
+      elif [ "$1" = "test2"]; then
         ...
 
       else
