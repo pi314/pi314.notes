@@ -619,6 +619,13 @@
       $ export MOSH_KEY=<key>
       $ mosh-client <server-ip> <port>
 
+* ``paste`` ::
+
+    $ paste -d ' ' file1 file2
+
+
+  - 把兩個檔案對齊 ``cat`` 出來
+
 * 其他
 
   - 印出一個檔案，但前 5 行不要印出來 ::
