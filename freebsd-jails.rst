@@ -18,6 +18,9 @@ FreeBSD Jails 可以當成很省很省資源的虛擬機
     mount.devfs;
     
     path = "/home/jails/$name";
+
+    mount =  "/usr/ports $path/usr/ports nullfs ro 0 0";
+    mount += "/home/pi314/.rcfiles $path/root/.rcfiles nullfs ro 0 0";
     
     django_apk {
         host.hostname = "$name";
@@ -50,7 +53,30 @@ FreeBSD Jails 可以當成很省很省資源的虛擬機
       # export BSDINSTALL_DISTSITE=ftp://ftp.tw.freebsd.org/pub/FreeBSD/releases/amd64/10.0-RELEASE/
       # bsdinstall jail { jail-path }
 
-  B.  建立 ports 的 mount point (路徑根據後面的設定檔決定)
+  B.  把外面的 Port tree 掛載到 Jails 裡面
+
+    a.  建立 ports 的 mount point ::
+
+        # mkdir { jail-path }/usr/ports
+
+      * 自動掛載的動作已經寫在上面 ``/etc/jail.conf`` 裡面
+
+      * 以 Readonly 方式 mount 進去 ::
+    
+          # mount -o ro -t nullfs /usr/ports { jail-path }/usr/ports
+  
+    b.  修改 Jails 裡面的 ``/etc/make.conf`` ，把 ports 編譯的 folder 到 ``/tmp`` 去::
+  
+        # echo WRKDIRPREFIX=/tmp/ports >> { jail-path }/etc/make.conf
+        # echo DISTDIR=/tmp/ports/distfiles >> { jail-path }/etc/make.conf
+
+    c.  設定 Python 版本為 3.4 ::
+
+        # echo PYTHON_DEFAULT=3.4 >> { jail-path }/etc/make.conf
+
+    d.  調整 ``/usr/local/etc/portmaster.rc``
+    
+      * 開啟參數 ``-Bdw``
 
 5.  啟動 Jail ::
 
@@ -64,29 +90,8 @@ FreeBSD Jails 可以當成很省很省資源的虛擬機
 
     # jexec { jail-id | jail-name } tcsh
 
-8.  把外面的 port tree mount 進去
-
-  A.  以 Readonly 方式 mount 進去 ::
-
-      (離開 Jails)
-      # mount -o ro -t nullfs /usr/ports { jail-path }/usr/ports
-
-  B.  修改 Jails 裡面的 ``/etc/make.conf`` ::
-
-      (進入 Jails)
-      # echo WRKDIRPREFIX=/tmp/ports >> /etc/make.conf
-      # echo DISTDIR=/tmp/ports/distfiles >> /etc/make.conf
-
-  C.  試編個 ports ::
-
-      # cd /usr/ports/games/2048 && make
-      # cd /tmp && ls
-
-  D.  自動化 ::
-
-      mount = "/usr/ports { jail-path }/usr/ports nullfs ro 0 0"
-
-9.  在外面用 ``pkg`` 幫 Jails 裝東西 ::
+8.  在外面用 ``pkg`` 幫 Jails 裝東西 ::
 
     # pkg -j { jail-id | jail-name } install zsh
     # pkg -j { jail-id | jail-name } install python3
+

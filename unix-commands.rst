@@ -626,6 +626,20 @@
 
   - 把兩個檔案對齊 ``cat`` 出來
 
+* ``chflags``
+
+  - FreeBSD 提供一個 Flag 的機制，可以把檔案加上絕對唯讀的標記，使 root 不會誤刪重要檔案
+
+  - 清除該 Flag (請三思) ::
+
+    # chflags -R noschg
+
+* ``mount``
+
+  - 把目錄 A 以唯讀形式掛載到目錄 B ::
+  
+        # mount -o ro -t nullfs A B
+
 * 其他
 
   - 印出一個檔案，但前 5 行不要印出來 ::
