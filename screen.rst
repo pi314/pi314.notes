@@ -101,6 +101,12 @@ screen 內部指令
 
     :source ~/.screenrc
 
+* 更改 ``windows`` 的順序 ::
+
+    :number <number>
+
+  - 若 ``<number>`` 已經存在，則目前的 window 會和對方交換號碼以及位置
+
 設定
 ====
 
