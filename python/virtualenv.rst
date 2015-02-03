@@ -21,28 +21,29 @@ virtualenv 甚至可以隔離不同版本的 Python，讓 Python2.7 和 Python3.
 
 1.  建立 virtualenv 環境 ::
 
-      $ virtualenv {dir_name} [--python={python-path}]
+    $ virtualenv {{ virtualenv-name }} [--python={python-path}]
 
-    - {dir_name} 是隔離區，可以將 package 集中成一包，方便管理
+  - ``{{ virtualenv-name }}`` 是隔離區，可以將 package 集中成一包，方便管理
 
-    - {python-path} 是 Python 的直譯環境
+  - {python-path} 是 Python 的直譯環境
 
-    - 範例 ::
+  - 範例 ::
 
         $ virtualenv .virtualenv --python=.py27/bin/python
 
+  - 在 Python3.4 以後也可以使用 ``python -m venv {{ virtualenv-name }}``
+
 2.  套用某個 virtualenv 環境 ::
 
-      $ source .virtualenv/bin/activate
+    $ source .virtualenv/bin/activate
 
 3.  安裝 package (在套用 virtualenv 環境以後) ::
       
-      $ pip install {package-name}
+    $ pip install {package-name}
 
 4.  離開 virtualenv 環境 ::
 
-      $ deactivate
-
+    $ deactivate
 
 隔離 Python 環境
 ----------------
@@ -51,16 +52,17 @@ virtualenv 甚至可以隔離不同版本的 Python，讓 Python2.7 和 Python3.
 
 1.  下載 Python2.7 的壓縮檔並解壓 ::
 
-      wget http://www.python.org/ftp/python/2.7.1/Python-2.7.1.tgz
+    $ wget http://www.python.org/ftp/python/2.7.1/Python-2.7.1.tgz
 
 2.  編譯 Python2.7 ::
 
-      cd Python-2.7.1
-      make clean
-      ./configure --prefix=/home/<user>/.py27
-      make
-      make install
+    cd Python-2.7.1
+    make clean
+    ./configure --prefix=/home/<user>/.py27
+    make
+    make install
 
-    - ``--prefix`` 是設定 Python 的所在位置，通常預設為 ``/usr/local/bin`` 。基於安全考量，如果實際所在位置和 ``--prefix`` 設定不同，Python 會拒絕執行
+  - ``--prefix`` 是設定 Python 的所在位置，通常預設為 ``/usr/local/bin`` 。基於安全考量，如果實際所在位置和 ``--prefix`` 設定不同，Python 會拒絕執行
 
 3.  建立 virtualenv 環境
+
