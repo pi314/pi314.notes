@@ -69,6 +69,10 @@ pkg
 
     $ pkg info
 
+  - 列出某 ports 相關的檔案 ::
+
+      $ pkg info -l <package-name>
+
 * 搜尋 ports ::
 
     $ pkg search <package-name>
