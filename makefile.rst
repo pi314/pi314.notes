@@ -43,6 +43,7 @@ Makefile 可以處理 Task 之間的 Dependency，讓編輯過程自動化
     + ``A != B``
 
       * 把 ``B`` 做為指令執行， ``stdout`` 做為 ``A`` 的值
+      * **[GNU make only]** GNU make 沒有這個 operator，改用 ``$(shell B)``
 
   - 變數使用 ``${variable}`` 或 ``$(variable)`` 存取
 
