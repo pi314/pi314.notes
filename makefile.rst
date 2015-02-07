@@ -45,3 +45,5 @@ Makefile 可以處理 Task 之間的 Dependency，讓編輯過程自動化
   - 變數使用 ``${variable}`` 或 ``$(variable)`` 存取
 
     + 若用在 target，則 ``$(variable)`` 中的每個值 (以空白分隔) 都被視為 target
+
+  - ``$@`` 代表目前的 target
