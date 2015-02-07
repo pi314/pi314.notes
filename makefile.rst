@@ -50,3 +50,17 @@ Makefile 可以處理 Task 之間的 Dependency，讓編輯過程自動化
     + Dependency 亦同
 
   - ``$@`` 代表目前的 target
+
+  - **[GNU make only]** ``%`` 為通用字元，類似 shell 的 ``*``
+
+    + 用 ``$*`` 存取 match 的部份
+
+    + 範例 ::
+
+        .--------------------.
+        | %:                 |
+        | >---gcc -o $* $*.c |
+        '--------------------'
+        $ make test
+        gcc -o test test.c
+
