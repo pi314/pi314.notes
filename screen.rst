@@ -88,6 +88,13 @@ hot keys
 
       ^a ^]
 
+* Split
+
+  - ``^a S`` 橫著切
+  - ``^a |`` 直著切
+  - ``^a X`` 刪除一個 Split
+  - ``^a TAB`` 跳到下一個 Split
+
 screen 內部指令
 ===============
 
