@@ -109,9 +109,7 @@ CLI 參數
   - 在多行前面貼上同樣的字串
 
     a.  用 ``<C-v>`` 選取一整條
-
     b.  大寫 ``I``
-
     c.  ``<C-r>0``
 
 取代
@@ -120,7 +118,6 @@ CLI 參數
 ::
 
   :%s/^/\=(1 - line("'<") + line(".")) . "\. "/
-
 
 反白
 ----
@@ -352,90 +349,89 @@ Register
 其他
 ----
 
-  - ``<C-[>`` 等於 ``<ESC>`` 鍵
+* ``<C-[>`` 等於 ``<ESC>`` 鍵
 
-  - 輸入 ``tab`` 字元 ::
+* 輸入 ``tab`` 字元 ::
 
-      <C-v><TAB>
+    <C-v><TAB>
 
-  - 讓 ``vim`` 以 ``scp`` 方式抓取遠端檔案，如果不用 ``scp`` 而是用 ``sftp`` 或 ``ftp`` 的話需打出絕對路徑 ::
+* 讓 ``vim`` 以 ``scp`` 方式抓取遠端檔案，如果不用 ``scp`` 而是用 ``sftp`` 或 ``ftp`` 的話需打出絕對路徑 ::
 
-      vim scp://pi314@HOST/FILE
+    vim scp://pi314@HOST/FILE
 
-  - 把目前的畫面做成 html file ::
+* 把目前的畫面做成 html file ::
 
-      :TOhtml
+    :TOhtml
 
-  - 把本次搜尋的上色清除，但 search pattern 仍存在，故按下 ``n`` 還是可以繼續搜尋 ::
+* 把本次搜尋的上色清除，但 search pattern 仍存在，故按下 ``n`` 還是可以繼續搜尋 ::
 
-      :noh
+    :noh
 
-  - ``vim`` 的 regex
+* ``vim`` 的 regex
 
-    + ``()`` 如果不 escape，就視為普通的括號
+  - ``()`` 如果不 escape，就視為普通的括號
 
-    + ``[]`` 需要 escape 才會是普通的括號
+  - ``[]`` 需要 escape 才會是普通的括號
 
-    + ``\<abc\>`` 可以只比對到 ``abc`` 單字，不會 match ``aabcc`` 中間的 ``abc``
+  - ``\<abc\>`` 可以只比對到 ``abc`` 單字，不會 match ``aabcc`` 中間的 ``abc``
 
-      * 是 [normal] ``#`` 預設的行為
+    + 是 [normal] ``#`` 預設的行為
 
-  - 移除檔首的 BOM ::
+* 移除檔首的 BOM ::
 
-      :set nobomb
+    :set nobomb
 
-  - 暫時回到 normal mode，按一個按鍵後即回到 insert mode
+* 暫時回到 normal mode，按一個按鍵後即回到 insert mode
 
-    + [insert][replace] ``<C-o>``
+  - [insert][replace] ``<C-o>``
 
-  - 列出一些設定 ::
+* 列出一些設定 ::
 
-      :set
+    :set
 
-    + 修改檔案格式為 ``unix`` ::
+  - 修改檔案格式為 ``unix`` ::
 
-        :set ff=unix
+      :set ff=unix
 
-  - 把檔案中的 tab 都置換成適合長度的 space ::
+* 把檔案中的 tab 都置換成適合長度的 space ::
 
-      :retab
+    :retab
 
+* 在太長斷行的字串上垂直移動 ::
 
-  - 在太長斷行的字串上垂直移動 ::
+    :nnoremap k gk
 
-      :nnoremap k gk
+* 設定 unicode ambiguous width 字元的寬度 ::
 
-  - 設定 unicode ambiguous width 字元的寬度 ::
+    :set ambiwidth=single
+    :set ambiwidth=double
 
-      :set ambiwidth=single
-      :set ambiwidth=double
+  - terminal 也需要做相同的設定，才不會顯示錯誤
+  - http://vim.1045645.n5.nabble.com/Real-displayed-width-of-a-character-td1223323.html
 
-    + terminal 也需要做相同的設定，才不會顯示錯誤
-    + http://vim.1045645.n5.nabble.com/Real-displayed-width-of-a-character-td1223323.html
+* 把 vim 內部的指令導到檔案中
 
-  - 把 vim 內部的指令導到檔案中
+  A.  ``redir >{file_name}``
+  B.  ``{command}``
+  C.  ``redir END``
 
-    a.  ``redir >{file_name}``
-    b.  ``{command}``
-    c.  ``redir END``
+* 修改 encoding ::
 
-  - 修改 encoding ::
+    :w ++enc=utf-8
+    :w ++enc=utf-8 {another_filename}
 
-      :w ++enc=utf-8
-      :w ++enc=utf-8 {another_filename}
+* 有時 vim 的語法上色會壞掉 (例如整頁都變成藍色)，可能是因為失去追蹤語法結構，可以用下列指令重新同步 ::
 
-  - 有時 vim 的語法上色會壞掉 (例如整頁都變成藍色)，可能是因為失去追蹤語法結構，可以用下列指令重新同步 ::
+    :syntax sync fromstart
 
-      :syntax sync fromstart
+* 列出 vim 開啟時所存取的檔案及存取時間
 
-  - 列出 vim 開啟時所存取的檔案及存取時間
+  - ``$ vim --startuptime <vim-log-filename>``
 
-    + ``$ vim --startuptime <vim-log-filename>``
+* 避免 vim 去連接 X Server
 
-  - 避免 vim 去連接 X Server
-
-    + ``$ vim -X``
-    + 在 ``vimrc`` 中加上 ``set clipboard=exclude:.*``
+  - ``$ vim -X``
+  - 在 ``vimrc`` 中加上 ``set clipboard=exclude:.*``
 
 * 特殊設定
 
@@ -443,3 +439,4 @@ Register
 
       autocmd FileType html serlocal shiftwidth=2 tabstop=2
       autocmd FileType make setlocal noexpandtab
+
