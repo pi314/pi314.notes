@@ -47,7 +47,7 @@ Build Android APK on FreeBSD
   
       $ ./android update sdk --filter 1,2,5,6,7,8,9,10,11,15,16,17,56,57,59 --no-ui
 
-    + 有些 SDK 和 Android 版本，筆者安裝的有
+    + 有些 SDK 和 Android 版本無關，筆者安裝的有
 
       * Android SDK Platform-tools
       * Android SDK Build-tools
@@ -63,7 +63,7 @@ Build Android APK on FreeBSD
 
     # pkg install gcc-4.8.4
 
-  - 安裝 ``gcc`` 是為了它提供的 Library
+  - 安裝 ``gcc`` 是為了它提供的 Library ``libstdc++.so.6``
 
 4.  安裝 ``bash`` ::
 
@@ -118,9 +118,25 @@ Build Android APK on FreeBSD
 
   - 把專案們放進 ``workspace/``
 
-7.  編譯 ::
+  - 在專案中的 ``build.gradle`` 中加上設定，讓 Lint 不要阻止編譯 ::
+
+      lintOptions {
+        abortOnError false
+      }
+
+7.  設定 Java 以及 Android SDK 的環境變數 ::
+
+    $ export JAVA_HOME=/usr/local/openjdk7
+    $ export ANDROID_HOME=~/android-sdk-linux
+
+  - 實際路徑依實際情況決定
+
+8.  編譯 ::
 
     $ cd CICBrick2OpenMTC
     $ ./gradlew
     $ ./gradlew tasks
     $ ./gradlew build
+
+  - 編譯出來的 APK 會在 ``專案/build/output/apk/`` 內
+
