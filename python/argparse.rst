@@ -15,7 +15,7 @@ Python ``argparse`` module 是個 framework，方便的處理參數的邏輯
 
 * ``-f file ...`` 格式的參數 ::
 
-    parser.add_argument('-f', nargs=1)
+    parser.add_argument('-f', nargs=1, dest='var')
 
   - ``nargs`` 指定 ``-f`` 後面可接的參數數量，可用的選項有
 
@@ -25,3 +25,12 @@ Python ``argparse`` module 是個 framework，方便的處理參數的邏輯
     + ``'+'`` 表示 1 個以上的參數，並輸出成一個 ``list``
     + ``argparse.REMAINDER`` 表示吃掉剩下的所有參數，並輸出成一個 ``list``
 
+  - ``dest`` 指定實際儲存值的變數名稱
+
+* ``a b c ...`` 格式的參數 ::
+
+    parser.add_argument('var', nargs=1)
+
+* 處理參數 ::
+
+    args = parser.parse_args()
