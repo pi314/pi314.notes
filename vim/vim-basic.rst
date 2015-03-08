@@ -233,6 +233,10 @@ CLI 參數
   
       :tabdo COMMAND
 
+  - 在新分頁開啟 help 頁面 ::
+
+      :tab help i_CTRL-X
+
 * Split
 
   - 把 split 視窗寬度設定為 50 字元 ::
