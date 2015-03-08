@@ -440,3 +440,7 @@ Register
       autocmd FileType html serlocal shiftwidth=2 tabstop=2
       autocmd FileType make setlocal noexpandtab
 
+* 取得組合鍵的 help ::
+
+    :help CTRL-X
+    :help i_CTRL-X
