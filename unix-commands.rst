@@ -634,6 +634,8 @@
 
     # chflags -R noschg
 
+  - flag 列表見 ``man chflags``
+
 * ``mount``
 
   - 把目錄 A 以唯讀形式掛載到目錄 B ::
