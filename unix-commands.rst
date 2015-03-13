@@ -67,14 +67,14 @@
   - ``getopt`` 和 ``getopts`` 不一樣, 據說 ``getopts`` 比較強, 但因為 bourne shell 沒有內建, 所以我選擇 ``getopt``
 
   - 基本用法
-  
+
     + ``getopt OPTSTRING PARAMETERS``
     + ``OPTSTRING`` 格式
-    
+
       * ``"abc,def:"``
       * ``def`` 參數會以 ``-d value`` 的形式被處理
       * ``abc`` 會以 ``-a`` 的形式被處理
-      
+
     + ``PARAMETERS``
 
       * 待 parse 的字串
@@ -639,7 +639,7 @@
 * ``mount``
 
   - 把目錄 A 以唯讀形式掛載到目錄 B ::
-  
+
         # mount -o ro -t nullfs A B
 
 * ``less``
@@ -652,7 +652,15 @@
 
       $ lsof -i tcp:8000
 
-* 其他
+* ``sudo``
+
+  - ``sudo -E`` 保留使用者的環境變數
+
+    + 在 ``visudo`` 中的 ``env_keep`` 有定義要被繼承的環境變數
+    + ``secure_path`` 定義執行時的 path，若 ``sudo -E`` 找不到指令可能是因為這個
+
+其他
+====
 
   - 印出一個檔案，但前 5 行不要印出來 ::
 
