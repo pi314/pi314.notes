@@ -22,3 +22,10 @@ MacPorts
 --------
 
 請參考 ``ports.rst``
+
+X11
+----
+
+安裝 `XQuartz <http://xquartz.macosforge.org/landing/>`_
+
+使用 ``ssh -Y`` 連線
