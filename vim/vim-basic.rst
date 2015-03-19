@@ -98,19 +98,19 @@ CLI 參數
 貼上
 ----
 
-  - 在 insert/replace/command mode 下，從 register ``a`` 貼上內容 ::
+* 在 insert/replace/command mode 下，從 register ``a`` 貼上內容 ::
 
-      <C-r>a
+    <C-r>a
 
-  - 指定從 yank 的 register 貼上 ::
+* 指定從 yank 的 register 貼上 ::
 
-      "0p
+    "0p
 
-  - 在多行前面貼上同樣的字串
+* 在多行前面貼上同樣的字串
 
-    a.  用 ``<C-v>`` 選取一整條
-    b.  大寫 ``I``
-    c.  ``<C-r>0``
+  A.  用 ``<C-v>`` 選取一整條
+  B.  大寫 ``I``
+  C.  ``<C-r>0``
 
 取代
 ----
@@ -437,12 +437,10 @@ Register
   - ``$ vim -X``
   - 在 ``vimrc`` 中加上 ``set clipboard=exclude:.*``
 
-* 特殊設定
+* 對每個檔案套用不同的縮排寬度 ::
 
-  - 對每個檔案套用不同的縮排寬度 ::
-
-      autocmd FileType html serlocal shiftwidth=2 tabstop=2
-      autocmd FileType make setlocal noexpandtab
+    autocmd FileType html serlocal shiftwidth=2 tabstop=2
+    autocmd FileType make setlocal noexpandtab
 
 * 取得組合鍵的 help ::
 
