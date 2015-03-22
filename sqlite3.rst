@@ -21,6 +21,10 @@ SQLite 語法筆記
 
       SELECT id, "text" from {{table-name}};
 
+  - 過濾掉重覆的 ::
+
+      SELECT DISTINCT id from {{table-name}};
+
 * 插入值 ::
 
     INSERT INTO {{table-name}} ({{field}}, {{fields}}) VALUES ({{value}}, {{values}});
@@ -28,6 +32,10 @@ SQLite 語法筆記
   - 從別的 Table 中取值來插入 ::
 
     INSERT INTO {{table-name}} SELECT * from {{other-table}};
+
+* 刪除一些 row ::
+
+    DELETE FROM {{table-name}} WHERE {{condition}}
 
 * 重新命名 Table ::
 
