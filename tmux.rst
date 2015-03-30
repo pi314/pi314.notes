@@ -3,117 +3,136 @@
 ===================
 
 用詞
-====
+----
 
 ``tmux`` 的介面可以分成
 
-i.  類似 ``screen`` 的分頁
-ii. 分割畫面的區塊
+1.  類似 ``screen`` 的分頁
+2.  分割畫面的區塊
 
 這份文件統一稱呼
 
-i.  類似 ``screen`` 的分頁: window
-ii. 分割畫面的區塊: pane
+1.  類似 ``screen`` 的分頁: window
+2.  分割畫面的區塊: pane
 
-command line arguments
-======================
+Command Line Arguments
+----------------------
 
-- 開啟一個新的 ``tmux`` session ::
+* 開啟一個新的 ``tmux`` session ::
 
     tmux
 
-- 列出目前的 ``tmux`` session ::
+* 列出目前的 ``tmux`` session ::
 
     tmux ls
 
-hot keys
-========
+* 開啟 tmux 後立即執行一個指令 ::
 
-- ``tmux`` 的 hot key 預設都以 ``^b`` 為前綴
+    tmux new vim
 
-- hot keys 可參考 http://www.dayid.org/os/notes/tm.html
+Hot Keys
+--------
 
-- 類 ``screen`` 功能
+* ``tmux`` 的 hot key 預設都以 ``C-b`` (``Ctrl`` ``b``) 為前綴
+
+* Hot keys 可參考 http://www.dayid.org/os/notes/tm.html
+
+* 類 ``screen`` 功能
 
   - 新增一個 ``window`` ::
 
-      ^b c
+      C-b c
 
   - 切換至下/上一個 ``window`` ::
 
-      ^b n/p
+      C-b n/p
 
   - 進入指令模式 ::
 
-      ^b :
+      C-b :
 
   - 重新命名當前的 ``window`` ::
 
-      ^b ,
+      C-b ,
 
-    - 與指令 ``rename-window`` 相同，可在 ``^b ?`` 中查詢到
+    + 與指令 ``rename-window`` 相同，可在 ``C-b ?`` 中查詢到
 
   - 進入 copy mode，按下 enter 離開 ::
 
-      ^b [
+      C-b [
 
   - 更換 layout 方向（直的變成橫的） ::
 
-      ^b <SPACE>
+      C-b <SPACE>
 
-- ``pane`` 功能
+* ``pane`` 功能
 
   - 在當前 ``window`` 中新增一個水平分割的 ``pane`` ::
 
-      ^b "
+      C-b "
 
   - 在當前 ``window`` 中新增一個垂直分割的 ``pane`` ::
 
-      ^b %
+      C-b %
 
   - 切換至另一個 ``pane`` ::
 
-      ^b o
+      C-b o
 
   - 把當前 ``window`` 中的 ``pane`` 位置旋轉 ::
 
-      ^b ^o
+      C-b ^o
 
   - 把當前的 ``pane`` 分出去變成 ``window`` ::
 
-      ^b !
+      C-b !
 
   - 調整 ``pane`` 的大小 ::
 
-      ^b ^(arrow key)
+      C-b ^(arrow key)
 
-- 其他
+* 其他
 
   - 列出 key bindings ::
 
-      ^b ?
+      C-b ?
 
-    - 按下 enter 後離開
+    + 按下 enter 後離開
 
 tmux 內部指令
-=============
+-------------
 
-- ``:detach``
+* ``:detach``
 
-- 把當前的 ``window`` 重命名為 ``test`` ::
+* 把當前的 ``window`` 重命名為 ``test`` ::
 
     :rename-window test
 
 設定
-====
+----
 
-- 個人設定檔: ``~/.tmux.conf``
+* 個人設定檔: ``~/.tmux.conf``
 
-- ``C-x`` 為 ``^x``
+* ``M-x`` 為 ``meta+x`` (``alt+x``)
 
-- ``M-x`` 為 ``meta+x`` (``alt+x``)
+* ``bind-key``
 
-- 類 ``screen`` 設定 ::
+  - ``bind`` 為 ``bind-key`` 的簡寫，此處只提到，不使用
+  - ``bind-key key action``
 
-    bind-key -n "C-Left"  select-window -t :-
-    bind-key -n "C-Right" select-window -t :+
+    + 按下 ``C-b key`` 後執行 ``action``
+
+  - ``bind-key -n key action``
+
+    + 按下 ``key`` 後執行 ``action`` (不需前綴的 ``C-b``)
+
+  - ``bind-key -r key action``
+
+    + 按下 ``C-b key`` 後執行 ``action``
+    + 但在短時間內 ``key`` 可以重覆而不需要重覆 ``C-b``
+
+  - 範例 ::
+
+      bind-key -n C-Left  previous-window
+      bind-key -n C-Right next-window
+
