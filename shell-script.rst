@@ -11,14 +11,22 @@ bourne sh
   - loop - ``do`` - ``done``
   - ``case`` - ``esac``
 
+* Return Status (Exit Status)
+
+  - 一個「指令」可以由多個指令組成
+  - 數個指令依序執行時，最後一個指令的 Return Status 為整串指令的 Return Status
+  - 數個指令用 pipe (``|``)、And (``&&``)、Or (``||``) 串起來執行時亦同
+
 * ``if`` condition
 
   - 語法 ::
 
-      if [ "$1" = "test" ]; then
+      if cmd
+      then
         ...
 
-      elif [ "$1" = "test2"]; then
+      elif cmd
+      then
         ...
 
       else
@@ -26,13 +34,23 @@ bourne sh
 
       fi
 
-  - 檢查檔案是否存在 ::
+    + ``if`` 會執行 ``cmd`` ，若 Return Status 為 ``0`` 則條件成立。 ``cmd`` 的 Return Status 請見上面的說明
 
-      if [ -f file ]
+  - ``[`` ， ``test``
 
-  - 檢查目錄是否存在 ::
+    + 檢查檔案是否存在 ::
 
-      if [ -d dir ]
+        [ -f file ]
+
+    + 檢查目錄是否存在 ::
+
+        [ -d dir ]
+
+    + And Operator ::
+
+        if [ $# -eq 1 ] && [ $? -eq 0 ]
+
+    + 其他見 ``man test``
 
 * ``while`` loop
 
