@@ -712,6 +712,8 @@
 
       * 用 ``xargs`` 一行一行丟給 ``sh`` 執行
 
+    + 可以再用 ``for i in $(seq 9); do mv $i.jpg 0$i.jpg; done`` 把檔名的位數都補到兩位
+
   - 可愛的小時鐘 ::
 
       while [ 1 ]; do clear; date +"%H:%M:%S" | figlet -m 4; sleep 1; done
