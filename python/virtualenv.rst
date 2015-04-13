@@ -21,11 +21,11 @@ virtualenv 甚至可以隔離不同版本的 Python，讓 Python2.7 和 Python3.
 
 1.  建立 virtualenv 環境 ::
 
-      $ virtualenv {{ virtualenv-name }} [--python={python-path}]
+      $ virtualenv {{ virtualenv-name }} [--python={{ python-path }}]
 
-    + ``{{ virtualenv-name }}`` 是隔離區，可以將 package 集中成一包，方便管理
+    + ``{{ virtualenv-name }}`` 是隔離區的名字，可以將 package 集中成一包，方便管理
 
-    + {python-path} 是 Python 的直譯環境
+    + ``{{ python-path }}`` 是 Python 的直譯環境
 
     + 範例 ::
 
@@ -37,9 +37,12 @@ virtualenv 甚至可以隔離不同版本的 Python，讓 Python2.7 和 Python3.
 
       $ source .virtualenv/bin/activate
 
-3.  安裝 package (在套用 virtualenv 環境以後) ::
+    + ``tcsh`` / ``csh`` 請改 ``source`` ``activate.csh``
+    + ``fish`` 請改 ``source`` ``activate.fish``
 
-      $ pip install {package-name}
+3.  在套用 virtualenv 環境以後，安裝 package ::
+
+      $ pip install {{ package-name }}
 
 4.  離開 virtualenv 環境 ::
 
