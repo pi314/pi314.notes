@@ -47,6 +47,12 @@ command line arguments
 
     $ screen -x [id | session_name]
 
+* 連接 Serial Port ::
+
+    screen /dev/tty.Bluetooth-Incoming-Port 119200
+
+  - 沒錯，GNU Screen 可以連接 Serial Port
+
 hot keys
 ========
 
