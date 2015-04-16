@@ -640,7 +640,7 @@
 
   - 把目錄 A 以唯讀形式掛載到目錄 B ::
 
-        # mount -o ro -t nullfs A B
+      # mount -o ro -t nullfs A B
 
 * ``less``
 
