@@ -51,6 +51,7 @@ Makefile 可以處理 Task 之間的 Dependency，讓編輯過程自動化
     + Dependency 亦同
 
   - ``$@`` 代表目前的 target
+  - ``$<`` 代表第一個 dependency
 
   - **[GNU make only]** ``%`` 為通用字元，類似 shell 的 ``*``
 
