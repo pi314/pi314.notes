@@ -57,7 +57,7 @@ Hot Keys
 
     + 與指令 ``rename-window`` 相同，可在 ``C-b ?`` 中查詢到
 
-  - 進入 copy mode，按下 enter 離開 ::
+  - 進入 copy mode，按下 enter 或 q 離開 ::
 
       C-b [
 
