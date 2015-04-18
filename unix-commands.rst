@@ -662,59 +662,65 @@
 其他
 ====
 
-  - 印出一個檔案，但前 5 行不要印出來 ::
+* 印出一個檔案，但前 5 行不要印出來 ::
 
-      cat example.txt | awk '{ if(NR > 5) print $0;}'
+    cat example.txt | awk '{ if(NR > 5) print $0;}'
 
-    + 可以把 cat 改成用 nl 確認真的只有前 5 行沒有印出
+  - 可以把 cat 改成用 nl 確認真的只有前 5 行沒有印出
 
-  - 把目錄 ``DIR`` 從 A host 丟到 B host
+* 把目錄 ``DIR`` 從 A host 丟到 B host
 
-    + A ::
+  - A ::
 
-        tar cvf - DIR | nc -l 12345
+      tar cvf - DIR | nc -l 12345
 
-    + B ::
+  - B ::
 
-        nc {A's IP} 12345 > DIR.tar
-        nc {A's IP} 12345 | tar xvf -
+      nc {A's IP} 12345 > DIR.tar
+      nc {A's IP} 12345 | tar xvf -
 
-    + 如果 A 沒有 public IP 的話就改把 port 開在 B 上
+  - 如果 A 沒有 public IP 的話就改把 port 開在 B 上
 
-  - 查看系統安裝的記憶體 ::
+* 查看系統安裝的記憶體 ::
 
-      grep memory /var/run/dmesg.boot
+    grep memory /var/run/dmesg.boot
 
-  - 把 ``rm`` ``alias`` 成 ``mv``, 不直接刪除檔案 ::
+* 把 ``rm`` ``alias`` 成 ``mv``, 不直接刪除檔案 ::
 
-      alias rm 'mv \!* ~/.trash'
+    alias rm 'mv \!* ~/.trash'
 
-  - [``tcsh``] 把任意一個被 suspend 的 process 叫到 forground ::
+* [``tcsh``] 把任意一個被 suspend 的 process 叫到 forground ::
 
-      %[number]
+    %[number]
 
-  - 把漫畫檔名重新編為流水號
+* 把漫畫檔名重新編為流水號
 
-    + 假設檔案的修改時間是照實際順序的 ::
+  - 假設檔案的修改時間是照實際順序的 ::
 
-        ls -1tr |
-        nl |
-        awk '{print "mv " $2 " " $1 ".jpg"; }' |
-        xargs -I% sh -c %
+      ls -1tr |
+      nl |
+      awk '{print "mv " $2 " " $1 ".jpg"; }' |
+      xargs -I% sh -c %
 
-    + 想法
+  - 想法
 
-      * 先用 ``ls -1tr`` 依序列出檔名
+    + 先用 ``ls -1tr`` 依序列出檔名
 
-      * 用 ``nl`` 產生流水號
+    + 用 ``nl`` 產生流水號
 
-      * 用 ``awk`` 輸出 ``mv origin.jpg {n}.jpg`` 的 shell script
+    + 用 ``awk`` 輸出 ``mv origin.jpg {n}.jpg`` 的 shell script
 
-      * 用 ``xargs`` 一行一行丟給 ``sh`` 執行
+    + 用 ``xargs`` 一行一行丟給 ``sh`` 執行
 
-    + 可以再用 ``for i in $(seq 9); do mv $i.jpg 0$i.jpg; done`` 把檔名的位數都補到兩位
+  - 可以再用 ``for i in $(seq 9); do mv $i.jpg 0$i.jpg; done`` 把檔名的位數都補到兩位
 
-  - 可愛的小時鐘 ::
+* 可愛的小時鐘 ::
 
-      while [ 1 ]; do clear; date +"%H:%M:%S" | figlet -m 4; sleep 1; done
+    while [ 1 ]; do clear; date +"%H:%M:%S" | figlet -m 4; sleep 1; done
+
+* 檢查某個指令是否存在 ::
+
+    if [ -n "$(command -v git)" ]; then
+      ...
+    fi
 
