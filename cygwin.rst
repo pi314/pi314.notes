@@ -62,14 +62,14 @@ X11
 需安裝 Package
 """"""""""""""
 
-* ``xorg-server``
-* ``xinit``
+* ``X11/xorg-server``
+* ``X11/xinit``
 
 啟動
 """"
 
-1.  設定 DISPLAY 環境變數為 ``localhost:0``
-2.  ``startwin``
+1.  ``export DISPLAY=:0.0``
+2.  ``startx &``
 3.  ``ssh -Y username@host``
 4.  ``xterm &``
 
@@ -77,3 +77,4 @@ X11
 """""""""""""
 
 把 ``/usr/bin/XWin`` ``kill`` 掉
+
