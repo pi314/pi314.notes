@@ -94,6 +94,14 @@ FreeBSD Jails 可以當成很省很省資源的虛擬機
 
       # jexec { jail-id | jail-name } tcsh
 
+    + 預設進入 jails 後 ``pwd`` 會在根目錄，可以在 local 的設定檔裡面加上 ::
+
+        # local to this jails
+        cd
+        if [[ -a ~/.venv/bin/activate ]]; then
+            source ~/.venv/bin/activate
+        fi
+
 8.  在外面用 ``pkg`` 幫 Jails 裝東西 ::
 
       # pkg -j { jail-id | jail-name } install zsh
