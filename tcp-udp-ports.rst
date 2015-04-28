@@ -6,7 +6,7 @@ TCP/UDP Port Number 列表
 * 21, TCP: FTP Control
 * 22, TCP: SSH, SCP, SFTP
 * 23, TCP: Telnet
-* 25, TCP: Simple Mail Transfer Protocol 
+* 25, TCP: Simple Mail Transfer Protocol
 * 53, UDP: DNS
 * 67, UDP: DHCP Server
 * 68, UDP: DHCP Client
@@ -28,6 +28,7 @@ TCP/UDP Port Number 列表
 * 5000, TCP: Python Flask Development Webserver
 * 5001, TCP & UDP: iperf Server
 * 6000, TCP & UDP: X11
+* 6633, TCP: OpenFlow Controller
 * 8333, TCP: Bitcoin
 * 17500, TCP & UDP: Dropbox
 * 25565, TCP: Minecraft Server
