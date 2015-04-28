@@ -50,8 +50,10 @@ FreeBSD Jails 可以當成很省很省資源的虛擬機
 
     a.  用 ``bsdinstall`` 安裝 (範例為 10.0 RELEASE) ::
 
-        # export BSDINSTALL_DISTSITE=ftp://ftp.tw.freebsd.org/pub/FreeBSD/releases/amd64/10.0-RELEASE/
-        # bsdinstall jail { jail-path }
+          # export BSDINSTALL_DISTSITE=ftp://ftp.tw.freebsd.org/pub/FreeBSD/releases/amd64/10.0-RELEASE/
+          # bsdinstall jail { jail-path }
+
+        - ``doc`` ， ``game`` ， ``ports`` 不用裝，沒有特別需求的話也不需要開 sshd
 
     b.  把外面的 Port tree 掛載到 Jails 裡面
 
@@ -65,14 +67,16 @@ FreeBSD Jails 可以當成很省很省資源的虛擬機
 
                 # mount -o ro -t nullfs /usr/ports { jail-path }/usr/ports
 
-        B)  修改 Jails 裡面的 ``/etc/make.conf`` ，把 ports 編譯的 folder 到 ``/tmp`` 去::
+        B)  修改 Jails 裡面的 ``/etc/make.conf``
 
-              # echo WRKDIRPREFIX=/tmp/ports >> { jail-path }/etc/make.conf
-              # echo DISTDIR=/tmp/ports/distfiles >> { jail-path }/etc/make.conf
+            * 把 ports 編譯的 folder 到 ``/tmp`` 去::
 
-        C)  設定 Python 版本為 3.4 ::
+              WRKDIRPREFIX=/tmp/ports
+              DISTDIR=/tmp/ports/distfiles
 
-              # echo PYTHON_DEFAULT=3.4 >> { jail-path }/etc/make.conf
+            * 設定 Python 版本為 3.4 ::
+
+              PYTHON_DEFAULT=3.4
 
         D)  調整 ``/usr/local/etc/portmaster.rc``
 
