@@ -71,12 +71,12 @@ FreeBSD Jails 可以當成很省很省資源的虛擬機
 
             * 把 ports 編譯的 folder 到 ``/tmp`` 去::
 
-              WRKDIRPREFIX=/tmp/ports
-              DISTDIR=/tmp/ports/distfiles
+                WRKDIRPREFIX=/tmp/ports
+                DISTDIR=/tmp/ports/distfiles
 
             * 設定 Python 版本為 3.4 ::
 
-              PYTHON_DEFAULT=3.4
+                PYTHON_DEFAULT=3.4
 
         D)  調整 ``/usr/local/etc/portmaster.rc``
 
