@@ -79,6 +79,8 @@ Hot Keys
 
       C-b o
 
+    + 也可用 ``C-b 方向鍵`` 或是 ``C-b hjkl`` 來切換
+
   - 把當前 ``window`` 中的 ``pane`` 位置旋轉 ::
 
       C-b ^o
@@ -89,7 +91,7 @@ Hot Keys
 
   - 調整 ``pane`` 的大小 ::
 
-      C-b ^(arrow key)
+      C-b C-(arrow key)
 
 * 其他
 
@@ -133,6 +135,6 @@ tmux 內部指令
 
   - 範例 ::
 
-      bind-key -n C-Left  previous-window
-      bind-key -n C-Right next-window
+      bind-key -n S-Left  previous-window
+      bind-key -n S-Right next-window
 
