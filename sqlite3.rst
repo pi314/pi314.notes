@@ -10,8 +10,7 @@ SQLite 語法筆記
         "dorm" smallint unsigned NOT NULL,
         "room" varchar(3) NOT NULL,
         "phone" varchar(15) NOT NULL
-    )
-    ;
+    );
 
 * 列出值 ::
 
@@ -33,9 +32,13 @@ SQLite 語法筆記
 
     INSERT INTO {{table-name}} SELECT * from {{other-table}};
 
+* 更新值 ::
+
+    UPDATE {{table-name}} SET {{col}}={{value}}, {{col2}}={{value2}}, ... WHERE {{condition}};
+
 * 刪除一些 row ::
 
-    DELETE FROM {{table-name}} WHERE {{condition}}
+    DELETE FROM {{table-name}} WHERE {{condition}};
 
 * 重新命名 Table ::
 
