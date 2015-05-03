@@ -2,6 +2,13 @@
 = Mac OS X =
 ============
 
+* Mac OS X 的說明文件很常使用符號而不是名稱來描述按鍵
+
+  - Command Key: ``⌘`` ，U+2318
+  - Alt Key (Option Key): ``⌥`` ，U+2325
+  - Shift Key: ``⇧`` ，U+21e7
+  - Shift-Alt-K: ```` ，U+f8ff
+
 * 停用 spotlight ::
 
     # launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
@@ -13,7 +20,7 @@
 * 投影機 (或是雙螢幕)
 
   - 先把 VGA 線接上轉接頭，再把轉接頭接上 Mac (據說順序很重要)
-  - ``Command-F1`` (不需按 ``Fn`` 鍵) 可以切換〔同步/延伸〕畫面
+  - ``Command-F1`` (不需按 ``fn`` 鍵) 可以切換〔同步/延伸〕畫面
   - 系統偏好設定 > 顯示器 中可以調整螢幕的相對位置
 
 * ``Command-o`` 可以開啟檔案 (和 Windows 的 ``Enter`` 不同)
@@ -29,3 +36,17 @@ X11
 安裝 `XQuartz <http://xquartz.macosforge.org/landing/>`_
 
 使用 ``ssh -Y`` 連線
+
+幫應用程式新增快捷鍵
+--------------------
+
+原本很習慣使用 Google Chrome，但因為 Chrome 很吃電，最近開始使用 Safari，覺得不太習慣
+
+Mac OS X 上的 Chrome 使用 ``⌥⌘←`` 和 ``⌥⌘→`` 在分頁間切換，但 Safari 預設是 ``⇧⌘←`` 和 ``⇧⌘→`` ，當有文字框被聚焦時就沒辦法切換了，因為 ``⌘←`` 和 ``⌘→`` 在文字編輯時是在行首、行尾之間跳躍
+
+目前沒有找到方法在 Safari 裡面自定快捷鍵，要在 ``系統偏好設定 > 鍵盤 > 快速鍵 > App 快速鍵`` 底下的 ``+`` 新增
+
+``應用程式`` 選擇 Safari，選單名稱輸入 ``顯示上一個標籤頁`` 和 ``顯示下一個標籤頁`` ，最後點選 ``鍵盤快速鍵`` ，按下想要的組合鍵就可以了
+
+不過原本的快捷鍵仍然會存在，目前還沒找到方法可以真正的 Disable 原本的快捷鍵
+
