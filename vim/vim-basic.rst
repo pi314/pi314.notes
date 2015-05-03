@@ -209,28 +209,28 @@ CLI 參數
 * Tab
 
   - 把 buffer 轉為 tab ::
-  
+
       :tab ball
-  
+
   - 把 split 轉為 tab ::
-  
+
       <C-w>T
-  
+
   - 把 tab 往下一個位子移動 ::
-  
+
       :tabm +1
-  
+
   - 檔案瀏覽器
-  
+
     + ``:Vex`` / ``:Sex`` / ``:Tex``
     + 在中文環境下可能會有問題
-  
+
   - 跳到相鄰的分頁
-  
+
     + ``gt`` / ``:tabn`` / ``gT`` / ``:tabp``
-  
+
   - 對每一個 tab 都執行 ``COMMAND`` ::
-  
+
       :tabdo COMMAND
 
   - 在新分頁開啟 help 頁面 ::
@@ -415,14 +415,14 @@ Register
 
 * 把 vim 內部的指令導到檔案中
 
-  A.  ``redir >{file_name}``
-  B.  ``{command}``
+  A.  ``redir >{{file_name}}``
+  B.  ``{{command}}``
   C.  ``redir END``
 
 * 修改 encoding ::
 
     :w ++enc=utf-8
-    :w ++enc=utf-8 {another_filename}
+    :w ++enc=utf-8 {{another_filename}}
 
 * 有時 vim 的語法上色會壞掉 (例如整頁都變成藍色)，可能是因為失去追蹤語法結構，可以用下列指令重新同步 ::
 
@@ -446,3 +446,12 @@ Register
 
     :help CTRL-X
     :help i_CTRL-X
+
+* 用 vim 加密檔案
+
+  - 開啟檔案後輸入 ``:X`` ，再輸入兩次密碼，存檔即生效
+
+    + 之後都用普通的方式打開即可， vim 會在開啟時要求輸入密碼
+    + 更改密碼方式亦同
+    + 若要取消加密，在更改密碼時都直接按 Enter 即可
+
