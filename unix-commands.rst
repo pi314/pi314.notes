@@ -664,6 +664,12 @@
   - ``truss {{ command }}`` 檢查 ``{{ command }}`` 執行了哪些 System Call
   - 在 Linux 上有對應的指令 ``strace``
 
+* ``ntpdate``
+
+  - 對時 ::
+
+      # ntpdate -b pool.ntp.org
+
 其他
 ====
 
