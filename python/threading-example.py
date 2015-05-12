@@ -1,20 +1,22 @@
-# This example is for python 2
-import Queue
+import queue
 import threading
-import urllib2
+import random
+import time
 
 # called by each thread
-def get_url(q, url):
-    q.put(urllib2.urlopen(url).read())
+def f (arg):
+    w = random.randint(0, 5)
+    time.sleep(w)
+    q.put( (arg, w) )
 
-theurls = '''http://google.com http://yahoo.com'''.split()
+q = queue.Queue()
 
-q = Queue.Queue()
-
-for u in theurls:
-    t = threading.Thread(target=get_url, args = (q,u))
-    t.daemon = True
+for i in range(10):
+    t = threading.Thread(target=f, args=(i,))
+    # t.daemon = True
     t.start()
 
-s = q.get()
-print s
+for i in range(10):
+    s = q.get()
+    print(s)
+
