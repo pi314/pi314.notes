@@ -31,5 +31,6 @@
 * 1995 - PHP 語言問世
 * 1995 - Ruby 語言問世
 * 1997 - ECMAScript 標準問世
+* 1999 - RFC 2616 定義了 HTTP/1.1
 * 2005 - Friendly Interactive Shell 問世
 
