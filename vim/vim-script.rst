@@ -30,7 +30,7 @@
 
 * if condition ::
 
-    if <condition> 
+    if <condition>
       ...
     elseif <condition>
       ...
@@ -76,11 +76,11 @@
     - pattern 建議用單引號字串
 
 * 字串長度 (bytes) ::
-  
+
     strlen(s)
 
 * 字串 "外觀" 長度 ::
-  
+
     strdisplaywidth(s)
 
 * 重複字串 ::
@@ -106,19 +106,19 @@
 ======
 
 * 取得編輯區內的內容
-  
+
   - 取得游標所在的行的內容 ::
-    
+
       getline('.')
 
   - 取得第 3 行的內容 ::
-    
+
       getline(3)
 
 * 游標位置
-  
+
   - 取得游標所在的行數 ::
-  
+
       line('.')
 
   - 取得游標的 column number ::
@@ -150,7 +150,7 @@ Menu
 ========
 
 * 長度 ::
-  
+
     len(list_a)
 
 * ``complete({start-col}, {match})``
@@ -159,9 +159,14 @@ Menu
   - 該行會從 ``{start-col}`` 開始被切除，直到游標所在的位置為止，替換成 ``{match}`` 裡的選項
   - ``{start-col}`` 是 1-based
 
+* ``exists()``
+
+  - 檢查某變數/函式/選項是否存在，見 ``:help exists``
+
 指令
 ====
 
 * 執行 normal mode 下的動作 ::
 
     normal! <movements>
+
