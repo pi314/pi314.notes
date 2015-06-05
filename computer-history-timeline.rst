@@ -20,6 +20,7 @@
 * 1983 - tcsh Source Code 問世
 * 1985 - 03/20 - Emacs 13 問世
 * 1987 - Perl 語言問世
+* 1987 - GNU Screen 問世
 * 1989 - Bourne-Again Shell 問世
 * 1990 - Z Shell 問世
 * 1991 - 10/05 - Linux Kernel 0.01 問世
@@ -34,4 +35,5 @@
 * 1997 - ECMAScript 標準問世
 * 1999 - RFC 2616 定義了 HTTP/1.1
 * 2005 - Friendly Interactive Shell 問世
+* 2009 - 09/22 - tmux 問世
 
