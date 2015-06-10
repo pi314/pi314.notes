@@ -67,3 +67,18 @@ Makefile 可以處理 Task 之間的 Dependency，讓編譯過程自動化
       $ make test
       gcc -o test test.c
 
+其他
+----
+
+* [2015/06/11] 如果 target 是 ``main.out`` ，dependency 最好是 ``main.o`` 而不要是 ``main.cpp``
+
+  - 今日遭遇::
+
+      target=main
+      $(target).out: $(target).cpp msgpack.hpp
+      >---clang++36 -std=c++14 -Wall -Wextra -pedantic -O2 $(target).cpp -○$(target).out
+
+    + ``Makefile`` 裡面寫的明明是 ``clang++36`` ，下了 ``make`` 指令後卻執行了 ``c++ -O2 -pipe -c main.cpp`` ， ``-std=c++14`` flag 消失了
+    + 推測是 FreeBSD ``make`` 自動去尋找系統內的 ``c++`` compiler 去編譯 ``main.cpp``
+    + ``c++`` 和 ``clang++`` 是 link，但我需要的是 ``/usr/local/bin/clang++36`` 而不是 ``/usr/bin/clang++``
+
