@@ -25,6 +25,8 @@ Ports Tree
 
     # portsnap fetch update
 
+  - 若希望 port tree 定期自動更新，請使用 ``portsnap cron`` ，才可以在非 interactive shell 執行
+
 使用 Make 指令
 ~~~~~~~~~~~~~~
 
