@@ -20,6 +20,7 @@
 * 1983 - 09/27 - GNU 計畫開始
 * 1983 - tcsh Source Code 問世
 * 1985 - 03/20 - Emacs 13 問世
+* 1985 - November - Windows 1.0 問世
 * 1987 - Perl 語言問世
 * 1987 - GNU Screen 問世
 * 1989 - Bourne-Again Shell 問世
