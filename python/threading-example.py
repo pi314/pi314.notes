@@ -13,7 +13,7 @@ q = queue.Queue()
 
 for i in range(10):
     t = threading.Thread(target=f, args=(i,))
-    # t.daemon = True
+    t.daemon = True     # this ensures thread ends when main process ends
     t.start()
 
 for i in range(10):
