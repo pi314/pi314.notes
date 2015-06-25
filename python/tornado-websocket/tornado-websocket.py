@@ -1,5 +1,6 @@
 import tornado.ioloop
 import tornado.websocket
+import tornado.web
 
 import os
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
