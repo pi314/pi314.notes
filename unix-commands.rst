@@ -659,6 +659,12 @@
 
       $ netstat -r
 
+* ``ssh``
+
+  - ``ssh -t jump_host ssh target_host``
+
+    + 透過 ``jump_host`` 做為跳板，ssh 至 ``target_host``
+
 其他
 ====
 
