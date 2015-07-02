@@ -245,6 +245,10 @@ CLI 參數
 
 * Split
 
+  - 製造一個水平切割的視窗 ::
+
+      <C-w>n
+
   - 把 split 視窗寬度設定為 50 字元 ::
 
       :vertical resize 50
