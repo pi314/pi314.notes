@@ -693,6 +693,7 @@
   - On Linux ::
 
       free -m
+      free -h | awk 'NR==2{print $2}'
 
   - On FreeBSD ::
 
