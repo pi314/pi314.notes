@@ -716,18 +716,16 @@
   - 假設檔案的修改時間是照實際順序的 ::
 
       ls -1tr |
-      nl |
+      nl -rz |
       awk '{print "mv " $2 " " $1 ".jpg"; }' |
-      xargs -I% sh -c %
+      sh
 
   - 想法
 
     + 先用 ``ls -1tr`` 依序列出檔名
-    + 用 ``nl`` 產生流水號
+    + 用 ``nl`` 產生流水號， ``-rz`` 會把流水號補滿 ``0``
     + 用 ``awk`` 輸出 ``mv origin.jpg {n}.jpg`` 的 shell script
-    + 用 ``xargs`` 一行一行丟給 ``sh`` 執行
-
-  - 可以再用 ``for i in $(seq 9); do mv $i.jpg 0$i.jpg; done`` 把檔名的位數都補到兩位
+    + 丟給 ``sh`` 執行
 
 * 可愛的小時鐘 ::
 
