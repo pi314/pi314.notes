@@ -11,6 +11,7 @@
 * 1969 - UNIX
 * 1972 - C 語言問世
 * 1973 - 05/22 - Ethernet 問世
+* 1975 - Yacc/Lex 文件問世
 * 1976 - vi 問世
 * 1977 - 1BSD 問世
 * 1977 - Bourne Shell 問世
