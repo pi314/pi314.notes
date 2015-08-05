@@ -316,7 +316,6 @@
 * ``pushd``, ``popd``, ``dirs``
 
   - 操作 shell 中的目錄堆疊
-
   - 把目前目錄 push 到 stack，並 ``cd`` 到 ``dir`` ::
 
       pushd dir
