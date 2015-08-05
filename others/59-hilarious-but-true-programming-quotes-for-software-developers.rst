@@ -86,11 +86,11 @@
 
     + Commenting your code is like cleaning your bathroom — you never want to do it, but it really does create a more pleasant experience for you and your guests. (Ryan Campbell)
 
-23. 如今的程式是一場工程師和上帝的競賽，工程師要開發出更大更好、傻瓜都會用到軟體。而上帝在努力創造出更大更傻的傻瓜。目前為止，上帝是贏的。（Rick Cook）
+23. 如今的程式是一場工程師和上帝的競賽，工程師要開發出更大更好、傻瓜都會用的軟體。而上帝在努力創造出更大更傻的傻瓜。目前為止，上帝是贏的。（Rick Cook）
 
     + Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the universe trying to produce bigger and better idiots. So far, the universe is winning. (Rick Cook)
 
-24. 軟體設計最困難的部分⋯⋯是阻擋新功能的引入。（Donald Norman）
+24. 軟體設計最困難的部分......是阻擋新功能的引入。（Donald Norman）
 
     + The hardest part of design … is keeping features out. (Donald Norman)
 
