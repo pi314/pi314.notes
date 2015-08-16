@@ -114,3 +114,8 @@ Mac OS X 上的 Chrome 使用 ``⌥⌘←`` 和 ``⌥⌘→`` 在分頁間切換
 
 * http://iterm.sourceforge.net/scripting.shtml
 
+取得系統內儲存的 WiFi 密碼
+--------------------------
+
+使用應用程式「鑰匙圈存取」（Keychain Access）
+
