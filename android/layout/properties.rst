@@ -23,6 +23,7 @@ android:layout_gravity
 ========
 
 android:textSize="20sp"
+android:textStyle="bold"
 
 Structure
 =========
