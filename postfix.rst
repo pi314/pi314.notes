@@ -2,11 +2,24 @@
 = postfix =
 ===========
 
-* 重要檔案
+Quick Notes
+-----------
+
+* 查看 mail queue ::
+
+    # postqueue -p
+
+* 刪除 mail queue 內的信件 ::
+
+    # postqueue -p
+    (找到信件的 queue ID，例如 69C284AC48)
+    # postsuper -d 69C284AC48
+
+* 增加 mail
 
   - ``/etc/aliases``
 
-    - 修改以後，需執行 ::
+    + 修改以後，需執行 ::
 
         # newaliases
         # postfix reload
