@@ -1,5 +1,5 @@
 // To avoid application being opened twice, add
-// android:launchMode="singleTop"
+// android:launchMode="singleTask"
 // to the <activity> element
 public void show_ec_status (boolean status) {
     show_ec_status_on_monitor_page(status);
