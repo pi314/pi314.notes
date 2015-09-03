@@ -44,4 +44,6 @@ Android App Activity 的生命週期有許多步驟，每個步驟對應到 Java
 
 App 結束時的收尾動作應在 ``onPause()`` 實作，但不應有太多步驟，避免 Android 被卡住
 
+``isFinishing()`` 可檢查 Activity 是否即將進入 ``onDestroy()``
+
 （手機直接爆炸是例外狀況，每個步驟都可能中斷）
