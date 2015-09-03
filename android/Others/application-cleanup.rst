@@ -47,3 +47,5 @@ App 結束時的收尾動作應在 ``onPause()`` 實作，但不應有太多步�
 ``isFinishing()`` 可檢查 Activity 是否即將進入 ``onDestroy()``
 
 （手機直接爆炸是例外狀況，每個步驟都可能中斷）
+
+ref: http://stackoverflow.com/questions/8515936/android-activity-life-cycle-what-are-all-these-methods-for
