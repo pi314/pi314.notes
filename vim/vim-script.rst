@@ -62,18 +62,13 @@
 * 字串比對
 
   - 避免使用 ``==`` ，因為其 case sensitive 設定是根據 set ignorecase
-
   - case sensitive 的字串比對 ``==#``
-
   - case insensitive 的字串比對 ``==?``
-
   - 字串 regex match
 
-    - case sensitive ``=~#``
-
-    - case insensitive ``=~?``
-
-    - pattern 建議用單引號字串
+    + case sensitive ``=~#``
+    + case insensitive ``=~?``
+    + pattern 建議用單引號字串
 
 * 字串長度 (bytes) ::
 
@@ -125,7 +120,7 @@
 
       col('.')
 
-    - 1-based
+    + 1-based
 
   - 設定游標的位置 ::
 
