@@ -170,3 +170,13 @@ Menu
 
     normal! <movements>
 
+其他
+====
+
+* 不定數量參數的函式 ::
+
+    function! foo(arg1, ...)
+    endfunction
+
+  - ``a:0`` 代表 ``...`` 的參數數量
+  - ``a:1`` 為 ``...`` 的第一個參數
