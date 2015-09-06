@@ -3,27 +3,27 @@
 ==============
 
 一般的 vim 設定檔 layout
-========================
+------------------------
 
 ::
 
   ~/.vim/
-    bundle/
-    filetype.vim
-    ftplugin/
-    plugin/
-    syntax/
-    vimrc
+  ├── bundle/
+  ├── filetype.vim
+  ├── ftplugin/
+  ├── plugin/
+  ├── syntax/
+  └── vimrc
 
 * ``bundle``
 
   - 包含你所安裝的 plugin
-    
+
 * ``filetype.vim``
 
   - 定義各種你需要的 filetype，例如 ::
 
-    au BufNewFile,BufRead *.todo       setf todo
+      au BufNewFile,BufRead *.todo setf todo
 
   - 定義了一個 filetype ``todo``
 
@@ -44,10 +44,10 @@
   - 和 ``~/.vimrc`` 相同用途
 
 編寫 vim 語法上色檔
-===================
+-------------------
 
 * 基本方法 ::
-  
+
     syn match {name} {regex}
     hi def {name} {argument}
 
@@ -61,7 +61,7 @@
     + ``ctermfg`` 和 ``ctermbg`` 都可以使用顏色的名稱或是顏色的代碼
 
     ===== ==== ================================
-    NR-16 NR-8 COLOR NAME 
+    NR-16 NR-8 COLOR NAME
     ===== ==== ================================
     0     0    Black
     1     4    DarkBlue
@@ -83,3 +83,9 @@
 
     + 要注意 ``cyan`` 指的其實是亮色 (不論是否有 ``cterm=bold``)， ``darkcyan`` 才是暗色
 
+其他
+----
+
+* 自定義的 function 名稱開頭必須大寫，但放在 ``autoload`` 目錄中的 function 可以命名為 filename#func
+
+  - http://learnvimscriptthehardway.stevelosh.com/chapters/53.html
