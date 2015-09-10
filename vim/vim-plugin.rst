@@ -68,7 +68,7 @@ vim 設定檔目錄結構
 * ``ftplugin/`` 裡面只放初始化以及 mappings
 * ``autoload/`` 裡面放所有的邏輯
 
-  - 內部使用的 function 用 ``s:Func`` 命名，使其 scope 限定在該 script 內
+  - 內部使用的 function 用 ``s:func`` 命名，使其 scope 限定在該 script 內
   - 開放給使用者的 function 用 ``pluginname#func`` 命名，使其能夠被 autoload
 
 編寫 vim 語法上色檔
