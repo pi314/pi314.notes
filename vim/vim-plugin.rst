@@ -1,9 +1,9 @@
-==============
-= Vim Plugin =
-==============
+===================
+= Vim Plugin 筆記 =
+===================
 
-一般的 vim 設定檔 layout
-------------------------
+vim 設定檔目錄結構
+------------------
 
 ::
 
@@ -25,7 +25,7 @@
 
       au BufNewFile,BufRead *.todo setf todo
 
-  - 定義了一個 filetype ``todo``
+    + 定義了一個 filetype ``todo``
 
 * ``ftplugin/``
 
@@ -42,6 +42,34 @@
 * ``vimrc``
 
   - 和 ``~/.vimrc`` 相同用途
+
+自己寫 Plugin
+-------------
+
+現在已經有很成熟的套件管理系統可以使用，例如 Vundle_
+
+..  _Vundle: https://github.com/gmarik/Vundle.vim
+
+把你的 Plugin 設計成這樣的目錄結構:
+
+::
+
+  plugin-folder/
+  ├── filetype.vim
+  ├── autoload/
+  │   └── pluginname.vim
+  ├── ftplugin/
+  │   └── pluginname.vim
+  ├── syntax/
+  │   └── pluginname.vim
+  ├── README.rst
+  └── LICENSE
+
+* ``ftplugin/`` 裡面只放初始化以及 mappings
+* ``autoload/`` 裡面放所有的邏輯
+
+  - 內部使用的 function 用 ``s:Func`` 命名，使其 scope 限定在該 script 內
+  - 開放給使用者的 function 用 ``pluginname#func`` 命名，使其能夠被 autoload
 
 編寫 vim 語法上色檔
 -------------------
@@ -82,10 +110,3 @@
     ===== ==== ================================
 
     + 要注意 ``cyan`` 指的其實是亮色 (不論是否有 ``cterm=bold``)， ``darkcyan`` 才是暗色
-
-其他
-----
-
-* 自定義的 function 名稱開頭必須大寫，但放在 ``autoload`` 目錄中的 function 可以命名為 filename#func
-
-  - http://learnvimscriptthehardway.stevelosh.com/chapters/53.html
