@@ -164,6 +164,77 @@
 
     git commit -p {filename}
 
+* 移動一串 commits
+
+  - 狀況 ::
+
+      o---o  master
+           \
+            o---o---o  feature1
+                     \
+                      o---o---o  feature2
+                      A   B   C
+
+  - 期望達成效果 ::
+
+      o---o  master
+          |\
+          | o---o---o  feature1
+          |
+          o---o---o  feature2
+          A   B   C
+
+  - 指令
+
+    + 使用 Cherry-pick（一步一步複製）
+
+      1)  ``git checkout master`` ::
+
+            o---o  master*
+                 \
+                  o---o---o  feature1
+                           \
+                            o---o---o  feature2
+                            A   B   C
+
+      2)  ``git checkout -b tmp`` ::
+
+            o---o  master tmp*
+                 \
+                  o---o---o  feature1
+                           \
+                            o---o---o  feature2
+                            A   B   C
+
+      3)  ``git cherry-pick A B C`` ::
+
+            o---o  master
+                |\
+                | o---o---o  feature1
+                |          \
+                |           o---o---o  feature2
+                |           A   B   C
+                |
+                o---o---o  tmp*
+                A   B   C
+
+          + 或是 ``git cherry-pick feature1..feature2``
+
+      4)  ``git branch -D feature2``
+      5)  ``git checkout -b feature2``
+      6)  ``git branch -D tmp`` ::
+
+            o---o  master
+                |\
+                | o---o---o  feature1
+                |
+                o---o---o  feature2*
+                A   B   C
+
+    + 使用 rebase（直接剪下來拔過去） ::
+
+        git rebase --onto master feature1 feature2
+
 Branch 相關
 -----------
 
@@ -208,32 +279,6 @@ Branch 相關
 * 更新 branch database ::
 
     git fetch -p
-
-* 移動一串 commits
-
-  - 例子
-
-    1.  移動前
-
-    ::
-
-        o---o---o---o---o  master
-             \
-               o---o---o---o---o  next
-                                 \
-                                   o---o---o  topic
-
-    2.  ``git rebase --onto master next topic``
-
-    3.  移動後
-
-    ::
-
-        o---o---o---o---o  master
-            |            \
-            |             o'--o'--o' topic
-             \
-              o---o---o---o---o  next
 
 Github 相關
 -----------
