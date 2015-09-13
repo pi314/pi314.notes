@@ -160,6 +160,10 @@
 
           git remote add origin {username}@{host}:{bare-repo-path}
 
+* 只 commit 檔案部份的更動 ::
+
+    git commit -p {filename}
+
 Branch 相關
 -----------
 
@@ -208,7 +212,7 @@ Branch 相關
 * 移動一串 commits
 
   - 例子
-    
+
     1.  移動前
 
     ::
@@ -222,7 +226,7 @@ Branch 相關
     2.  ``git rebase --onto master next topic``
 
     3.  移動後
-        
+
     ::
 
         o---o---o---o---o  master
