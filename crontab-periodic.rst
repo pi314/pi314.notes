@@ -7,9 +7,7 @@ Crontab
 
 cron daemon 可以週期性的執行一些指令，不需要人工去執行
 
-``/etc/crontab`` 格式
-
-::
+``/etc/crontab`` 格式 ::
 
   #minute>hour>---mday>---month>--wday>---who>----command
   14>-----3>------*>------*>------*>------root>---portsnap cron
@@ -36,7 +34,4 @@ periodic 機制依賴 crontab，在 crontab 中有三行 ::
 
 ``/etc/periodic/`` 內的 script 檔名為 ``999.local`` 格式，前面的數字是順序
 
-若不想要自己寫 crontab，可以把 script 放進去
-
-``/etc/defaults/periodic.conf`` 是 ``periodic`` 的設定檔，script 放進去以後要記得在裡面 enable
-
+若不想要自己寫 crontab，可以把 script 放進去，並記得在 ``/etc/defaults/periodic.conf`` 裡面 enable
