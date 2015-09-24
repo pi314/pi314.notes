@@ -97,72 +97,90 @@
 進階
 ----
 
-* 更動暫存系統 - stash
+更動暫存系統 - stash
+~~~~~~~~~~~~~~~~~~~~
 
-  - stash 是一個 stack，可以把未 commit 的內容暫存起來，避免因正在修改某些檔案而導致無法做其他操作，如切換 branch 等等
+* stash 是一個 stack，可以把未 commit 的內容暫存起來，避免因正在修改某些檔案而導致無法做其他操作，如切換 branch 等等
 
-  - 把未 commit 的更動暫存起來 ::
+* 把未 commit 的更動暫存起來 ::
 
-      git stash
+    git stash
 
-    + 同時會把檔案內容復原成 branch 的最新狀態
+  - 同時會把檔案內容復原成 branch 的最新狀態
 
-  - 把暫存的更動放回原檔 ::
+* 把暫存的更動放回原檔 ::
 
-      git stash apply
+    git stash apply
 
-  - 列出最新 stash 的改動 ::
+* 列出最新 stash 的改動 ::
 
-      git stash show
+    git stash show
 
-  - 放棄一個 stash ::
+* 放棄一個 stash ::
 
-      git stash drop
+    git stash drop
 
-* submodule
+submodule
+~~~~~~~~~
 
-  - submodule 讓一個 repo 可以使用其他 repo，且每個 repo 可以是不同版本
+* submodule 讓一個 repo 可以使用其他 repo，且每個 repo 可以是不同版本
 
-  - 為 repo 加入一個 submodule ::
+* 為 repo 加入一個 submodule ::
 
-      git submodule add {URI}
+    git submodule add {URI}
 
-  - 把一個含有 submodule 的 repo clone 下來
+* 把一個含有 submodule 的 repo clone 下來
 
-    1.  ``git clone {URI}``
-    2.  ``cd {repo}``
-    3.  ``git submodule init``
-    4.  ``git submodule update``
+  1.  ``git clone {URI}``
+  2.  ``cd {repo}``
+  3.  ``git submodule init``
+  4.  ``git submodule update``
 
-  - 更新 repo 內的 submodule
+* 更新 repo 內的 submodule
 
-    1.  ``cd {submodule}``
-    2.  ``git pull origin master``
-    3.  ``cd ..``
-    4.  ``git add {submodule}``
-    5.  ``git commit -m "Update submodule"``
-    6.  ``git push origin``
+  1.  ``cd {submodule}``
+  2.  ``git pull origin master``
+  3.  ``cd ..``
+  4.  ``git add {submodule}``
+  5.  ``git commit -m "Update submodule"``
+  6.  ``git push origin``
 
-    + 其他 main repo 也需要更新
+  G.  其他 main repo 也需要更新
 
-      1. ``git pull origin``
-      2. ``git submodule update``
+    1.  ``git pull origin``
+    2.  ``git submodule update``
 
-* Bare repository
+Bare repository
+~~~~~~~~~~~~~~~
 
-  - bare repo 可以讓你不架設 git server，卻又可以 push/pull
-  - 建立方式
+* bare repo 可以讓你不架設 git server，卻又可以 push/pull
+* 建立方式
 
-    1.  新增一個目錄，暫時叫 ``bare_repo``
-    2.  ``cd bare_repo``
-    3.  ``git init --bare``
-    4.  在所有其他需要 push/pull 的 repo 中，加上 remote ::
+  1.  新增一個目錄，暫時叫 ``bare_repo``
+  2.  ``cd bare_repo``
+  3.  ``git init --bare``
+  4.  在所有其他需要 push/pull 的 repo 中，加上 remote ::
 
-          git remote add origin {username}@{host}:{bare-repo-path}
+        git remote add origin {username}@{host}:{bare-repo-path}
 
-* 只 commit 檔案部份的更動 ::
+其他
+~~~~
 
-    git commit -p {filename}
+* 只加入檔案部份的更動
+
+  - 以 patch 的方式 ::
+
+      git add -p {filename}
+
+  - 編輯每行改動 ::
+
+      git add -e
+
+    + **每行的開頭必須是以下字元其中一個**
+
+      * 空白字元，代表不改動
+      * ``-`` 字元，代表刪除
+      * ``+`` 字元，代表增加
 
 * 移動一串 commits
 
