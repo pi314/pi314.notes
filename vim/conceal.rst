@@ -56,7 +56,7 @@ vim 的各個 Theme 中，已經有設定好各種關鍵字的顏色，若希望
 
   set concealcursor=nvic
 
-``nvic`` 分別為 ``normal`` ``visual`` ``insert`` ``command`` ，不同的 mode 可以分別設定是否要顯示
+``nvic`` 分別為 ``normal`` ``visual`` ``insert`` ``command`` ，不同的 mode 可以分別設定是否 **不** 要顯示
 
 範例
 ----
