@@ -112,3 +112,8 @@ vim 設定檔目錄結構
     + 要注意 ``cyan`` 指的其實是亮色 (不論是否有 ``cterm=bold``)， ``darkcyan`` 才是暗色
 
 * 要注意 ``syntax on`` 會讓 vim 提早載入 ``syntax/`` 裡的 script，若有需要用到 ``ftplugin/`` 定義的變數，請用一些變數辨認狀態
+
+其他
+----
+
+* ``setlocal noswapfile`` 和 ``setlocal buftype=nofile`` 可以產生免洗的視窗，用來顯示資訊
