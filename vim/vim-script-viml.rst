@@ -82,6 +82,10 @@
 
     repeat('-', 80)
 
+* 字串取代 ::
+
+    substitute(l:text, '^\s*', '', '')
+
 * 切片
 
   - slice ::
