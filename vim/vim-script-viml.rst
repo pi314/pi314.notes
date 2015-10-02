@@ -108,16 +108,6 @@
 
     len(list_a)
 
-* ``complete({start-col}, {match})``
-
-  - ``complete`` 函式只能在 insert mode 被呼叫，會產生一個選單，列出 ``{match}`` 裡的選項
-  - 該行會從 ``{start-col}`` 開始被切除，直到游標所在的位置為止，替換成 ``{match}`` 裡的選項
-  - ``{start-col}`` 是 1-based
-
-* ``exists()``
-
-  - 檢查某變數/函式/選項是否存在，見 ``:help exists``
-
 其他
 ----
 
