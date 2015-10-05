@@ -7,6 +7,7 @@ Python Package Index - PyPI
 
 * Python3.4
 
+  - ``python -m ensurepip`` (可能會需要 root 權限)
   - 從 Python3.4 開始， ``venv`` 預設會自帶 pip
 
 * Python2
@@ -22,4 +23,5 @@ Python Package Index - PyPI
   pip search pycurl
   pip install pycurl
   pip list
+  pip uninstall pycurl
 
