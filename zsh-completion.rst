@@ -9,7 +9,7 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 基本
 ----
 
-* 準備一個目錄，專門用來放 Completion Script，把目錄的路徑加入 ``fpath`` ::
+* 準備一個目錄，專門用來放 Completion Script，並且把目錄的路徑加入 ``fpath`` ::
 
     fpath=($HOME/.rcfiles/zsh/completions $fpath)
 
@@ -20,116 +20,91 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 
     #compdef hello
     _hello () {
-        _arguments "*:argument:(a b c)"
+        _arguments "*:argument:(arg1 arg2 XD)"
     }
     _hello "$@"
 
-  - 現在輸入 ``hello`` 按下 ``tab`` 會補完
+  - 現在輸入 ``hello `` 按下 ``tab`` 會補完
 
-``_arguments``
---------------
+``_arguments`` 基本使用方式
+---------------------------
 
-``_arguments`` 可能是最常被使用的功能之一，可以根據參數把選項做成選單
+``_arguments`` 的使用方法非常多，可以根據參數把選項做成選單
 
-使用方法非常多
+* 單字類的補完
 
-* 單純的選單 ::
+  - 格式： ``TAG:DESCRIPTION:ACTION``
+  - ``TAG`` 可以是參數的位置，例如 ``1`` 代表這個項目在第 1 個參數使用。 ``*`` 則是每個位置都套用
+  - ``DESCRIPTION`` 目前不確定用途，但不能是空字串，可以是一個空白字元
+  - ``ACTION``
 
-    _arguments '1:Countries:(France Germany Italy)'
+    + 補完一些單字： ``(France Germany Italy)``
+    + 補完一些單字，並附上說明： ``((Paris\:France Berlin\:Germany Rome\:Italy))``
+    + 更多用法見 ``ACTION`` 章節
 
-  - ``1`` 代表參數的位置，調整這個值可以在不同的參數補完不同的內容
+  - 範例 ::
 
-    + ``*`` 代表全部套用
+      _arguments '*:Countries:((Paris\:France Berlin\:Germany Rome\:Italy))'
 
-  - ``Countries`` 目前不知道它的作用，但不能是空字串，可以是一個空白字元
-  - ``(France Germany Italy)`` 是補完的選項， ``()`` 是 Zsh Array
+    + 會產生如下的選單 ::
 
-* 附有說明的選單 ::
+        Berlin  -- Germany
+        Paris   -- France
+        Rome    -- Italy
 
-    _arguments '*:Cities:((Paris\:France Berlin\:Germany Rome\:Italy))'
+* ``-`` 開頭的選項
 
-  - ``(())`` 裡面裝著一連串的 Pair，Pair 之間用 ``:`` 分開，但 ``:`` 需要跳脫，故最後變成 ``\:``
-  - 會產生如下的選單 ::
+  - 格式： ``-OPT[DESCRIPTION]``
+  - 格式： ``-OPT[DESCRIPTION]:MESSAGE:ACTION``
+  - ``-OPT`` 為補完選項
+  - ``DESCRIPTION`` 為說明文字
+  - ``MESSAGE`` 目前不確定用途
+  - ``ACTION`` 如上述
+  - 範例 ::
 
-      Berlin  -- Germany
-      Paris   -- France
-      Rome    -- Italy
+      _arguments\
+        '-s[short output]'\
+        '--l[long output]'\
+        '-f[input file]:filename:_files'\
+        '*:filename:{_files}'
 
-* 附有說明的選單，且附有預設選項 ::
+    + ``-o[text]`` 會產生 ``-o`` 的補完，附上它的說明
+    + ``-o[text]:message:action`` 會產生 ``-o`` 的補完、說明。若 ``-o`` 被選到了，下一個參數會使用 ``action`` 來補完
+    + 預設選項 ``*:filename:{_files}`` 會以檔名做補完
 
-    local t
-    t=(
-      '-a[argument a]'
-      '-b[argument b]'
-      '*:filename:_files'
-    )
-    _arguments -s $t
+  - 若有多個選項需要分享同一個說明 ::
 
-  - ``t`` 是 Zsh Array，格式如上，一定要有一個預設選項 ``*`` ，且一定要是 Zsh 的補完指令
+      _arguments '(-f --force)'{-f,--force}'[description]'
 
-Context
--------
+``ACTION``
+----------
 
-Zsh 可以根據不同的參數位置產生不同的補完選項
+``ACTION`` 定義一個參數實際被補完時的行為
 
-建立以下檔案 ::
+* 補完一些單字： ``(France Germany Italy)``
+* 補完一些單字，並附上說明： ``((Paris\:France Berlin\:Germany Rome\:Italy))``
+* 使用函式產生補完選項： ``func_name``
 
-  #compdef hello
-  _hello () {
-      local curcontext="$curcontext" state line
-      typeset -A opt_args
+  - ``func_name`` 需要能夠產生補完，無法用 stdout 傳回結果
+  - 補完檔案名稱： ``_file``
+  - 補完以逗點分隔的選項：見 ``_values``
+  - 目前不確定用 ``{`` ``}`` 包起來與否的差異
+  - 若遇到不容易在一行內嵌入的狀況，分離成另一個函式應該可以解決
 
-      _arguments \
-          '1: :->country'\
-          '*: :->city'
+* 不補完，但改變狀態，以後可根據狀態做不同的補完： ``->state1``
 
-      case $state in
-      country)
-          _arguments '1:Countries:(France Germany Italy)'
-      ;;
-      *)
-          case $words[2] in
-          France)
-              _arguments '*:Cities:((Paris:France Berlin:Germany Rome:Italy))'
-          ;;
-          Germany)
-              compadd "$@" Berlin Munich Dresden
-          ;;
-          Italy)
-              local t
-              t=(
-                  '-aa[argument a]'
-                  '-ab[argument b]'
-                  '*:filename: _files'
-              )
-              _arguments -s $t
-          ;;
-          *)
-              _files
-          esac
-      esac
-  }
-  _hello "$@"
+  - 狀態會被存在 ``$state`` 變數中
 
-* ``_arguments '1: :->country' '*: :->city'`` 可以為每個參數設定狀態，並存在 ``state`` 中，後面根據 ``state`` 的值就可以知道現在正在補完第幾個參數
+``_values``
+~~~~~~~~~~~
 
-* ``words`` 是 Zsh Array，會存放目前 Command Line 上的每個「字」
-* ``compadd`` 目前還不確定用途，也是補完用的指令
+* 補完以逗點分隔的選項： ``{_values -s , dicts urban yahoo all moe}``
 
-compadd
--------
+  - ``dicts`` 是說明而不是選項之一
 
-目前還不確定 ``compadd`` 和 ``_arguments`` 的設計差異，但感覺 ``compadd`` 是比較高階的控制
+* 補完 ``foo@news:woo`` 格式的字串： ``_sep_parts '(foo bar)' @ '(news ftp)' : '(woo laa)'``
 
-* 把一些單字加入接下來的補完選單 ::
+感謝這份淺顯易懂的說明
+----------------------
 
-    ``compadd opt1 opt2 opt3``
-
-  - 如果想要補的選項有 ``-`` 開頭，可以用 ``compadd -- -a --long-option``
-
-* 加上顯示一行說明文字 ::
-
-    ``compadd -X 'explanation' opt1 opt2 opt3``
-
-  - ``explanation`` 會顯示在補完選單的上方
-
+https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
