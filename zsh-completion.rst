@@ -74,7 +74,7 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 
   - 若有多個選項需要分享同一個說明 ::
 
-      _arguments '(-f --force)'{-f,--force}'[description]'
+      _arguments {-f,--force}'[description]'
 
 ``ACTION``
 ----------
