@@ -737,3 +737,9 @@
       ...
     fi
 
+* ``cd`` 進上一個 ``mkdir`` 的目錄 ::
+
+    mkdir directory
+    cd !$
+
+  - bash-like shell 限定
