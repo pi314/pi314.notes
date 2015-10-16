@@ -70,6 +70,13 @@
     + case insensitive ``=~?``
     + pattern 建議用單引號字串
 
+  - Regex group ::
+
+      matchlist('test, test2', '\v^([a-z]*), (.*)$')
+      -> ['test, test2', 'test', 'test2', '', '', '', '', '', '', '']
+
+    + 看起來最多到 9 個 group
+
 * 字串長度 (bytes) ::
 
     strlen(s)
@@ -100,6 +107,12 @@
       strpart("abcdefg", -2, 4)   == "ab"
       strpart("abcdefg", 5, 4)    == "fg"
       strpart("abcdefg", 3)       == "defg"
+
+* 轉數字 ::
+
+    str2nr("42", 10)
+
+  - base 可以是 8、10、16
 
 內建函式
 --------
