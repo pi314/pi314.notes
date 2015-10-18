@@ -88,9 +88,21 @@ FreeBSD 各種設定
     keyrate="fast"
 
 * 關掉 FreeBSD 內建的 sendmail ::
+
     #/etc/rc.conf
     sendmail_enable="NONE"
     sendmail_msp_queue_enable="NO"
     sendmail_outbound_enable="NO"
     sendmail_submit_enable="NO"
 
+帳號設定
+--------
+
+* 新增使用者： ``adduser``
+* 若要修改使用者的「第一個 group」，用 ``vipw`` 指令修改
+
+  - 會更動 ``/etc/passwd`` 、 ``/etc/master.passwd``
+
+* 若要修改使用者的「第二個 group」，可以直接改 ``/etc/group``
+
+  - 下次登入以後生效
