@@ -33,6 +33,11 @@ VimL 具有許多程式語言的部份特性
 
   - 一樣，要是用錯方式，使用者不會直接從錯誤訊息看出來
 
-* VimL 的函式可以被當成參數傳入別的函式，但得先用 ``function('name')`` 取得函式物件的 reference 才行
-* VimL 的 list 可以做 slicing，但上下界都會包含在 slicing 的範圍內
-* VimL 的 map 只能把 list 變成字串，而且是 in-place 的
+* 函式可以被當成參數傳入別的函式，但得先用 ``function('name')`` 取得函式物件的 reference 才行
+* list 可以做 slicing，但上下界都會包含在 slicing 的範圍內
+* ``range()`` 函式的行為不一致
+
+  - ``range(a)`` 會回傳 ``[0, 1, ..., a-1]``
+  - ``range(a, b)`` 卻會回傳 ``[a, a+1, ..., b]``
+
+* map 只能把 list 變成字串，而且是 in-place 的
