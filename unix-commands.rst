@@ -454,13 +454,6 @@
 
   - 請參考 ``ports.rst``
 
-* ``zpool`` ::
-
-    zpool status -v
-    zpool export ZPOOL
-    zpool import ZPOOL ZPOOLDD
-    zpool status -v
-
 * ``pfctl``
 
   - 在 ``{table}`` 裡增加 ``{IP}`` ::
