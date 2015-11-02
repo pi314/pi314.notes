@@ -1,9 +1,9 @@
-===================
-= tmux 用法及設定 =
-===================
+===============
+tmux 用法及設定
+===============
 
 用詞
-----
+-----
 
 ``tmux`` 的介面可以分成
 
@@ -16,11 +16,11 @@
 2.  分割畫面的區塊: pane
 
 Command Line Arguments
-----------------------
+-----------------------
 
-* 開啟一個新的 ``tmux`` session ::
+* 開啟一個新的 ``tmux`` session，並指定 session name 為 ``portmaster`` ::
 
-    tmux
+    tmux new -s portmaster
 
 * 列出目前的 ``tmux`` session ::
 
@@ -31,7 +31,7 @@ Command Line Arguments
     tmux new vim
 
 Hot Keys
---------
+---------
 
 * ``tmux`` 的 hot key 預設都以 ``C-b`` (``Ctrl`` ``b``) 為前綴
 
@@ -102,7 +102,7 @@ Hot Keys
     + 按下 enter 後離開
 
 tmux 內部指令
--------------
+--------------
 
 * ``:detach``
 
@@ -111,7 +111,7 @@ tmux 內部指令
     :rename-window test
 
 設定
-----
+-----
 
 * 個人設定檔: ``~/.tmux.conf``
 
@@ -137,4 +137,3 @@ tmux 內部指令
 
       bind-key -n S-Left  previous-window
       bind-key -n S-Right next-window
-
