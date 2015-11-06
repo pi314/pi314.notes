@@ -114,6 +114,13 @@
 
   - base 可以是 8、10、16
 
+* 與 unicode code point 轉換 ::
+
+    char2nr("中文字")
+    nr2char(20013)
+
+  - ``char2nr`` 會回傳第一個字的 code point（ ``中`` → U+4e2d → 20013）
+
 內建函式
 --------
 
