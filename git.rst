@@ -50,15 +50,22 @@
 
     git log
 
-* 把所有檔案加入 commit ::
+* 把所有檔案加入 staging area ::
 
     git add -A
 
-* 查看 commit repository 和 working directory 的差異
+* 查看 staging area 和 working directory 的差異
 
   - ``git status``
-
   - ``git diff``
+
+* 正式 commit ::
+
+    git commit
+
+  - 若不慎 add 了太多檔案，但只想要 commit 特定檔案 ::
+
+      git commit file1 file2 ...
 
 * 追蹤檔案
 
