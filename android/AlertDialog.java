@@ -5,10 +5,10 @@ public void show_alert_dialog (String title, String message) {
 
     final EditText input = new EditText(this);
     dialog.setView(input);
-    
+
     dialog.setPositiveButton("OK", new DialogInterface.OnClickListener () {
         public void onClick (DialogInterface dialog, int id) {
-            String value = input.getText();
+            String value = input.getText().toString();
         }
     });
 
