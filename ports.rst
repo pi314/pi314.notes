@@ -1,17 +1,19 @@
-=========
-= Ports =
-=========
+=====
+Ports
+=====
 
 FreeBSD Ports
--------------
+--------------
 
 簡介
-~~~~
+``````
 
 FreeBSD 的 Ports 系統維護一個 Ports Tree，位置在 ``/usr/ports/`` ，每個軟體各自佔一個目錄，裡面存放該軟體的安裝資訊
 
+FreeBSD 的 Ports 設定檔在 ``/etc/portsnap.conf``
+
 Ports Tree
-~~~~~~~~~~
+````````````
 
 * 第一次下載 port tree（ ``/usr/ports`` 不存在） ::
 
@@ -28,7 +30,7 @@ Ports Tree
   - 若希望 port tree 定期自動更新，請使用 ``portsnap cron`` ，才可以在非 interactive shell 執行
 
 使用 Make 指令
-~~~~~~~~~~~~~~
+````````````````
 
 * 搜尋某個 Ports ::
 
@@ -38,7 +40,7 @@ Ports Tree
   - 可以列出 Build Dependency、Run Dependency 以及簡介和網頁
 
 Portmaster
-~~~~~~~~~~
+````````````
 
 * 務必檢查 ``/usr/ports/UPDATING`` 裡面的資訊
 
@@ -65,7 +67,7 @@ Portmaster
     # portmaster -r python3-3_2
 
 pkg
-~~~
+`````
 
 * 列出所有已安裝的 ports ::
 
@@ -111,7 +113,7 @@ pkg
     # pkg clean
 
 Mac OS X Ports
---------------
+---------------
 
 * 參數格式 ::
 
