@@ -135,8 +135,8 @@ Mac OS X Ports
 
 * 列出已安裝的 ports ::
 
-    $ port list installed
-    $ port list requested
+    $ port echo installed
+    $ port echo requested
 
 * 更新 ports ::
 
@@ -163,3 +163,5 @@ Mac OS X Ports
   - 安裝時增加參數 ::
 
       # port install vim +python34
+
+    + 多種 variant 可以同時安裝在系統中，但一次只會有一個為 active
