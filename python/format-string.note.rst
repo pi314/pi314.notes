@@ -6,7 +6,7 @@ str.format() 在 Python 2.6 中出現，在這之前只能使用 '%' 運算子
 
 * `文件`_
 
-..  _文件: https://docs.python.org/2/library/string.html#format-string-syntax
+..  _文件: https://docs.python.org/3/library/string.html#format-string-syntax
 
 str.format()
 ------------
@@ -46,6 +46,8 @@ str.format()
 
       >>> '{num:{fill}{width}}'.format(num=123, fill='0', width=6)
       '000123'
+
+    + str.format 是遞迴的行為，裡層的 ``{fill}`` 會先被產生後，才開始運算外層的 ``{num}``
 
 * 搭配 dict ::
 
