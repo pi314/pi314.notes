@@ -665,6 +665,11 @@
 
     + 有些 Linux Distribution 是 based on 其他 Linux Distribution
 
+* ``sed``
+
+  - ``sed "s/pattern/string/g"``
+  - pattern 裡面的 group 小括號需要跳脫，i.e. ``\(\)``
+
 其他
 ====
 
