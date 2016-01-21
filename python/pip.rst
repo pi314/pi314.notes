@@ -3,7 +3,7 @@ Python Package Index - PyPI
 ===========================
 
 取得
-----
+-----
 
 * Python3.4
 
@@ -15,7 +15,7 @@ Python Package Index - PyPI
   - Python2.7 的 pip 在 FreeBSD Ports: ``devel/py27-pip`` 可以取得
 
 簡易使用
---------
+---------
 
 ::
 
@@ -23,5 +23,11 @@ Python Package Index - PyPI
   pip search pycurl
   pip install pycurl
   pip list
+  pip show pycurl
   pip uninstall pycurl
 
+進階使用
+---------
+
+* ``pip install -e {path}`` 可以把一個目錄做為 Python package 安裝，並且可以隨時修改
+* [第三方] ``pipdeptree`` 可以較清楚的列出 module 間的相依關係
