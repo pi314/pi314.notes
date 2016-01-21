@@ -3,8 +3,7 @@
 ============
 
 概念
-----
-
+-----
 * 特色
 
   - 分散式
@@ -31,8 +30,7 @@
     + repository 中的檔案在 checkout 後會進入 working directory
 
 基本
-----
-
+-----
 * 初始化 ::
 
     git init
@@ -101,12 +99,15 @@
 
     git reset --hard HEAD
 
+* 把單一檔案還原到先前的版本 ::
+
+    git checkout {commit} -- {filename}
+
 進階
-----
+-----
 
 更動暫存系統 - stash
-~~~~~~~~~~~~~~~~~~~~
-
+``````````````````````
 * stash 是一個 stack，可以把未 commit 的內容暫存起來，避免因正在修改某些檔案而導致無法做其他操作，如切換 branch 等等
 
 * 把未 commit 的更動暫存起來 ::
@@ -128,8 +129,7 @@
     git stash drop
 
 submodule
-~~~~~~~~~
-
+```````````
 * submodule 讓一個 repo 可以使用其他 repo，且每個 repo 可以是不同版本
 
 * 為 repo 加入一個 submodule ::
@@ -158,8 +158,7 @@ submodule
     2.  ``git submodule update``
 
 Bare repository
-~~~~~~~~~~~~~~~
-
+`````````````````
 * bare repo 可以讓你不架設 git server，卻又可以 push/pull
 * 建立方式
 
@@ -171,8 +170,7 @@ Bare repository
         git remote add origin {username}@{host}:{bare-repo-path}
 
 其他
-~~~~
-
+``````
 * 只加入檔案部份的更動
 
   - 以 patch 的方式 ::
@@ -261,8 +259,7 @@ Bare repository
         git rebase --onto master feature1 feature2
 
 Branch 相關
------------
-
+------------
 * 列出 branch ::
 
     git branch
@@ -306,8 +303,7 @@ Branch 相關
     git fetch -p
 
 Github 相關
------------
-
+------------
 * ``git pull``
 
 * 設定目的地
@@ -326,8 +322,7 @@ Github 相關
     git push -f origin HEAD^:master
 
 協作 - 在 github 上貢獻別人的 Project
--------------------------------------
-
+--------------------------------------
 假設該 project 名稱為 A
 
 1.  在 github 上 fork A, A 會複製一份到自己的帳號底下 (稱為 B)
