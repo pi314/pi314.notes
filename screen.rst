@@ -49,7 +49,7 @@ command line arguments
 
 * 連接 Serial Port ::
 
-    screen /dev/tty.Bluetooth-Incoming-Port 119200
+    screen /dev/tty.Bluetooth-Incoming-Port 115200
 
   - 沒錯，GNU Screen 可以連接 Serial Port
 
