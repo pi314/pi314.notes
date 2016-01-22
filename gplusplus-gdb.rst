@@ -35,6 +35,8 @@ gdb
 
       gdb> r
 
+    + ``r args`` 可以在執行時傳入 command line 參數
+
   - 離開 ::
 
       gdb> q
@@ -42,4 +44,3 @@ gdb
   - 印出 backtrace ::
 
       gdb> backtrace
-
