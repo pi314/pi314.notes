@@ -30,6 +30,7 @@ Functions
 * ``COUNTIF(range, value)`` 算出 ``range`` 內和 ``value`` 相同值的數量
 * ``COUNTUNIQUE(range)`` 算出 ``range`` 內所有不相同的值的數量
 * ``ISBLANK(cell)`` 檢查內容是否為空（注音空白字元會被判斷為非空）
+* ``ISNUMBER(cell)`` 檢查內容是否為數字
 * ``TRIM(cell)`` 將前後空白字串清除
 
 
