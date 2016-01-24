@@ -66,6 +66,10 @@ Portmaster
 
     # portmaster -r python3-3_2
 
+* 刪除一個 port ::
+
+    # portmaster -e <portname>
+
 pkg
 `````
 
