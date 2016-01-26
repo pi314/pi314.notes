@@ -37,6 +37,7 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
   - ``DESCRIPTION`` 目前不確定用途，但不能是空字串，可以是一個空白字元
   - ``ACTION``
 
+    + ``ACTION`` 和它前面的 ``:`` 之間不能有空白字元
     + 補完一些單字： ``(France Germany Italy)``
     + 補完一些單字，並附上說明： ``((Paris\:France Berlin\:Germany Rome\:Italy))``
     + 更多用法見 ``ACTION`` 章節
