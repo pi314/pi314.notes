@@ -100,12 +100,15 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 
 * 補完一些單字： ``(France Germany Italy)``
 * 補完一些單字，並附上說明： ``((Paris\:France Berlin\:Germany Rome\:Italy))``
+
+  - 也可以不附說明，且若選項有空白， ``(())`` 的效果會比 ``()`` 好
+
 * 使用函式產生補完選項： ``func_name``
 
   - ``func_name`` 需要能夠產生補完，無法用 stdout 傳回結果
   - 補完檔案名稱： ``_file``
   - 補完以逗點分隔的選項：見 ``_values``
-  - 目前不確定用 ``{`` ``}`` 包起來與否的差異
+  - 用 ``{`` ``}`` 包起來的話可以傳參數，e.g. ``{_values -s , dicts urban yahoo all moe}``
   - 若遇到不容易在一行內嵌入的狀況，分離成另一個函式應該可以解決
 
 * 不補完，但改變狀態，以後可根據狀態做不同的補完： ``->state1``
@@ -117,7 +120,8 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 `````````````
 * 補完以逗點分隔的選項： ``{_values -s , dicts urban yahoo all moe}``
 
-  - ``dicts`` 是說明而不是選項之一
+  - ``dicts`` 是說明而不是選項之一，但用途未知
+  - zsh 會自己判斷選項是否已被選進 BUFFER
 
 * 補完 ``foo@news:woo`` 格式的字串： ``_sep_parts '(foo bar)' @ '(news ftp)' : '(woo laa)'``
 
@@ -133,11 +137,16 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 
 其他
 -----
-``$PREFIX`` 會儲存目前游標所在的單字
-
+* ``$BUFFER`` 儲存整行指令的內容
+* ``$PREFIX`` 儲存目前游標所在的單字
 * ``_hosts`` 基本上是查看 ``~/.ssh/known_hosts`` 的內容，zsh 只在開啟時載入一次（並非每次補完時都查看）
 
 
 感謝這份淺顯易懂的說明
 -----------------------
 https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
+
+
+其他文件
+---------
+* http://zsh.sourceforge.net/Doc/Release/Expansion.html
