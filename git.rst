@@ -258,6 +258,10 @@ Bare repository
 
         git rebase --onto master feature1 feature2
 
+* 壓縮一串 commits ::
+
+    git rebase -i {after-this-commit}
+
 Branch 相關
 ------------
 * 列出 branch ::
