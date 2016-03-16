@@ -1,11 +1,13 @@
+import os
+
 import tornado.ioloop
 import tornado.websocket
 import tornado.web
 
-import os
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_PATH = os.path.join(ROOT_DIR, 'static')
+
 
 class IndexPageHandler(tornado.web.RequestHandler):
     def set_extra_headers(self, path):
@@ -13,6 +15,7 @@ class IndexPageHandler(tornado.web.RequestHandler):
 
     def get(self):
         self.render('templates/chat.html')
+
 
 class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     websockets = set()
@@ -44,6 +47,7 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     def on_pong(self, data):
         """Invoked when the response to a ping frame is received."""
         pass
+
 
 application = tornado.web.Application([
     tornado.web.url(r'/', IndexPageHandler),
