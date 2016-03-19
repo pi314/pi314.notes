@@ -9,6 +9,8 @@
 
 virtualenv 甚至可以隔離不同版本的 Python，讓 Python2.7 和 Python3.4 共存於系統中（較麻煩，後述）
 
+註：Python 3.4 開始內建 ``venv`` ，和底下提到的 virtualenv 功能類似，但無法隔離不同的 Python 版本
+
 安裝 virtualenv
 ---------------
 
@@ -30,8 +32,6 @@ virtualenv 甚至可以隔離不同版本的 Python，讓 Python2.7 和 Python3.
     + 範例 ::
 
         $ virtualenv .virtualenv --python=.py27/bin/python
-
-    + 在 Python3.4 以後也可以使用 ``python -m venv {{ virtualenv-name }}``
 
 2.  套用某個 virtualenv 環境 ::
 
