@@ -1,29 +1,23 @@
-/*
-    If you need one Thread wait for another Thread finish,
-     use Handler.
-*/
-
-new Thread(new ClientThread()).start();
-
-// new Thread(new ClientThread(314)).start();
-
-////////////////////
-
-/*static */class ClientThread implements Runnable {
-
+class FooThread implements Thread {
     private int value;
 
-    public ClientThread (int a) {
+    public FooThread (int a) {
         value = a;
     }
 
-    public ClientThread () {
+    public FooThread () {
         value = 0;
     }
 
     @Override
     public void run () {
         /* do some stuff */
-        notify_message(CONST.JOB_DONE, ClientThread);
     }
 }
+
+Thread t = new FooThread();
+t.start();
+t.join();   // Blocks until ``t`` ends
+
+// ``t`` cannot be reused after finished,
+// if you need to re-run it, create a new object
