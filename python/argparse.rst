@@ -18,7 +18,7 @@ Python ``argparse`` module 是個用來處理參數邏輯的 framework
 
     parser.add_argument('-f', nargs=1, dest='var')
 
-  - ``nargs`` 指定 ``-f`` 後面可接的參數數量，可用的選項有
+  - ``nargs`` 指定 ``-f`` 後面可接的參數數量，後有詳述
 
   - ``dest`` 指定實際儲存值的變數名稱
 
