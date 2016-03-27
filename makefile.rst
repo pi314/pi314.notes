@@ -1,12 +1,10 @@
 =============
 Makefile 筆記
 =============
-
 Makefile 可以處理 Task 之間的 Dependency，讓編譯過程自動化
 
 基本語法
 --------
-
 ::
 
     RULE1 = gcc
@@ -26,7 +24,6 @@ Makefile 可以處理 Task 之間的 Dependency，讓編譯過程自動化
 
 變數
 ----
-
 * Assign
 
   - ``=``
@@ -57,7 +54,6 @@ Makefile 可以處理 Task 之間的 Dependency，讓編譯過程自動化
 * **[GNU make only]** ``%`` 為通用字元，類似 shell 的 ``*``
 
   - 用 ``$*`` 存取 match 的部份
-
   - 範例 ::
 
       .--------------------.
@@ -69,7 +65,6 @@ Makefile 可以處理 Task 之間的 Dependency，讓編譯過程自動化
 
 其他
 ----
-
 * [2015/06/11] 如果 target 是 ``main.out`` ，dependency 最好是 ``main.o`` 而不要是 ``main.cpp``
 
   - 今日遭遇::
@@ -81,4 +76,3 @@ Makefile 可以處理 Task 之間的 Dependency，讓編譯過程自動化
     + ``Makefile`` 裡面寫的明明是 ``clang++36`` ，下了 ``make`` 指令後卻執行了 ``c++ -O2 -pipe -c main.cpp`` ， ``-std=c++14`` flag 消失了
     + 推測是 FreeBSD ``make`` 自動去尋找系統內的 ``c++`` compiler 去編譯 ``main.cpp``
     + ``c++`` 和 ``clang++`` 是 link，但我需要的是 ``/usr/local/bin/clang++36`` 而不是 ``/usr/bin/clang++``
-
