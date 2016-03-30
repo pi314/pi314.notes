@@ -670,6 +670,11 @@
   - ``sed "s/pattern/string/g"``
   - pattern 裡面的 group 小括號需要跳脫，i.e. ``\(\)``
 
+* ``column``
+
+  - ``column -t``
+  - 把字對齊
+
 其他
 ====
 
