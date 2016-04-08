@@ -16,6 +16,4 @@ String class_name = thing.getClass().getName();
 Systen.out.println("thing is a " + class_name);
 if (thing instanceof Integer) {
     System.out.println("thing is an Integer");
-} 
-
-
+}
