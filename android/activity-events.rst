@@ -27,6 +27,7 @@ Events in Android Activity
 
   - Activity 被放到背景
   - 可用 ``isFinishing()`` 檢查 Activity 是否確定要關閉
+  - 需在第一行呼叫 ``super.onPause()``
   - Next: ``onStop()``
 
 * ``public void onStop ()``
