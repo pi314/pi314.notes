@@ -27,11 +27,13 @@ Events in Android Activity
 
   - Activity 被放到背景
   - 可用 ``isFinishing()`` 檢查 Activity 是否確定要關閉
+  - Next: ``onStop()``
 
 * ``public void onStop ()``
 
   - Activity 不再可見
   - **可能不會被呼叫**
+  - Next: ``onDestroy()``
 
 * ``public void onDestroy ()``
 
@@ -49,4 +51,3 @@ Events in Android Activity
 * ``public boolean onKeyLongPress (int keyCode, KeyEvent event)``
 
   - ``return false`` 代表不處理
-
