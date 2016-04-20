@@ -26,6 +26,34 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
   - 現在輸入 ``hello `` 按下 ``tab`` 會補完
 
 
+``_describe`` 基本使用方式
+---------------------------
+以下 Code 可以產生選單補完
+
+..  code:: sh
+
+    local -a options arguments
+    options=('-c:description for -c opt' '-d:description for -d opt')
+    arguments=('e:description for e arg' 'f:description for f arg')
+    _describe 'values' options -- arguments
+
+產生選單 ::
+
+  -c  -- description for -c opt
+  -d  -- description for -d opt
+  e   -- description for e arg
+  f   -- description for f arg
+
+
+``_alternative`` 基本使用方式
+------------------------------
+當你想要把兩個函式的結果都拿來補完的時候，可以用 ``_alternative`` 達成 ::
+
+  _alternative \
+    'users:user:_users' \
+    'hosts:host:_hosts'
+
+
 ``_arguments`` 基本使用方式
 ----------------------------
 ``_arguments`` 的使用方法非常多，可以根據參數把選項做成選單
@@ -84,14 +112,10 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 
     + zsh 只會補完 ``-a`` 和 ``-b`` 其中一個
 
+* 就算是連續，兩次 ``_arguments`` call 的效果會分開
 
-``_alternative`` 基本使用方式
-------------------------------
-當你想要把兩個函式的結果都拿來補完的時候，可以用 ``_alternative`` 達成 ::
-
-  _alternative \
-    'users:user:_users' \
-    'hosts:host:_hosts'
+  - 參數可以重覆
+  - 參數與說明的對齊會分開計算
 
 
 ``ACTION``
