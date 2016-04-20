@@ -1,5 +1,2 @@
-If you are starting a service from an Activity, which is in a TabActivity,
-
-then you have to use `getApplicationContext().startService(intent);` instead of just `startService(intent)`
-
-OR the service will be killed without `onDestroy()` after the TabActivity being destroyed.
+* 若在 TabActivity 中的 Activity 想要啟動 Service，請使用 ``getApplicationContext().startService();`` 而不是 ``startService()`` ，否則在 TabActivity 關閉時，Service 的 ``onDestroy()`` 不會被呼叫
+* ``startService()`` 或 ``bindService()`` 會在 Main Thread 上執行，也就是 ``onCreate()`` 結束後，若中途被 Block 住，可能導致 Dead Lock
