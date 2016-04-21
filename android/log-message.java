@@ -1,3 +1,7 @@
+static private void logging (String format, Object... args) {
+    logging(String.format(format, args));
+}
+
 static private void logging (String message) {
     String padding = message.startsWith(" ") || message.startsWith("[") ? "" : " ";
     Log.i(log_tag, String.format("[%s][%s]%s%s%n", log_tag, local_log_tag, padding, message));
