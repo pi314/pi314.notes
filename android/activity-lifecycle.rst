@@ -1,11 +1,18 @@
-==========================
-Events in Android Activity
-==========================
+===============================
+Lifecycle of Android Activities
+===============================
+Android Activity 的生命週期有許多步驟，每個步驟都有對應的函式
 
+這些函式都是在 Main Thread 上執行，使得它們不可能重疊發生
+
+若在這些函式中觸發了別的事件，該事件會在當下的函式結束後才觸發，例如 ``finish()`` 函式其實並不會立刻使 Activity 結束，開啟服務亦同，使用時需注意不要產生 Deadlock
+
+列表
+-----
 * ``public void onCreate (Bundle savedInstanceState);``
 
   - Activity 做一般初始化，如產生 views，把資料 binding 到 List 上等等
-  - 在這個函式呼叫 ``finish()`` 會導致 ``onDestroy()`` 立刻被呼叫
+  - 在這個函式呼叫 ``finish()`` 會導致 ``onDestroy()`` 被呼叫
   - Next: ``onStart()``
 
 * ``public void onRestart ();``
