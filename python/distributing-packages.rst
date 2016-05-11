@@ -28,49 +28,35 @@ PyPI Package 需符合一定的目錄結構 ::
         version='0.1',
         description='<說明>',
         author='<作者>',
-        author_email='<作者 email>',
-        url='<Package URL>',
+        author_email='<作者 Email>',
+        url='<Package Website>',
         classifiers=[],
     )
 
 
-產生 Dist Files
-----------------
-1.  安裝 ``wheel`` Package
-2.  產生 PKG-INFO 檔案 ::
+上傳至 PyPI
+------------
+請確定你有一個 https://pypi.python.org/pypi 帳號
 
-      $ python setup.py egg_info
+1.  第一次上傳需先註冊 Package ::
 
-    + PKG-INFO 檔案是 PyPI Package 的 Metadata
+      $ python setup.py register
 
-3.  產生 Dist Files ::
+    + 第一次執行時會詢問是否要把登入資訊存入 ``$HOME.pypirc`` （含密碼），若不存入的話，目前（2016/05/11）官方的 CPython 在上傳時會出問題
 
-      $ python setup.py sdist bdist_wheel
+      * ``python setup.py register`` 若 ``$HOME.pypirc`` 不存在，會詢問 username 以及 password
+      * ``python setup.py register`` 若 ``$HOME.pypirc`` 沒有 password，會詢問 password
+      * ``python setup.py register`` 若 ``$HOME.pypirc`` 資訊完整，不會詢問
+      * ``python setup.py register upload`` 會使用 ``register`` 取得的密碼
+      * ``python setup.py upload`` 若 ``$HOME.pypirc`` 不存在或資訊不完整，會 *爆炸*
+
+2.  上傳 ::
+
+      $ python setup.py sdist bdist_wheel upload
 
     + ``sdist`` 會把 Source code 包裝成壓縮檔
     + ``bdist_wheel`` 會把 Source code 編譯過再包裝成壓縮檔，這個方法的安裝過程會比較快 [1]_
     + ``bdist_wheel`` 選項需安裝 ``wheel`` Package 以後才能使用
     + 產生的壓縮檔會放在 ``dist/`` 目錄中
 
-..  [1] https://packaging.python.org/en/latest/distributing/#wheels
-
-
-上傳至 PyPI
-------------
-
-第一次上傳
-````````````
-1.  至 https://pypi.python.org/pypi 申請帳號
-2.  點選 Package Submision 選項
-3.  上傳 PKG-INFO 檔案
-4.  安裝 ``twine`` Package
-5.  透過 ``twine`` 上傳 ::
-
-      $ twine upload dist/*
-
-
-上傳新版本
-````````````
-::
-
-  $ twine upload dist/*
+    ..  [1] https://packaging.python.org/en/latest/distributing/#wheels
