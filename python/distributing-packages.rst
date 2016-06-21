@@ -60,3 +60,10 @@ PyPI Package 需符合一定的目錄結構 ::
     + 產生的壓縮檔會放在 ``dist/`` 目錄中
 
     ..  [1] https://packaging.python.org/en/latest/distributing/#wheels
+
+
+附帶靜態檔案
+-------------
+若靜態檔案和 ``setup.py`` 需放在同一層（例如 ``LICENSE.txt`` ），可以加上一個 ``MANIFEST.in`` 檔案 ::
+
+  include LICENSE.txt
