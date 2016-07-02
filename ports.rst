@@ -7,14 +7,12 @@ FreeBSD Ports
 
 簡介
 ``````
-
 FreeBSD 的 Ports 系統維護一個 Ports Tree，位置在 ``/usr/ports/`` ，每個軟體各自佔一個目錄，裡面存放該軟體的安裝資訊
 
 FreeBSD 的 Ports 設定檔在 ``/etc/portsnap.conf``
 
 Ports Tree
 ````````````
-
 * 第一次下載 port tree（ ``/usr/ports`` 不存在） ::
 
     # portsnap fetch extract update
@@ -31,7 +29,6 @@ Ports Tree
 
 使用 Make 指令
 ````````````````
-
 * 搜尋某個 Ports ::
 
     $ make search name="{name}"
@@ -41,7 +38,6 @@ Ports Tree
 
 Portmaster
 ````````````
-
 * 務必檢查 ``/usr/ports/UPDATING`` 裡面的資訊
 
 * 檢查已安裝的 ports 中有沒有新版本 ::
@@ -72,7 +68,6 @@ Portmaster
 
 pkg
 `````
-
 * 列出所有已安裝的 ports ::
 
     $ pkg info
@@ -118,7 +113,6 @@ pkg
 
 Mac OS X Ports
 ---------------
-
 * 參數格式 ::
 
     port <action> <option>
@@ -169,3 +163,8 @@ Mac OS X Ports
       # port install vim +python34
 
     + 多種 variant 可以同時安裝在系統中，但一次只會有一個為 active
+
+
+其他
+-----
+FreeBSD ports ``git`` 若不希望 depend on Python2.7，可以把 ``CONTRIB`` 選項取消
