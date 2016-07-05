@@ -659,6 +659,10 @@
 
     + 透過 ``jump_host`` 做為跳板，ssh 至 ``target_host``
 
+  - ``ssh -D port user@host``
+
+    + 在 Local 端開 ``port`` 做為 Proxy，並把流量透過 ssh 導往 ``host`` 轉發
+
 * [Linux] ``lsb_release``
 
   - ``lsb_release -a`` 查看 Distribution 資訊
