@@ -12,7 +12,8 @@ Python Package Index - PyPI
 
 * Python2
 
-  - Python2.7 的 pip 在 FreeBSD Ports: ``devel/py27-pip`` 可以取得
+  - Fedora: ``yum -y install python-pip``
+  - FreeBSD Ports: ``devel/py27-pip``
 
 簡易使用
 ---------
