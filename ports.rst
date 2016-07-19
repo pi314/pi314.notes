@@ -2,14 +2,17 @@
 Ports
 =====
 
+
 FreeBSD Ports
 --------------
+
 
 簡介
 ``````
 FreeBSD 的 Ports 系統維護一個 Ports Tree，位置在 ``/usr/ports/`` ，每個軟體各自佔一個目錄，裡面存放該軟體的安裝資訊
 
 FreeBSD 的 Ports 設定檔在 ``/etc/portsnap.conf``
+
 
 Ports Tree
 ````````````
@@ -27,6 +30,7 @@ Ports Tree
 
   - 若希望 port tree 定期自動更新，請使用 ``portsnap cron`` ，才可以在非 interactive shell 執行
 
+
 使用 Make 指令
 ````````````````
 * 搜尋某個 Ports ::
@@ -36,26 +40,23 @@ Ports Tree
 
   - 可以列出 Build Dependency、Run Dependency 以及簡介和網頁
 
+
 Portmaster
 ````````````
 * 務必檢查 ``/usr/ports/UPDATING`` 裡面的資訊
 
-* 檢查已安裝的 ports 中有沒有新版本 ::
-
-    $ portmaster -L | grep avail
-
 * 更新一個或多個 ports ::
 
-    # portmaster -dBw editors/vim lang/python
+    # portmaster -Bdw editors/vim lang/python
 
 * 直接更新所有已安裝的 ports ::
 
-    # portmaster -dBaw --no-confirm
+    # portmaster -Bdwa --no-confirm
 
-  - ``-d``: 不要保留 dist file
   - ``-B``: 不要備份舊的 ports
-  - ``-a``: 全部更新
+  - ``-d``: 不要保留 dist file
   - ``-w``: 保留舊的 Share Library
+  - ``-a``: 全部更新
   - ``--no-confirm``: 不要問
 
 * 重新編譯某 port，並重新編譯所有 Depend 到該 port 的 ports ::
@@ -66,8 +67,13 @@ Portmaster
 
     # portmaster -e <portname>
 
+
 pkg
 `````
+* 檢查已安裝的 ports 中有沒有新版本 ::
+
+    $ pkg version -vl '<'
+
 * 列出所有已安裝的 ports ::
 
     $ pkg info
@@ -111,8 +117,9 @@ pkg
 
     # pkg clean
 
-Mac OS X Ports
----------------
+
+MacPorts
+---------
 * 參數格式 ::
 
     port <action> <option>
