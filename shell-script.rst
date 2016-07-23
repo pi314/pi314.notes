@@ -63,7 +63,7 @@ bourne sh
       echo $i
     done
 
-* 對別的指令的 stdout 做遞代 ::
+* 對別的指令的 stdout 做迭代 ::
 
     str="1 2 3"
     for i in $str; do
