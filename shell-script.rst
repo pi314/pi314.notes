@@ -65,10 +65,10 @@ bourne sh
 
 * 對別的指令的 stdout 做迭代 ::
 
-    str="1 2 3"
-    for i in $str; do
+    for i in $(echo 1 2 3 a b c); do
       echo $i
     done
+
 
 ``case``
 ``````````
