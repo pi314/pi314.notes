@@ -12,7 +12,7 @@ Threading Model 只是理論分類，實作上可能會有更多種不同的變�
   - 單核心的 CPU 只有一個 Hardware Thread
   - 多核心的 CPU 可以有多個 Hardware Thread
   - 原本這件事其實不重要，但在 Intel 做出 Hyperthreading 的技術以後，一顆 CPU 可以同時執行兩個指令，也就是有兩個 Hardware Thread
-  
+
     + 實際上這種 CPU 也並不總是能夠同時執行兩個指令，但對作業系統來說，一次可以放兩個指令給這顆 CPU
 
 * Kernel Thread：在作業系統中被排程的單位
