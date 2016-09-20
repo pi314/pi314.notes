@@ -84,7 +84,7 @@ pkg
 
 * 搜尋 ports ::
 
-    $ pkg search <package-name>
+    $ pkg search -o <package-name>
 
 * Dependency
 
