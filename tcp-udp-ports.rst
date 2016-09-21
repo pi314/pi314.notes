@@ -1,7 +1,6 @@
 ========================
 TCP/UDP Port Number 列表
 ========================
-
 * 20, TCP: FTP Data Transfer
 * 21, TCP: FTP Control
 * 22, TCP: SSH, SCP, SFTP
@@ -35,4 +34,3 @@ TCP/UDP Port Number 列表
 * 33434-33534, UDP: traceroute
 * 49152-65535, TCP & UDP: IANA ephemeral ports
 * 60000-61000, UDP: mosh
-
