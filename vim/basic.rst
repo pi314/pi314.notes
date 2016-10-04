@@ -480,3 +480,9 @@ Register
     + 更改密碼方式亦同
     + 若要取消加密，在更改密碼時都直接按 Enter 即可
 
+* 對每一行下指令 ::
+
+    :g/pattern/cmd
+
+  - 以 行 為單位，所有符合 ``pattern`` 的行都被執行 ``cmd`` （command mode 指令）
+  - 把檔案內所有成對的 ``{`` ``}`` 都刪除: ``:g/{/normal f{da{``
