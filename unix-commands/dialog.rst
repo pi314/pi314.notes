@@ -23,6 +23,8 @@
         echo ${selection}
     fi
 
+  - 註： ``echo $items`` 會把換行字元破壞掉， ``echo "$items"`` 則不會
+
 * 產生 inputbox 並取得使用者輸入的字串
 
   .. code:: sh
@@ -39,6 +41,6 @@
     (for i in $(seq 1 100); do
         echo $i
         sleep 0.01
-    ) | dialog --title Title --gauge text 20 50
+    done) | dialog --title Title --gauge text 20 50
 
   - 實際測試，在 FreeBSD 上 ``gauge`` 需要搭配 ``--title`` 選項，否則會 core dump
