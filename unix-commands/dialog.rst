@@ -31,3 +31,14 @@
     if [ $? -eq 0 ]; then
         echo ${user_input}
     fi
+
+* 產生進度條
+
+  .. code:: sh
+
+    (for i in $(seq 1 100); do
+        echo $i
+        sleep 0.01
+    ) | dialog --title Title --gauge text 20 50
+
+  - 實際測試，在 FreeBSD 上 ``gauge`` 需要搭配 ``--title`` 選項，否則會 core dump
