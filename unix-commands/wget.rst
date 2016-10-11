@@ -16,3 +16,5 @@
   - ``--user``: htaccess 使用者名稱
   - ``--password``: htaccess 密碼
   - ``--no-check-certificate``: 不檢查憑證
+
+* ``-P prefix``: 把所有下載的檔案存入 ``prefix/`` 目錄中
