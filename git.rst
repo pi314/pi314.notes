@@ -29,6 +29,7 @@
 
     + repository 中的檔案在 checkout 後會進入 working directory
 
+
 基本
 -----
 * 初始化 ::
@@ -103,6 +104,7 @@
 
     git checkout {commit} -- {filename}
 
+
 進階
 -----
 
@@ -128,7 +130,8 @@
 
     git stash drop
 
-submodule
+
+Submodule
 ```````````
 * submodule 讓一個 repo 可以使用其他 repo，且每個 repo 可以是不同版本
 
@@ -157,6 +160,7 @@ submodule
     1.  ``git pull origin``
     2.  ``git submodule update``
 
+
 Bare repository
 `````````````````
 * bare repo 可以讓你不架設 git server，卻又可以 push/pull
@@ -168,6 +172,7 @@ Bare repository
   4.  在所有其他需要 push/pull 的 repo 中，加上 remote ::
 
         git remote add origin {username}@{host}:{bare-repo-path}
+
 
 其他
 ``````
@@ -258,9 +263,15 @@ Bare repository
 
         git rebase --onto master feature1 feature2
 
+    + 較簡單的狀況：Local repo 在 master branch 上與遠端的 master conflict 了，希望把 Local repo 新增的改動 append 在遠端 master 之上
+
+      * 先 ``git fetch`` 抓下遠端的 master branch
+      * 再使用 ``git rebase origin/master`` ，更改 Local 的 master
+
 * 壓縮一串 commits ::
 
     git rebase -i {after-this-commit}
+
 
 Branch 相關
 ------------
@@ -306,6 +317,7 @@ Branch 相關
 
     git fetch -p
 
+
 Github 相關
 ------------
 * ``git pull``
@@ -324,6 +336,7 @@ Github 相關
 * 在 github 上隱藏前一個 commit ::
 
     git push -f origin HEAD^:master
+
 
 協作 - 在 github 上貢獻別人的 Project
 --------------------------------------
