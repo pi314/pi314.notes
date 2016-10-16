@@ -154,11 +154,10 @@ Submodule
   4.  ``git add {submodule}``
   5.  ``git commit -m "Update submodule"``
   6.  ``git push origin``
+  7.  其他 main repo 也需要更新
 
-  G.  其他 main repo 也需要更新
-
-    1.  ``git pull origin``
-    2.  ``git submodule update``
+      1.  ``git pull origin``
+      2.  ``git submodule update``
 
 
 Bare repository

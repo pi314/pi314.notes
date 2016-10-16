@@ -6,13 +6,13 @@ tmux 用法及設定
 -----
 ``tmux`` 的介面可以分成
 
-1.  類似 ``screen`` 的分頁
-2.  分割畫面的區塊
+* 類似 ``screen`` 的分頁
+* 分割畫面的區塊
 
 這份文件統一稱呼
 
-1.  類似 ``screen`` 的分頁: window
-2.  分割畫面的區塊: pane
+* 類似 ``screen`` 的分頁: window
+* 分割畫面的區塊: pane
 
 Command Line Arguments
 -----------------------
