@@ -152,3 +152,23 @@ These jokes are from ``pyjokes``, "One line jokes for programmers (jokes as a se
 * What does PyJokes's jokes have in common with Adobe Flash? They get updated all the time, but they don't get any better.
 
   - PyJokes 的笑話和 Adobe Flash 有什麼相似之處呢？它們總是在更新，但完全沒有變得更好。
+
+* Programming is like sex: One mistake and you have to support it for the rest of your life.
+
+  - 寫程式就像做愛：一次的錯誤會讓你用一生去彌補。
+
+* Software is like sex: It's better when it's free.
+
+  - 軟體就像做愛：免費的更好。
+
+* Software is like sex: It's never REALLY free.
+
+  - 軟體就像做愛：它從來不會「真的」免費。
+
+* The only intuitive user interface is the nipple. After that, it's all learned.
+
+  - 世上唯一一種直覺的使用者介面就是奶子。除此之外其他都得學了才會。
+
+* What's the difference between software development and sex? In sex, you don't get a bonus for releasing early.
+
+  - 軟體開發和做愛有什麼不同？做愛的時候提早結束不會讓你得到獎勵。
