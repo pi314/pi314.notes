@@ -1,7 +1,6 @@
-======================
-= License (授權條款) =
-======================
-
+==================
+License (授權條款)
+==================
 授權條款是軟體發佈時很重要的一環，他可以保障作者的權益，甚至可以保障使用者的權益。
 若你使用了某個軟體，就需要遵守該軟體的授權條款，否則授權人可以向你提告。
 
@@ -17,9 +16,9 @@ Open Sourced Software (開源軟體) 和 Free Software (自由軟體) 並不一�
 
 快速選一個授權: http://choosealicense.com/licenses/
 
-GPLv3
------
 
+GPLv3
+------
 GPL = GNU General Public License
 
 1.  接受者可以以任何目的執行 GPL 授權的軟體
@@ -32,9 +31,9 @@ GPL = GNU General Public License
 8.  軟體執行時產生的其他輸出不需套用 GPL 授權 (除非輸出的是軟體本身)
 9.  以 GPL 授權發佈軟體需附上 GPL 授權文件
 
-BSD
----
 
+BSD
+----
 BSD = Berkeley Software Distribution license
 
 BSD 授權包含一段版權宣告、授權本體、以及免責聲明
@@ -49,9 +48,9 @@ BSD 授權包含一段版權宣告、授權本體、以及免責聲明
 
 "遵守 BSD 授權的軟體" 可以用作商業用除，甚至改用其他授權
 
-WTFPL
------
 
+WTFPL
+------
 WTFPL = "Do What The Fuck You Want To Public License"
 
 全文 ::
@@ -73,8 +72,7 @@ WTFPL = "Do What The Fuck You Want To Public License"
     '---------------------------------------------------------------------'
 
 CC
---
-
+---
 CC = Creative Commons
 
 創用 CC 提供許多種分支，有些不允許商用，有些不允許改作，
@@ -82,8 +80,8 @@ CC = Creative Commons
 
 參考: http://creativecommons.org/licenses/
 
-Public Domain
--------------
 
+Public Domain
+--------------
 以 Public Domain 發佈的資料 (不只限於軟體) ，任何人都可以自由使用，但著作權不在任何人身上，這些資料也不能被任何人佔有。
 (應該是自由度最高的授權)
