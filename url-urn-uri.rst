@@ -1,7 +1,6 @@
 ===============
 URL / URN / URI
 ===============
-
 * URL = Uniform Resource Locator
 
   - URL 代表一個某資源的位置
@@ -20,16 +19,16 @@ URL / URN / URI
 
   - URL 是一種 URI，URN 也是一種 URI
 
-URL
----
 
+URL
+----
 * HTTP URL 格式 ::
 
     <scheme>://<domain>:<port>/<path>?<query_string>#<fragment_id>
 
-URI
----
 
+URN
+----
 * URN 格式 ::
 
     urn:<nid>:<nss>
