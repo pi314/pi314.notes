@@ -25,7 +25,7 @@ Bitcion 系統把所有的交易紀錄存在分散式的 Database 裡面，稱�
 
 * 轉到哪個錢包
 
-  - 由此可知每個錢包裡存放著一堆 Transaction ID，而不是 bitsoin
+  - 由此可知每個錢包裡存放著一堆 Transaction ID，而不是 bitcoin
   - 要是錢包掉了或是 Transaction ID 掉了，就會有一些 bitcoin 消失
 
 * 沒被提到的 bitcoin 將被視為手續費，由礦工吸收
