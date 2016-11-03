@@ -40,6 +40,8 @@
 * 1995 - Ruby 語言問世
 * 1997 - ECMAScript 標準問世
 * 1999 - RFC 2616 定義了 HTTP/1.1
+* 2001 - ZFS 開始開發
 * 2005 - Friendly Interactive Shell 問世
+* 2005/11 - ZFS 問世
 * 2009/04/20 - Oracle 公司收購 Sun Microsystems
 * 2009/09/22 - tmux 問世
