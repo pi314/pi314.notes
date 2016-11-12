@@ -113,7 +113,7 @@ pkg
 
     # pkg autoremove
 
-* 刪除distfiles ::
+* 刪除 distfiles ::
 
     # pkg clean
 
@@ -175,3 +175,5 @@ MacPorts
 其他
 -----
 FreeBSD ports ``git`` 若不希望 depend on Python2.7，可以把 ``CONTRIB`` 選項取消
+
+有關 Python 的預設版本設定請見 ``python/freebsd-python-default-version.rst``
