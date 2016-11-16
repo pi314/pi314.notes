@@ -8,14 +8,18 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 
 基本
 -----
-* 準備一個目錄，專門用來放 Completion Script，並且把目錄的路徑加入 ``fpath`` ::
+* 準備一個目錄，專門用來放 Completion Script，並且把目錄的路徑加入 ``fpath``
+
+  .. code:: sh
 
     fpath=($HOME/.rcfiles/zsh/completions $fpath)
 
   - ``fpath`` 的型態是 Zsh Array，而不像 ``path`` 一樣是字串
   - 記得原本的 ``fpath`` 要留著，不然內建的都會讀不到
 
-* 建立 ``_hello`` 檔案 ::
+* 建立 ``_hello`` 檔案
+
+  .. code:: sh
 
     #compdef hello
     _hello () {
@@ -30,7 +34,7 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 ---------------------------
 以下 Code 可以產生選單補完
 
-..  code:: sh
+.. code:: sh
 
     local -a options arguments
     options=('-c:description for -c opt' '-d:description for -d opt')
@@ -47,7 +51,9 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 
 ``_alternative`` 基本使用方式
 ------------------------------
-當你想要把兩個函式的結果都拿來補完的時候，可以用 ``_alternative`` 達成 ::
+當你想要把兩個函式的結果都拿來補完的時候，可以用 ``_alternative`` 達成
+
+.. code:: sh
 
   _alternative \
     'users:user:_users' \
@@ -70,7 +76,9 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
     + 補完一些單字，並附上說明： ``((Paris\:France Berlin\:Germany Rome\:Italy))``
     + 更多用法見 ``ACTION`` 章節
 
-  - 範例 ::
+  - 範例
+
+    .. code:: sh
 
       _arguments '*:Countries:((Paris\:France Berlin\:Germany Rome\:Italy))'
 
@@ -88,7 +96,9 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
   - ``DESCRIPTION`` 為說明文字
   - ``MESSAGE`` 目前不確定用途
   - ``ACTION`` 如上述
-  - 範例 ::
+  - 範例
+
+    .. code:: sh
 
       _arguments\
         '-s[short output]'\
@@ -100,11 +110,15 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
     + ``-o[text]:message:action`` 會產生 ``-o`` 的補完、說明。若 ``-o`` 被選到了，下一個參數會使用 ``action`` 來補完
     + 預設選項 ``*:filename:{_files}`` 會以檔名做補完
 
-  - 若有多個選項需要分享同一個說明 ::
+  - 若有多個選項需要分享同一個說明
+
+    .. code:: sh
 
       _arguments {-f,--force}'[description]'
 
-  - 若需要有多個選項之間互斥 ::
+  - 若需要有多個選項之間互斥
+
+    .. code:: sh
 
       _arguments \
           - '(set1)' {-a,--arg}'[description1]'
@@ -159,6 +173,45 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 若補完的選項有共同的前綴，且這些前綴不希望顯示在 menu 時，可以使用 ``compadd -p $pre``
 
 
+``zstyle``
+-----------
+``zstyle`` 可以快速、簡短的設定很多東西，用在 completion 上時，可以設定：
+
+* completion menu 每個分區的 title
+* 為特定程式過濾掉特定檔名（例如讓 ``vim`` 的補完不要出現 ``*.o`` 選項）
+* 應該還有很多可以設定
+
+語法： ``zstyle <context> <styles>``
+
+context 為 ``:completion:function:completer:command:argument:tag`` 格式的字串，中間可以用 ``*`` 做 wildcard matching
+
+分區 title 範例，每一種 title 可以套用不同的格式：
+
+.. code:: sh
+
+  zstyle ':completion:*' verbose yes
+  zstyle ':completion:*:descriptions' format "$fg[yellow]%B--- %d%b"
+  zstyle ':completion:*:messages' format '%d'
+  zstyle ':completion:*:warnings' format "$fg[red]No matches for:$reset_color %d"
+  zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+  zstyle ':completion:*' group-name ''
+
+過濾檔名範例，讓 ``vim`` 的補完不要出現 ``*.o`` 以及 ``*.out`` 選項
+
+.. code:: sh
+
+  zstyle ':completion:*:*:vim:*:*' ignored-patterns '(*.py|*.out)'
+
+在 ``2>`` 後方補完 ``*.log`` 的檔名
+
+.. code:: sh
+
+  zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'
+
+更多資訊請見 ``man zshcompsys`` 的 ``COMPLETION SYSTEM CONFIGURATION`` section
+
+
+
 其他
 -----
 * ``$BUFFER`` 儲存整行指令的內容
@@ -166,9 +219,10 @@ Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我�
 * ``_hosts`` 基本上是查看 ``~/.ssh/known_hosts`` 的內容，zsh 只在開啟時載入一次（並非每次補完時都查看）
 
 
-感謝這份淺顯易懂的說明
+特別感謝這些淺顯易懂的說明
 -----------------------
-https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
+* https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
+* http://www.masterzen.fr/2009/04/19/in-love-with-zsh-part-one/
 
 
 其他文件
