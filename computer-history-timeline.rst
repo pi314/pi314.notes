@@ -7,6 +7,7 @@
 * 1902/07/17 - Willis Haviland Carrier 發明冷氣機
 * 1941 - 第一部電子電腦問世
 * 1957 - FORTRAN 語言問世
+* 1956 - IBM 推出第一款硬碟產品
 * 1958 - Lisp 語言問世
 * 1968/12/09 - Mother of All Demos - Douglas C. Engelbart
 * 1968/07/18 - Intel 成立
