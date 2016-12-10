@@ -51,3 +51,18 @@ SQLite 語法筆記
 * 增加 Column ::
 
     ALTER TABLE {{table-name}} ADD COLUMN {{col}} {{type}};
+
+* 「重新命名」Column
+
+  - sqlite 並不提供重新命名 column 的功能，不過可以重建 table 來達成 ::
+
+      .schema
+      BEGIN TRANSACTION;
+      ALTER TABLE {{origin-table}} RENAME TO tmp_{{origin-table}};
+
+  - 記得在重建時把 column 改名 ::
+
+      CREATE TABLE {{origin-table}} ...;
+      INSERT INTO {{origin-table}} (col_a, col_b) SELECT (col_a, origin_col_b) FROM tmp_{{origin-table}};
+      COMMIT;
+
