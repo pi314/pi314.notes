@@ -48,3 +48,6 @@ SQLite 語法筆記
 
     DROP TABLE {{table-name}};
 
+* 增加 Column ::
+
+    ALTER TABLE {{table-name}} ADD COLUMN {{col}} {{type}};
