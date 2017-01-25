@@ -3,8 +3,7 @@
 =========================
 
 編輯區
-------
-
+-------
 * 取得編輯區內的內容
 
   - 取得游標所在的行的內容 ::
@@ -39,9 +38,9 @@
 
     call append('.', "xxx")
 
-切割
-----
 
+切割
+-----
 * 產生一個空空的 split ::
 
     new
@@ -54,23 +53,23 @@
 
 * ``setlocal noswapfile`` 和 ``setlocal buftype=nofile`` 可以產生「忽略內容修改」的視窗，用來顯示資訊
 
-Menu
-----
 
+Menu
+-----
 * ``pumvisible()`` 回傳 "現在是否有 Menu 正在顯示"
 
   - 若 Menu 中只有一個選項，Menu 預設不會顯示，但 ``pumvisible()`` 仍會回傳 ``1``
 
-指令
-----
 
+指令
+-----
 * 執行 normal mode 下的動作 ::
 
     normal! <movements>
 
+
 編寫 vim 語法上色檔
 -------------------
-
 * 基本方法 ::
 
     syn match {name} {regex}
@@ -110,9 +109,9 @@ Menu
 
 * 要注意 ``syntax on`` 會讓 vim 提早載入 ``syntax/`` 裡的 script，若有需要用到 ``ftplugin/`` 定義的變數，請用一些變數辨認狀態
 
-函式
-----
 
+函式
+-----
 * ``complete({start-col}, {match})``
 
   - ``complete`` 函式只能在 insert mode 被呼叫，會產生一個選單，列出 ``{match}`` 裡的選項
@@ -129,3 +128,8 @@ Menu
     executable('zdict')
 
   - 會自動搜尋檢查使用者的 PATH
+
+
+其他
+-----
+* ``file`` 指令可以指定 tab 顯示的 title
