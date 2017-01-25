@@ -8,6 +8,7 @@ LTE 筆記
 ----
 
 ::
+
     .----------------------------------------------------.
     |                                                    |
     |                         +-----+                    |
@@ -1134,4 +1135,3 @@ Logical Channel
   - SaMOG GW 模擬了 S-GW 的行為（？）
 
 * SON - Self Optimize/Organize Network
-
