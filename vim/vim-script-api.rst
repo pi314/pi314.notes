@@ -2,6 +2,14 @@
 = Vim script 筆記 - API =
 =========================
 
+位置代號
+--------
+有些邏輯上的位置可用代號表示，這些代號可以在各種函式當成傳入值
+
+* '.' - 游標目前的位置
+* '$' - 最後一行
+* 數字 - 行數/列數
+
 編輯區
 -------
 * 取得編輯區內的內容
@@ -9,26 +17,25 @@
   - 取得游標所在的行的內容 ::
 
       getline('.')
+      
+  - 取得游標所在位置的單字 ::
 
-  - 取得第 3 行的內容 ::
-
-      getline(3)
+      expand('<cword>')
+      expand('<cWORD>')
 
 * 游標位置
 
-  - 取得游標所在的行數 ::
+  - 取得游標的位置 ::
 
       line('.')
-
-  - 取得游標的 column number ::
-
       col('.')
+      let [@_, l:lnr, l:cur_col, @_] = getpos('.')
 
-    + 1-based
+    + Column 為 1-based
 
   - 設定游標的位置 ::
 
-      cursor({linenum}, {col})
+      cursor(<linenum>, <col>)
 
 * 設定游標所在行的內容 ::
 
@@ -60,6 +67,12 @@ Menu
 
   - 若 Menu 中只有一個選項，Menu 預設不會顯示，但 ``pumvisible()`` 仍會回傳 ``1``
 
+* ``complete(<start-col>, <match>)``
+
+  - ``complete`` 函式只能在 insert mode 被呼叫，會產生一個選單，列出 ``<match>`` 裡的選項
+  - 該行會從 ``<start-col>`` 開始被切除，直到游標所在的位置為止，替換成 ``<match>`` 裡的選項
+  - ``<start-col>`` 是 1-based
+
 
 指令
 -----
@@ -72,8 +85,8 @@ Menu
 -------------------
 * 基本方法 ::
 
-    syn match {name} {regex}
-    hi def {name} {argument}
+    syn match <name> <regex>
+    hi def <name> <argument>
 
   - ``name`` 為該語法定義一個名稱
   - ``regex`` 用來定義語法的內容，如果 ``regex`` 的結尾是空格，可能會讓下一個語法區塊出問題
@@ -112,15 +125,11 @@ Menu
 
 函式
 -----
-* ``complete({start-col}, {match})``
+* 檢查某變數/函式/選項是否存在 ::
 
-  - ``complete`` 函式只能在 insert mode 被呼叫，會產生一個選單，列出 ``{match}`` 裡的選項
-  - 該行會從 ``{start-col}`` 開始被切除，直到游標所在的位置為止，替換成 ``{match}`` 裡的選項
-  - ``{start-col}`` 是 1-based
+    exists()
 
-* ``exists()``
-
-  - 檢查某變數/函式/選項是否存在，見 ``:help exists``
+  - 見 ``:help exists``
 
 * 確認某個檔案是否可執行 ::
 
@@ -132,4 +141,4 @@ Menu
 
 其他
 -----
-* ``file`` 指令可以指定 tab 顯示的 title
+* ``set guitablabel`` 和 ``set tabline`` 可以指定 tab 顯示的 title
