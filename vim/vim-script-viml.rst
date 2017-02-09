@@ -56,8 +56,16 @@
 
 字串
 -----
-* ``"abc\n"`` - 一般字串， ``\n`` 會被 interprete 成 newline 字元
-* ``'abc\n'`` - literal string，類似 Python 的 raw string
+* Literal string
+
+  - ``"abc\n"`` - 一般字串， ``\n`` 會被 interprete 成 newline 字元
+  
+    + 在一般字串中要跳脫 double quote 字元（ ``"`` ）的話用 ``\"`` ，例如 ``"Here comes a \"string\""``
+
+  - ``'abc\n'`` - literal string，類似 Python 的 raw string
+  
+    + 在 literal string 中要跳脫 single quote 字元（ ``'`` ）的話用 ``''`` ，例如 ``'Here comes a ''string'''``
+  
 * 字串比對
 
   - 避免使用 ``==`` ，因為其 case sensitive 設定是根據 set ignorecase
