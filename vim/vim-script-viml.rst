@@ -3,8 +3,7 @@
 ==========================
 
 變數
-----
-
+-----
 * 變數沒有型態，且為弱型別（不同型態的資料運算時可能會自己轉型）
 
 * 前綴
@@ -26,8 +25,7 @@
     let a = &shiftwidth
 
 語法
-----
-
+-----
 * if condition ::
 
     if <condition>
@@ -57,8 +55,9 @@
   - ``function!`` 代表要 override 同名的 function
 
 字串
-----
-
+-----
+* ``"abc\n"`` - 一般字串， ``\n`` 會被 interprete 成 newline 字元
+* ``'abc\n'`` - literal string，類似 Python 的 raw string
 * 字串比對
 
   - 避免使用 ``==`` ，因為其 case sensitive 設定是根據 set ignorecase
@@ -122,15 +121,13 @@
   - ``char2nr`` 會回傳第一個字的 code point（ ``中`` → U+4e2d → 20013）
 
 內建函式
---------
-
+---------
 * 長度 ::
 
     len(list_a)
 
 其他
-----
-
+-----
 * 不定數量參數的函式 ::
 
     function! foo(arg1, ...)
