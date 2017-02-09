@@ -128,11 +128,18 @@
 
   - ``char2nr`` 會回傳第一個字的 code point（ ``中`` → U+4e2d → 20013）
 
-內建函式
----------
-* 長度 ::
 
-    len(list_a)
+Functional Programming
+-----------------------
+* ``filter(<list-or-dict>, string)``
+
+  - ``<list-or-dict>`` 內的每個元素依序被代入 ``string`` 的 ``v:val`` ，然後 ``string`` 被 eval，若結果為 0 則該元素被移除
+  - Metaprogramming
+  
+* ``map(<list-or-dict>, string)``
+
+  - ，所有元素被 **inplace 取代** 為 ``string eval 的結果
+  - Metaprogramming
 
 其他
 -----
@@ -143,3 +150,7 @@
 
   - ``a:0`` 代表 ``...`` 的參數數量
   - ``a:1`` 為 ``...`` 的第一個參數
+
+* 長度 ::
+
+    len(list_a)
