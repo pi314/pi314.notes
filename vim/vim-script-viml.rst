@@ -128,6 +128,18 @@
 
   - ``char2nr`` 會回傳第一個字的 code point（ ``中`` → U+4e2d → 20013）
 
+* 路徑處理 ::
+
+    fnamemodify(l:fpath, '<modifier>')
+    
+  - ``<modifier>``
+  
+    + ``:p`` - 展開為完整路徑
+    + ``:h`` - 相當於 ``dirname``
+    + ``:t`` - 相當於 ``basename``
+    + ``:r`` - 去除副檔名
+    + 可連續合併使用
+
 
 Functional Programming
 -----------------------
