@@ -150,7 +150,7 @@ Functional Programming
   
 * ``map(<list-or-dict>, string)``
 
-  - ，所有元素被 **inplace 取代** 為 ``string eval 的結果
+  - 所有元素被 **inplace 取代** 為 ``string eval 的結果
   - Metaprogramming
 
 其他
