@@ -412,16 +412,6 @@ Register
 
     :noh
 
-* ``vim`` 的 regex
-
-  - ``()`` 如果不 escape，就視為普通的括號
-
-  - ``[]`` 需要 escape 才會是普通的括號
-
-  - ``\<abc\>`` 可以只比對到 ``abc`` 單字，不會 match ``aabcc`` 中間的 ``abc``
-
-    + 是 [normal] ``#`` 預設的行為
-
 * 移除檔首的 BOM ::
 
     :set nobomb
@@ -502,3 +492,7 @@ Register
 
   - 以 行 為單位，所有符合 ``pattern`` 的行都被執行 ``cmd`` （command mode 指令）
   - 把檔案內所有成對的 ``{`` ``}`` 都刪除: ``:g/{/normal f{da{``
+
+* 用外部程式開啟檔名/URL ::
+
+    gx
