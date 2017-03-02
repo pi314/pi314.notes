@@ -30,17 +30,14 @@ Command Line Arguments
     $ tmux new vim
 
 
-Hot Keys
----------
+Default Hot Keys
+-----------------
 * ``tmux`` 的 hot key 預設都以 ``C-b`` (``Ctrl`` + ``b``) 為前綴
 * Hot keys 可參考 http://www.dayid.org/os/notes/tm.html
-* 新增一個 ``window`` - ``C-b c``
-* 切換至下/上一個 ``window`` - ``C-b n/p``
+* 新增一個 window - ``C-b c``
+* 切換至下/上一個 window - ``C-b n/p``
 * 進入指令模式 - ``C-b :``
-* 重新命名當前的 ``window`` - ``C-b ,``
-
-  - 與指令 ``rename-window`` 相同，可在 ``C-b ?`` 中查詢到
-
+* 重新命名當前的 window - ``C-b ,``
 * copy mode 相關功能
 
   - 進入 copy mode - ``C-b [``
@@ -51,13 +48,13 @@ Hot Keys
 
 * pane 相關功能
 
-  - 在當前 ``window`` 中新增一個水平分割的 pane - ``C-b "``
-  - 在當前 ``window`` 中新增一個垂直分割的 pane - ``C-b %``
+  - 在當前 window 中新增一個水平分割的 pane - ``C-b "``
+  - 在當前 window 中新增一個垂直分割的 pane - ``C-b %``
   - 切換至另一個 pane - ``C-b h/j/k/l``
-  - 把當前 ``window`` 中的 pane 位置旋轉 - ``C-b C-o``
+  - 把當前 window 中的 pane 位置旋轉 - ``C-b C-o``
   - 更換 layout 方向（直的變成橫的）- ``C-b <SPACE>``
   - 往左/右交換 pane 的位置 - ``C-b {/}``
-  - 把當前的 pane 分出去變成 ``window`` - ``C-b !``
+  - 把當前的 pane 分出去變成 window - ``C-b !``
   - 調整 pane 的大小 - ``C-b C-(arrow key)``
   - 顯示 pane 編號 - ``C-b q``
 
@@ -69,7 +66,7 @@ Hot Keys
 tmux 內部指令
 --------------
 * ``:detach``
-* 把當前的 ``window`` 重命名為 ``test`` ::
+* 把當前的 window 重命名為 ``test`` ::
 
     :rename-window test
 
