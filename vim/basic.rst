@@ -100,6 +100,12 @@
   - 把游標所在的行移到畫面中間 / 上面 / 下面
 
     + ``zz`` / ``zt`` / ``zb``
+    
+* 搜尋游標所在的字，跳到整個檔案第一次出現的地方 ::
+
+    gD
+
+  - 在 trace code 的時候很好用
 
 
 貼上
@@ -351,12 +357,6 @@ Register
 
     "ayy
 
-* 系統的剪貼簿 ::
-
-    "*
-
-  - ``vim`` 需要在編譯時開啟 ``clipboard`` module
-
 * 複製的預設 register ::
 
     "0
@@ -364,6 +364,12 @@ Register
 * 刪除 / 剪下的預設 register ::
 
     ""
+
+* 系統剪貼簿 ::
+
+  - ``"*`` - 在 Linux 以及 Windows 中複製/貼上（ ``<C-c>`` / ``<C-v>`` ）所使用的 regsiter
+  - ``"+`` - 在 Linux 中用滑鼠反白/中鍵所使用的 register
+  - ``vim`` 需要在編譯時開啟 ``clipboard`` module
 
 
 折疊
