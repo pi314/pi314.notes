@@ -70,3 +70,14 @@ vim 設定檔目錄結構
 
   - 內部使用的 function 用 ``s:func`` 命名，使其 scope 限定在該 script 內
   - 開放給使用者的 function 用 ``pluginname#func`` 命名，使其能夠被 autoload
+  - **注意** ：autoload 並不是在所有狀況下都能使用 ::
+
+      echom boshiamy#wide#type
+      function! s:foo ()
+          echom boshiamy#wide#type
+      endfunction
+      call s:foo()
+      echom boshiamy#wide#type
+
+    + 根據測試，上面這段 code snippet， ``s:foo()`` 內 **找不到** ``boshiamy#wide#type`` ，但外面（global scope）都可以
+    + 目前不確定是 autoload 只對 function 而言有用，或是對 function 和變數的行為不一樣
