@@ -5,3 +5,4 @@ Windows Hotkeys
 * ``Win`` + ``r`` - 執行一個指令
 * ``Win`` + ``<number>`` - 選擇 taskbar 第 ``<number>`` 個應用程式，若為關閉狀態會開啟一個
 * ``Win`` + ``shift`` + ``<number>`` - 開啟第 ``<number>`` 個應用程式的一個新視窗
+* ``$ where <cmd>`` 可以查看 ``<cmd>`` 指令被搜尋到的路徑
