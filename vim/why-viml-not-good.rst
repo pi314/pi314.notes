@@ -42,3 +42,4 @@ VimL 具有許多程式語言的部份特性
 
 * map 是 in-place 的
 * List 可以用 ``for i in list`` 做迭代，但字串不行
+* 字串和數字在運算時可能會自己轉換：不論 ``var`` 的 type 是 ``dict`` 或 ``string`` ， ``var['f']`` 都可以執行，只是結果和你預期的不一定相同
