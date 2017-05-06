@@ -45,4 +45,4 @@ cin/cout 透過 operator overloading，用變數的型別直接決定行為。
 
 來源
 -------------------------------------------------------------------------------
-http://chino.taipei/note-2016-0311C-的輸出入cin-cout和scanf-printf誰比較快？/
+`C++的輸出入cin/cout和scanf/printf誰比較快？ <http://chino.taipei/note-2016-0311C-的輸出入cin-cout和scanf-printf誰比較快？/>`_
