@@ -67,14 +67,16 @@ vim 設定檔目錄結構
 
   - 內部使用的 function 用 ``s:func`` 命名，使其 scope 限定在該 script 內
   - 開放給使用者的 function 用 ``my_plugin_name#func`` 命名，使其能夠被 autoload
-  - **注意** ：autoload 並不是在所有狀況下都能使用 ::
+  - **注意** ：autoload 並不是在所有狀況下都能使用
 
-      echom boshiamy#wide#type
-      function! s:foo ()
-          echom boshiamy#wide#type
-      endfunction
-      call s:foo()
-      echom boshiamy#wide#type
+    .. code:: vim
+
+        echom boshiamy#wide#type
+        function! s:foo ()
+            echom boshiamy#wide#type
+        endfunction
+        call s:foo()
+        echom boshiamy#wide#type
 
     + 根據測試，上面這段 code snippet， ``s:foo()`` 內 **找不到** ``boshiamy#wide#type`` ，但外面（global scope）都可以
     + 目前不確定是 autoload 只對 function 而言有用，或是對 function 和變數的行為不一樣
@@ -82,12 +84,14 @@ vim 設定檔目錄結構
 
 寫 Plugin 可以用的技巧
 -------------------------------------------------------------------------------
-* 把 buffer 拿來當顯示資訊用的區域，但不用來存檔（例如 `scrooloose/nerdtree <https://github.com/scrooloose/nerdtree>`_ ） ::
+* 把 buffer 拿來當顯示資訊用的區域，但不用來存檔（例如 `scrooloose/nerdtree <https://github.com/scrooloose/nerdtree>`_ ）
 
-    setlocal buftype=nofile
-    file <title>
-    let t:localtablabel = 'cim'
-    set guitablabel=%{exists('t:localtablabel')?(t:localtablabel):''}
+  .. code:: vim
+
+      setlocal buftype=nofile
+      file <title>
+      let t:localtablabel = '<title>'
+      set guitablabel=%{exists('t:localtablabel')?(t:localtablabel):''}
 
   - 把 ``buftype`` 設成 ``nofile`` ，就可以當成一個暫存區使用
   - ``<title>`` 可以設成任意值
