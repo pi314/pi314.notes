@@ -71,3 +71,4 @@ Command
 * ``t <label>`` - 若 ``s///`` 有取代成功，跳至 ``label``
 * ``a text`` - append text
 * ``i text`` - insert text
+* ``5<cmd>`` - 若當下的行數為第 5 行，執行 ``<cmd>``
