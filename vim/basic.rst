@@ -514,3 +514,9 @@ Register
 
     :sort
     :sort u
+
+* 將現有的文字以 80 個字元寬重新排版
+
+  a)  set tw=80
+  b)  反白要修改的部份
+  c)  ``gq``
