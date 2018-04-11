@@ -12,3 +12,7 @@ Windows Hotkeys
   - 遠端桌面設定 → Local Resources，設定 Keyboard 為 On this computer
   - 這樣就可以把遠端當成一個視窗，用自己電腦上用 ``Alt`` + ``Tab`` 切換視窗
   - 在遠端可以用 ``Alt`` + ``PgUp``/``PgDn`` 切換視窗
+
+* ``Alt`` + Left ``Shift`` + ``NumLock`` - 用鍵盤控制滑鼠 (Mouse Keys)
+
+  - 移動速度和加速都非常慢
