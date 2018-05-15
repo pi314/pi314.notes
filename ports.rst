@@ -169,6 +169,15 @@ MacPorts
 
     + 多種 variant 可以同時安裝在系統中，但一次只會有一個為 active
 
+* 好用 ports
+
+  - 基本的就不列了
+  - ``bmon`` - bandwidth monitor，類似 ``nload`` ，有彩色
+  - ``htop`` - 好用的 ``top``
+  - ``mtr`` - my traceroute，好用的 ``traceroute``
+  - ``pv`` - 有進度條的 ``cat``
+  - ``vifm`` - vi file manager
+
 
 其他
 -------------------------------------------------------------------------------
