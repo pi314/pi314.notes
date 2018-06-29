@@ -18,3 +18,7 @@
   - ``--no-check-certificate``: 不檢查憑證
 
 * ``-P prefix``: 把所有下載的檔案存入 ``prefix/`` 目錄中
+* 一次下載多個檔案
+
+  A)  把 URL 存在 ``urls.txt`` 裡面
+  B)  ``wget -i urls.txt``
