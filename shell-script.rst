@@ -159,6 +159,10 @@ Shell Script Syntax Note
 
       ${var%fo*}
 
+* Pattern 可以不包含 ``*`` ::
+
+    dir=${1%/}
+
 * slice
 
   - 取出第 1 到第 5 個字元，包含第 1 及第 5 個，字串從 0 開始算 ::
