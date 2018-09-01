@@ -60,9 +60,9 @@ PyPI Package 需符合一定的目錄結構 ::
       * ``python setup.py register upload`` 會使用 ``register`` 取得的密碼
       * ``python setup.py upload`` 若 ``$HOME.pypirc`` 不存在或資訊不完整，會 *爆炸*
 
-2.  上傳 ::
+2.  打包 ::
 
-      $ python setup.py sdist bdist_wheel upload
+      $ python setup.py sdist bdist_wheel
 
     + ``sdist`` 會把 Source code 包裝成壓縮檔
     + ``bdist_wheel`` 會把 Source code 編譯過再包裝成壓縮檔，這個方法的安裝過程會比較快 [1]_
@@ -70,6 +70,11 @@ PyPI Package 需符合一定的目錄結構 ::
     + 產生的壓縮檔會放在 ``dist/`` 目錄中
 
     ..  [1] https://packaging.python.org/en/latest/distributing/#wheels
+
+3.  上傳 ::
+
+      $ pip install --user --upgrade twine
+      $ twine upload dist/*
 
 
 附帶靜態檔案
