@@ -21,16 +21,26 @@ PyPI Package 需符合一定的目錄結構 ::
 
 ..  code:: python
 
-    from setuptools import find_packages, setup
+    from setuptools import setup
     setup(
         name='<package-name>',
-        packages=find_packages(exclude=['scripts']),
-        version='0.1',
+        version='0.0.1',
         description='<說明>',
         author='<作者>',
         author_email='<作者 Email>',
         url='<Package Website>',
-        classifiers=[],
+        classifiers=[
+            'Development Status :: 3 - Alpha',
+            'Environment :: Console',
+            'Intended Audience :: End Users/Desktop',
+            'License :: OSI Approved :: BSD License',
+            'Natural Language :: English',
+            'Operating System :: POSIX :: Linux',
+            'Operating System :: MacOS :: MacOS X',
+            'Programming Language :: Python :: 2.7',
+            'Programming Language :: Python :: 3',
+            'Topic :: Utilities',
+        ],
     )
 
 
