@@ -1,10 +1,10 @@
-===============
+===============================================================================
 Python argparse
-===============
+===============================================================================
 Python ``argparse`` module 是個用來處理參數邏輯的 framework
 
 速查
------
+-------------------------------------------------------------------------------
 * 初始化 ::
 
     import argparse
@@ -34,7 +34,7 @@ Python ``argparse`` module 是個用來處理參數邏輯的 framework
 
 
 ``add_argument`` 筆記
-----------------------
+-------------------------------------------------------------------------------
 
 ::
 
@@ -48,13 +48,23 @@ Python ``argparse`` module 是個用來處理參數邏輯的 framework
 
   - 指定負責儲存值的變數名稱
 
-* ``action="store_true"`` ``action="store_false"``
+* ``action``
 
-  - ``-a`` 讓格式的參數儲存 ``True``/``False`` 的值
+  - ``action="store_true"`` ``action="store_false"``
 
-* ``action="store_const", const="<value>"``
+    + ``-a`` 讓格式的參數儲存 ``True``/``False`` 的值
 
-  - ``-a`` 讓格式的參數儲存 ``<value>`` 的值， ``store_true`` 和 ``store_false`` 算是特殊狀況
+  - ``action="store_const", const=<value>``
+
+    + ``-a`` 讓格式的參數儲存 ``<value>`` 的值， ``store_true`` 和 ``store_false`` 算是特殊狀況
+
+  - ``action="append"``
+
+    + 讓 ``-a 1 -a 2`` 存入 ``[1, 2]``
+
+* ``choices=[1, 2, 3]``
+
+  - 限制參數的值域
 
 * ``default="<value>"``
 
@@ -79,7 +89,3 @@ Python ``argparse`` module 是個用來處理參數邏輯的 framework
     + 若 ``-a`` 參數沒有被給予，存入 ``"d"``
     + 若給予 ``-a`` ，存入 ``"c"``
     + 若給予 ``-a v`` ，存入 ``"v"``
-
-* ``action="append"``
-
-  - 讓 ``-a 1 -a 2`` 存入 ``[1, 2]``
