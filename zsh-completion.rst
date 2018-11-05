@@ -222,6 +222,8 @@ context 為 ``:completion:function:completer:command:argument:tag`` 格式的字
 
      _arguments '1: :(${(f)"$(_split_pwd)"})'
 
+* 如果改了 completion function 的內容卻沒有效果，可以嘗試刪掉 ``~/.zcompdump``
+
 
 特別感謝這些淺顯易懂的說明
 -------------------------------------------------------------------------------
