@@ -8,3 +8,7 @@ ImageMagick 為一套開放原始碼的影像處理軟體，其中一個 command
     $ convert -crop 80x80 input.png output-%d.png
 
   - ``%d`` 會被代換成從 0 開始的編號
+
+* 將一張 png 的透明部份取代為白色 ::
+
+    $ convert -background white -alpha remove input.png
