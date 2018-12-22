@@ -11,4 +11,4 @@ ImageMagick 為一套開放原始碼的影像處理軟體，其中一個 command
 
 * 將一張 png 的透明部份取代為白色 ::
 
-    $ convert -background white -alpha remove input.png
+    $ convert input.png -background white -alpha remove output.png
