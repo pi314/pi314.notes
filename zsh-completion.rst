@@ -164,6 +164,16 @@ Tags 的列表可以在 ``zshcompsys`` 的 ``Standard Tags`` 章節找到。
   _description mytag2 expl 'Argument Set 2'
   compadd "$expl[@]" - "$arg_set2[@]"
 
+會產生如下的選單： ::
+
+  --- Options
+  -a  -- description 1
+  -b  -- description 2
+  --- Argument Set 1
+  a  b  c
+  --- Argument Set 2
+  A  B  C
+
 
 ``ACTION``
 -------------------------------------------------------------------------------
