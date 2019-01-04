@@ -145,6 +145,26 @@ Tags 的列表可以在 ``zshcompsys`` 的 ``Standard Tags`` 章節找到。
   - 參數與說明的對齊會分開計算
 
 
+``_description`` 使用方式 (hack?)
+-------------------------------------------------------------------------------
+目前找到一種比較直覺的使用方式：
+
+.. code:: sh
+
+  local expl
+  local options=("-a:description 1" "-b:description 2")
+  local arg_set1=(...)
+  local arg_set2=(...)
+
+  _describe 'Options' options
+
+  _description mytag1 expl 'Argument Set 1'
+  compadd "$expl[@]" - "$arg_set1[@]"
+
+  _description mytag2 expl 'Argument Set 2'
+  compadd "$expl[@]" - "$arg_set2[@]"
+
+
 ``ACTION``
 -------------------------------------------------------------------------------
 ``ACTION`` 定義一個參數實際被補完時的行為
