@@ -1,7 +1,6 @@
-# Detect if stdout is a terminal
-if sys.stdout.isatty():
-    # output to a real terminal
-    ...
+from sys import stdin
+
+if stdin.isatty():
+    print("Input comes from tty.")
 else:
-    # output being piped or redirected
-    ...
+    print("Input doesn't come from tty.")
