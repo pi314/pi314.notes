@@ -6,6 +6,8 @@
         ask(prompt, ['y', 'n'])
         ask(prompt, 'yn')
         ask(prompt, 'yes no')
+        
+        Returns None on EOFError and KeyboardInterrupt.
         '''
 
         if isinstance(given_options, str):
