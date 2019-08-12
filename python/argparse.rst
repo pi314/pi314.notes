@@ -3,34 +3,32 @@ Python argparse
 ===============================================================================
 Python ``argparse`` module 是個用來處理參數邏輯的 framework
 
+
 速查
 -------------------------------------------------------------------------------
-* 初始化 ::
+.. code:python
 
-    import argparse
-    parser = argparse.ArgumentParser(description='說明文字')
+  import argparse
+  parser = argparse.ArgumentParser(description='說明文字', prog='PROG')
 
-* ``-a`` 格式的參數 ::
+  subparsers = parser.add_subparsers(title='subcommands')
+  parser_banana = subparsers.add_parser('banana', help='Banana help')
+  parser_banana.set_defaults(subcmd='banana')
 
-    parser.add_argument('-a', action='store_true', help='說明文字')
+  # -a
+  parser_banana.add_argument('-a', action='store_true', help='說明文字')
 
-* ``-f file ...`` 格式的參數 ::
+  # -f file
+  parser_banana.add_argument('-f', dest='files')
 
-    parser.add_argument('-f', nargs=1, dest='var')
+  # -f file ...
+  parser_banana.add_argument('-f', nargs='*', dest='files')
 
-  - ``nargs`` 指定 ``-f`` 後面可接的參數數量，後有詳述
+  # a b c ...
+  parser_banana.add_argument('val')
 
-    + 如果只希望 ``-f`` 後面接一個參數的話，可以把 ``nargs`` 省略
-
-  - ``dest`` 指定實際儲存值的變數名稱
-
-* ``a b c ...`` 格式的參數 ::
-
-    parser.add_argument('var')
-
-* 處理參數 ::
-
-    args = parser.parse_args()
+  # parse it
+  args = parser.parse_args()
 
 
 ``add_argument`` 筆記
