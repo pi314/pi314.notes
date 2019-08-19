@@ -2,7 +2,7 @@ http://harmful.cat-v.org/software/c++/
 
 * Arguing that Java is better than C++ is like arguing that grasshoppers taste better than tree bark. – Thant Tessman
 
-  - 爭論 Java 比 C++ 還要好就像是在爭論蚱蜢比樹皮還要好吃。
+  - 爭論 Java 比 C++ 好，就像是在爭論蚱蜢比樹皮好吃。
 
 * There are only two things wrong with C++: The initial concept and the implementation. – Bertrand Meyer
 
@@ -30,7 +30,7 @@ http://harmful.cat-v.org/software/c++/
 
 * Java is, in many ways, C++–. – Michael Feldman
 
-  - Java，從很多方面來說，就是個 C++。
+  - Java，從很多方面來說，就是個 C++-。
 
 * C++ damages the brain … – EWD
 
@@ -67,3 +67,31 @@ http://harmful.cat-v.org/software/c++/
 * “The code [BOOST] produces is immune to debugging and sane compiler errors.” – cypherx in /r/programming
 
   - BOOST 產生的程式碼對除錯免疫。
+
+* Java has been a boon to the publishing industry. – Rob Pike
+
+  - Java 對出版業界而言是個福音。
+
+* Java is like a variant of the game of Tetris in which none of the pieces can fill gaps created by the other pieces, so all you can do is pile them up endlessly. – Steve Yegge (2007, Codes Worst Enemy)
+
+  - Java 像是某種 Tetris 的改版：沒有任何積木能把其他積木的洞補起來。所以你能做的就是永無止境的疊上去。
+
+* Java 的替代方案
+
+  - C
+  - Go
+  - Limbo
+  - Scheme
+  - Smalltalk
+  - Erlang
+  - 吃磨碎的破璃
+  - 隨便什麼都好（除了 C++ 和 C# 以外）
+  - 如果你覺得寫 Java 不錯， *拜託* 請你別再寫了
+
+* “Tuning the JVM always felt like trying to fly a plane from the back seat of another plane following behind the first.” – Dave Cheney
+
+  - 每次調整 JVM 都感覺像是坐在後座開 *前面那架* 飛機。
+
+* “The only use of OpenJDK is to see Java programs crash in unexpected ways.” – Tommy Jensen
+
+  - OpenJDK 的用途就只有拿來看 Java 程式用各種方式炸掉。
