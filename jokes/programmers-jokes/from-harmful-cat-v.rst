@@ -1,3 +1,5 @@
+http://harmful.cat-v.org/software/c++/
+
 * Arguing that Java is better than C++ is like arguing that grasshoppers taste better than tree bark. – Thant Tessman
 
   - 爭論 Java 比 C++ 還要好就像是在爭論蚱蜢比樹皮還要好吃。
