@@ -13,3 +13,7 @@
 * 指定下載的格式 ::
 
     $ youtube-dl URL -f <format code>
+
+* 指定高品質音訊 / 指定高品質視訊並合併 ::
+
+    $ youtube-dl URL -f bestvideo+bestaudio
