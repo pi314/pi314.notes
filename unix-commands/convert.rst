@@ -9,6 +9,7 @@ ImageMagick 為一套開放原始碼的影像處理軟體，其中一個 command
 
   - Geomatry: 寬 x 高 + x-offset + y-offset
   - ``+repage`` 會把 offset 資訊從 meta data 裡移除
+  - 對 gif 切割時，建議把 x-offset 和 y-offset 都加上（就算是 0），不然每個 frame 會被分成多個小塊，產生更多的 frame 並閃爍
 
 * 將一張 png 以 80x80 的尺寸切割 ::
 
