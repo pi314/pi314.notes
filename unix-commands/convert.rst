@@ -23,3 +23,10 @@ ImageMagick 為一套開放原始碼的影像處理軟體，其中一個 command
 * 將一些 png 合併成 gif ::
 
     $ convert 1.png 2.png 3.png 4.png out.gif
+
+  - 設定 delay ::
+
+      $ convert -delay 2x100 {1..4}.png out.gif
+
+    + ``2x100`` 表示 ``2`` 倍的 ``1/100`` 秒
+    + 設定得太快的話反而會被降速
