@@ -171,12 +171,19 @@ MacPorts
 
 * 好用 ports
 
-  - 基本的就不列了
+  - 基本: ``vim``, ``git``, ``tmux``, ``zsh``
+  - ``aria2`` - (我) 用來取代 ``wget``
+  - ``bat`` - 取代 ``cat``
   - ``bmon`` - bandwidth monitor，類似 ``nload`` ，有彩色
+  - ``ffmpeg``
   - ``htop`` - 好用的 ``top``
   - ``mtr`` - my traceroute，好用的 ``traceroute``
   - ``pv`` - 有進度條的 ``cat``
+  - ``the_silver_searcher`` - (我) 拿來取代 ``grep``
   - ``vifm`` - vi file manager
+  - ``youtube-dl``
+  - ``unrar``
+  - ``xz``
 
 
 其他
