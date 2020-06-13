@@ -31,8 +31,10 @@ ffmpeg 超強
 
 * 從 mp4 影片抽取 mp3 ::
 
-    $ ffmpeg -i input.mp4 -f mp3 -ab 192000 -vn output.mp3
+    $ ffmpeg -i input.mp4 -f mp3 -ab 192000 -vn -ss 00:00:01 -t 00:05:01 output.mp3
 
   - ``-f mp3``: 表示輸出格式為 mp3
   - ``-ab 192000``: 192Kbps
   - ``-vn``: 不要影片
+  - ``-ss 00:00:00``: 開始時間
+  - ``-t 00:05:01``: 持續時間
