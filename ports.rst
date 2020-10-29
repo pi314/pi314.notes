@@ -175,6 +175,7 @@ MacPorts
   - ``aria2`` - (我) 用來取代 ``wget``
   - ``bat`` - 取代 ``cat``
   - ``bmon`` - bandwidth monitor，類似 ``nload`` ，有彩色
+  - ``exa`` - 取代 ``ls``
   - ``ffmpeg``
   - ``htop`` - 好用的 ``top``
   - ``mtr`` - my traceroute，好用的 ``traceroute``
