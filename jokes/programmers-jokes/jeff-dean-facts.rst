@@ -117,3 +117,20 @@
 29. The x86-64 spec includes several undocumented instructions marked 'private use'. They are actually for Jeff Dean's use.
 
     + x86-64 的規格中包含一些沒有寫在文件中的指令，它們被標上「內部使用」，但其實是留給 Jeff Dean 使用的。
+
+30. During his own Google interview, Jeff Dean was asked the implications if P=NP were true. He said, “P = 0 or N = 1.” Then, before the interviewer had even finished laughing, Jeff examined Google’s public certificate and wrote the private key on the whiteboard.
+
+    + Jeff Dean 在面試 Google 時，被問到 P=NP 代表什麼。他回答「P=0 或是 P=1」。在所有人笑完之前，他瞄了一眼 Google 的憑證，然後把私鑰寫在白板上。
+
+31. Jeff Dean can optimize a piece of hardware by dropping it on the floor.
+
+    + Jeff Dean 把硬體丟到地上就能優化它。
+    + What happened was Jeff was giving a presentation and dropped the slide clicker on the floor, and the cover burst open and the batteries fell out. He picked up the pieces, put them back together, got it working, and said “Oh, there’s one extra piece that I don’t need.”
+
+32. Jeff Dean 的手機密碼是圓周率最後 8 位數。
+
+33. 跟牛頓不一樣，Jeff Dean 小時候喜歡坐在紅黑樹下思考。
+
+34. 據說 Jeff Dean 開口說出的第一句話不是爸爸也不是媽媽，是 Hello World。
+
+35. Jeff Dean 在抓周時把所有東西組裝成一台電腦。
