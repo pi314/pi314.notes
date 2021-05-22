@@ -42,6 +42,13 @@ ffmpeg 超強
 
     + ``-to`` 可以直接給結束時間，不用自己算長度
 
+* 把影片倒帶 ::
+
+    $ ffmpeg -i 海龍王彼德.mp4 -vf reverse -af areverse 鱷魚龍尾牙.mp4
+
+  - ``-vf reverse``: 使用 video filter "reverse"
+  - ``-af areverse``: 使用 audio filter "areverse"
+
 
 範例 - 把部份影片快轉
 -----------------------------------------------------------------------------
