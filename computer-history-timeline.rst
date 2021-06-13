@@ -11,7 +11,8 @@
 * 1958 - Lisp 語言問世
 * 1968/12/09 - Mother of All Demos - Douglas C. Engelbart
 * 1968/07/18 - Intel 成立
-* 1969 - UNIX
+* 1969 - UNIX 問世
+* 1969/10/29 - 在 ARPAnet 上傳送了第一筆訊息：「LOGIN」，但對面只收到前兩個字
 * 1972 - C 語言問世
 * 1973/05/22 - Ethernet 問世
 * 1975 - Yacc/Lex 文件問世
