@@ -182,7 +182,6 @@ MacPorts
   - ``pv`` - 有進度條的 ``cat``
   - ``the_silver_searcher`` - (我) 拿來取代 ``grep``
   - ``vifm`` - vi file manager
-  - ``youtube-dl``
   - ``unrar``
   - ``xz``
 
