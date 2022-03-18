@@ -2,6 +2,14 @@
 SQLite 語法筆記
 ===============
 
+* 列出所有 table ::
+
+    .tables
+
+* 列出 table schema ::
+
+    .schema {table_name}
+
 * 建立 Table ::
 
     CREATE TABLE "shopping_cart_contact" (
