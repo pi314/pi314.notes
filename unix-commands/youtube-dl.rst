@@ -18,16 +18,24 @@ https://github.com/yt-dlp/yt-dlp
 
 * 下載 youtube 影片 ::
 
-    $ youtube-dl URL
+    $ yt-dlp {URL}
 
 * 查詢特定 youtube 影片有哪些可用的格式 ::
 
-    $ youtube-dl URL -F
+    $ yt-dlp {URL} -F
 
 * 指定下載的格式 ::
 
-    $ youtube-dl URL -f <format code>
+    $ yt-dlp {URL} -f {format code}
 
 * 指定高品質音訊 / 指定高品質視訊並合併 ::
 
-    $ youtube-dl URL -f bestvideo+bestaudio
+    $ yt-dlp {URL} -f bestvideo+bestaudio
+
+* 只下載指定的 index ::
+
+    $ yt-dlp {URL} --playlist-items 1,2,4-5
+
+* 在下載之間 sleep 幾秒 ::
+
+    $ yt-dlp {URL} --sleep-interval 3
