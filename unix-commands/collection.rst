@@ -25,6 +25,11 @@
 * `yt-dlp <https://github.com/yt-dlp/yt-dlp>`_
 * `edir <https://github.com/bulletmark/edir>`_ - 仿 ``vidir`` 的 Python 實作
 * `neofetch <https://github.com/dylanaraps/neofetch>`_ - 酷酷的 OS icon 和系統資訊
+* `fd <https://github.com/sharkdp/fd>`_ - better ``find``
+* `diff-so-fancy <https://github.com/so-fancy/diff-so-fancy>`_ - better ``diff``
+* `entr <https://github.com/eradman/entr>`_ - 在檔案有變化時執行指令
+
+  - 對 pager 的速記 (例如 git diff): ``$ echo FILE | entr tmux send-keys -t T q UP ENTER g``
 
 
 玩具
