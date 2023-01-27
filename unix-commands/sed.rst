@@ -59,9 +59,13 @@ Address
 
 Command
 -------------------------------------------------------------------------------
-- ``s/pattern/replacement/flags`` - 取代
+* ``/pattern/cmd`` - 比對
 
-  + pattern 裡面的 group 小括號需要跳脫，i.e. ``\(\)``
+  - Match ``pattern`` 的話， ``cmd`` 會被執行，反之則不會執行
+
+* ``s/pattern/replacement/flags`` - 取代
+
+  - Pattern 裡面的 group 小括號需要跳脫，i.e. ``\(\)``
 
 * ``d`` - 刪除
 * ``p`` - 印出 pattern space
