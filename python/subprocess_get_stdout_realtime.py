@@ -33,6 +33,17 @@ while p.poll() == None:
 
 return_code = p.poll()
 
+# You may need to remove text=True for preventing Python translate '\r' to '\n'
+# in order to display a real-time progress bar.
+
+# By removing text=True, bufsize=1 also needs to be removed because buffering
+# is not supported in binary mode.
+
+# So ``data`` is now in ``bytes`` type, and you have to .decode() it.
+
+# Make sure decode errors are handled as your program may pull stdout faster
+# than the source.
+
 
 # =============================================================================
 # Method 2: just using for line in stdout
