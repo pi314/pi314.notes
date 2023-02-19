@@ -1,5 +1,5 @@
 ### Some code snippet that may be handy to fork a child process and capture its
-### stdout in realtime (sort of; compared to process it after child process finishes)
+### stdout in semi-realtime.
 
 ### Note that if the child process buffers stdout,
 ### you can't actually do anything on it. Game over. Go to sleep. Bye.
@@ -22,6 +22,19 @@ for i in range(6):
 
 
 # =============================================================================
+# Script: progress bar
+
+import sys
+import time
+
+width = 20
+for i in range(width):
+    print('\r[' + ('=' * int(width * (i / width))).ljust(width) + ']', end='')
+    sys.stdout.flush()
+    time.sleep(0.2)
+
+
+# =============================================================================
 # Method 1: using subprocess and poll()
 
 import subprocess as sub
@@ -32,6 +45,7 @@ while p.poll() == None:
     print(data)
 
 return_code = p.poll()
+
 
 # You may need to remove text=True for preventing Python translate '\r' to '\n'
 # in order to display a real-time progress bar.
