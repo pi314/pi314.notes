@@ -31,6 +31,8 @@
 
   - 對 pager 的速記 (例如 git diff): ``$ echo FILE | entr tmux send-keys -t T q UP ENTER g``
 
+* `pipx <https://pypa.github.io/pipx/>`_ - 為 CLI 套件特化的 pip，每個套件會有自己的 venv
+
 
 玩具
 -----------------------------------------------------------------------------
@@ -38,3 +40,4 @@
 * `lavat <https://github.com/AngelJumbo/lavat>`_ - 岩漿燈
 * `cbonsai <https://gitlab.com/jallbrit/cbonsai>`_ - 盆栽
 * asciiquarium - 水族館
+* `lolcat <https://github.com/busyloop/lolcat>`_ - 會吐彩虹的貓
