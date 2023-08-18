@@ -79,6 +79,11 @@ for line in p.stdout:
 # Utility: A threaded line-oriented run() utility
 # -----------------------------------------------------------------------------
 
+import queue
+import subprocess as sub
+import threading
+
+
 class CommandResult:
     def __init__(self, cmd):
         self.cmd = list(cmd)
@@ -110,23 +115,25 @@ def run(cmd, stdin=None, stdout=None, stderr=None, env=None):
     '''
 
     if stdin:
-        stdin = [stdin] if isinstance(stdin, str) else list(stdin)
+        stdin = (stdin,) if isinstance(stdin, str) else tuple(stdin)
         if not all(isinstance(line, str) for line in stdin):
-            raise TypeError('stdin should be a list[str]')
+            raise TypeError('stdin should be a tuple[str]')
 
     if stdout is None:
         stdout = lambda x: None
     elif stdout and not callable(stdout):
-        raise TypeError('stdout should be a callable object')
+        raise TypeError('stdout should be a callable')
 
     if stderr is None:
         stderr = lambda x: None
     elif stderr and not callable(stderr):
-        raise TypeError('stderr should be a callable object')
+        raise TypeError('stderr should be a callable')
 
     cmd = [str(token) for token in cmd]
 
     ret = CommandResult(cmd)
+    ret.stdout = []
+    ret.stderr = []
 
     output_queue = queue.Queue()
 
@@ -137,25 +144,20 @@ def run(cmd, stdin=None, stdout=None, stderr=None, env=None):
             encoding='utf-8', bufsize=1, universal_newlines=True,
             env=env)
 
-    def reader(fd_num, stream):
+    ostreams = [p.stdout, p.stderr]
+    othreads = [None, None]
+
+    def reader(idx, stream):
         for line in stream:
             line = line.rstrip('\n')
-            output_queue.put((fd_num, line))
-        output_queue.put((fd_num, None))
+            output_queue.put((idx, line))
+        output_queue.put((idx, None))
 
-    ret.stdout = []
-    stdout_thread = None
-    if p.stdout:
-        stdout_thread = threading.Thread(target=reader, args=(1, p.stdout))
-        stdout_thread.daemon = True
-        stdout_thread.start()
-
-    ret.stderr = []
-    stderr_thread = None
-    if p.stderr:
-        stderr_thread = threading.Thread(target=reader, args=(2, p.stderr))
-        stderr_thread.daemon = True
-        stderr_thread.start()
+    for idx, _ in enumerate(othreads):
+        if ostreams[idx]:
+            othreads[idx] = threading.Thread(target=reader, args=(idx, ostreams[idx]))
+            othreads[idx].daemon = True
+            othreads[idx].start()
 
     # Feed stdin
     if p.stdin:
@@ -164,23 +166,27 @@ def run(cmd, stdin=None, stdout=None, stderr=None, env=None):
         p.stdin.flush()
         p.stdin.close()
 
-    callbacks = [None, stdout, stderr]
-    output_lines = [None, ret.stdout, ret.stderr]
-    eof_flags = [None, stdout_thread is None, stderr_thread is None]
+    callbacks = [stdout, stderr]
+    outputs = [ret.stdout, ret.stderr]
+    eof_flags = [t is None for t in othreads]
 
     # Collect all outputs
-    while not (eof_flags[1] and eof_flags[2]):
-        fd_num, line = output_queue.get()
+    while not (eof_flags[0] and eof_flags[1]):
+        idx, line = output_queue.get()
 
-        callbacks[fd_num](line)
+        callbacks[idx](line)
 
         if line is None:
-            eof_flags[fd_num] = True
+            eof_flags[idx] = True
         else:
-            output_lines[fd_num].append(line)
+            outputs[idx].append(line)
 
-        if eof_flags[1] and eof_flags[2]:
+        if eof_flags[0] and eof_flags[1]:
             break
+
+    # Gracefully wait for threads and child process to finish
+    for t in othreads:
+        t.join()
 
     p.wait()
 
