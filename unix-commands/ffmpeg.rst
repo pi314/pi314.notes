@@ -49,6 +49,10 @@ ffmpeg 超強
   - ``-vf reverse``: 使用 video filter "reverse"
   - ``-af areverse``: 使用 audio filter "areverse"
 
+* 把影片的音量減半 ::
+
+    $ ffmpeg -i loud.mp4 -af 'volume=0.5' not-so-loud.mp4
+
 
 範例 - 把部份影片快轉
 -----------------------------------------------------------------------------
