@@ -92,60 +92,68 @@ class CommandResult:
         self.stderr = None
         self.returncode = None
 
-def run(cmd, stdin=None, stdout=None, stderr=None, env=None):
+def run(cmd, stdin=None, stdout=True, stderr=True, newline='\n', env=None):
     '''
-    A line-oriented wrapper for running external commands
+    A line-oriented wrapper for running external commands.
 
     :param iterable[str] cmd: The command to run.
 
     :param iterable[str] stdin:
-        The input data, one item for each line without trailing newline.
-        ``None`` means no data to input
+        The input text, one item for each line, without trailing newline.
+        It could be left ``None`` if there is nothing to input.
 
-    :param callable[str] stdout:
-        The callback function that handles a stdout line.
-        ``False`` means not to capture stdout.
+    :param None|bool|callable[str] stdout:
+        If set to ``None``, stdout will be left as-is (mostly like to the tty).
+        If set to ``True``, stdout will be accumulated into ret.stdout.
+        If set to ``False``, stdout will be silently dropped.
+        If set to a callable, it will be called with each line as the argument.
 
-    :param callable[str] stderr:
-        The callback function that handles a stderr line.
-        ``False`` means not to capture stderr.
+    :param None|bool|callable[str] stderr:
+        If set to ``None``, stderr will be left as-is (mostly like to the tty).
+        If set to ``True``, stderr will be accumulated into ret.stderr.
+        If set to ``False``, stderr will be silently dropped.
+        If set to a callable, it will be called with each line as the argument.
 
     :param dict[str, str] env: The environment variables.
     :return: A CommandResult object.
     '''
 
     if stdin:
-        stdin = (stdin,) if isinstance(stdin, str) else tuple(stdin)
-        if not all(isinstance(line, str) for line in stdin):
-            raise TypeError('stdin should be a tuple[str]')
+        stdin = [stdin] if isinstance(stdin, str) else stdin
 
-    if stdout is None:
-        stdout = lambda x: None
+    if stdout is None or isinstance(stdout, bool):
+        pass
     elif stdout and not callable(stdout):
         raise TypeError('stdout should be a callable')
 
-    if stderr is None:
-        stderr = lambda x: None
+    if stderr is None or isinstance(stderr, bool):
+        pass
     elif stderr and not callable(stderr):
         raise TypeError('stderr should be a callable')
 
     cmd = [str(token) for token in cmd]
 
     ret = CommandResult(cmd)
-    ret.stdout = []
-    ret.stderr = []
+    ret.stdin = []
+    ret.stdout = None if stdout is False else []
+    ret.stderr = None if stderr is False else []
 
     output_queue = queue.Queue()
 
     p = sub.Popen(cmd,
             stdin=None if not stdin else sub.PIPE,
-            stdout=None if stdout is False else sub.PIPE,
-            stderr=None if stderr is False else sub.PIPE,
+            stdout=None if stdout is None else sub.PIPE,
+            stderr=None if stderr is None else sub.PIPE,
             encoding='utf-8', bufsize=1, universal_newlines=True,
             env=env)
 
-    ostreams = [p.stdout, p.stderr]
-    othreads = [None, None]
+    def stdin_writer(idx, stream):
+        for line in stdin:
+            ret.stdin.append(line)
+            stream.write(line + '\n')
+            stream.flush()
+        stream.close()
+        output_queue.put((idx, None))
 
     def reader(idx, stream):
         for line in stream:
@@ -153,40 +161,46 @@ def run(cmd, stdin=None, stdout=None, stderr=None, env=None):
             output_queue.put((idx, line))
         output_queue.put((idx, None))
 
-    for idx, _ in enumerate(othreads):
-        if ostreams[idx]:
-            othreads[idx] = threading.Thread(target=reader, args=(idx, ostreams[idx]))
-            othreads[idx].daemon = True
-            othreads[idx].start()
+    io_worker = [stdin_writer, reader, reader]
+    iostreams = [p.stdin, p.stdout, p.stderr]
+    iothreads = [None, None, None]
 
-    # Feed stdin
-    if p.stdin:
-        ret.stdin = stdin
-        p.stdin.write('\n'.join(stdin))
-        p.stdin.flush()
-        p.stdin.close()
+    for idx, _ in enumerate(iothreads):
+        if iostreams[idx]:
+            iothreads[idx] = threading.Thread(target=io_worker[idx], args=(idx, iostreams[idx]))
+            iothreads[idx].daemon = True
+            iothreads[idx].start()
 
-    callbacks = [stdout, stderr]
-    outputs = [ret.stdout, ret.stderr]
-    eof_flags = [t is None for t in othreads]
+    output_dest = [
+            None,
+            stdout if callable(stdout) else ret.stdout,
+            stderr if callable(stderr) else ret.stderr,
+            ]
+    eof_flags = [
+            iothreads[0] is None,
+            iothreads[1] is None,
+            iothreads[2] is None,
+            ]
 
     # Collect all outputs
-    while not (eof_flags[0] and eof_flags[1]):
+    while not (eof_flags[0] and eof_flags[1] and eof_flags[2]):
         idx, line = output_queue.get()
 
-        callbacks[idx](line)
+        if callable(output_dest[idx]):
+            output_dest[idx](line)
+        elif isinstance(output_dest[idx], list) and line is not None:
+            output_dest[idx].append(line)
 
         if line is None:
             eof_flags[idx] = True
-        else:
-            outputs[idx].append(line)
 
-        if eof_flags[0] and eof_flags[1]:
+        if eof_flags[0] and eof_flags[1] and eof_flags[2]:
             break
 
     # Gracefully wait for threads and child process to finish
-    for t in othreads:
-        t.join()
+    for t in iothreads:
+        if t:
+            t.join()
 
     p.wait()
 
