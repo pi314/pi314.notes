@@ -31,3 +31,11 @@ ImageMagick 為一套開放原始碼的影像處理軟體，其中一個 command
 
   - ``2x100`` 表示 ``2`` 倍的 ``1/100`` 秒
   - 設定得太快的話反而會被降速
+
+* 將一些 png 垂直合併成一張 ::
+
+    $ convert input1.png input2.png ... -append output.png
+
+  - ``+append`` 可以用水平方向合併
+  - ``-smush offset`` 可以在圖片之間加間隔
+  - ``+smush`` 為水平方向
