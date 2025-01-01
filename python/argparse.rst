@@ -6,7 +6,7 @@ Python ``argparse`` module 是個用來處理參數邏輯的 framework
 
 速查
 -------------------------------------------------------------------------------
-.. code:python
+.. code:: python
 
   import argparse
   parser = argparse.ArgumentParser(description='說明文字', prog='PROG')
@@ -29,6 +29,9 @@ Python ``argparse`` module 是個用來處理參數邏輯的 framework
 
   # parse it
   args = parser.parse_args()
+
+  # parse "intermixed" positional and optional arguments
+  args = parser.parse_intermixed_args()
 
 
 ``add_argument`` 筆記
@@ -59,6 +62,10 @@ Python ``argparse`` module 是個用來處理參數邏輯的 framework
   - ``action="append"``
 
     + 讓 ``-a 1 -a 2`` 存入 ``[1, 2]``
+
+  - ``action="append_const"``
+
+    + 等於 ``append`` 加上 ``store_const``
 
 * ``choices=[1, 2, 3]``
 
