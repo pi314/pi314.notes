@@ -83,6 +83,45 @@ Shell script 不只參數，指令也可以可以加引號。用這個特性可�
 
 執行到 ``exit`` 以後，shell 的部份就會結束，後面的 code 就算有語法錯誤也不會有影響
 
+這兩個技巧可能只適用在以 shell 開頭，而且行數不多的情況。在到達 ``exit`` 之前，所有的 shell 指令和參數都需要包成字串，以相容 Python
+
+--------
+
+若 shell 的部份行數較多，或是有比較複雜的邏輯，可以用另一個方式處理:
+
+1.  Python 和 shell 的字串都可以直接相鄰，例如 ``'a''b'``
+2.  ``'''`` 對 Python 而言是多行字串的符號
+3.  ``true`` 指令會忽略所有參數
+
+利用這幾個特性，可以隔出一段 shell 專用的空間:
+
+.. code:: shell
+
+  'true' ''' '
+  echo 'shell'
+  'true' ' '''
+
+注意上面的範例開頭是 ``'''`` 在前，結尾則是 ``'''`` 在後。順序交換的話，再接回 Python 的區塊時容易出問題
+
+--------
+
+若需要互相嵌入程式碼的話 (例如 shell → Python → shell) (為什麼會需要?)，
+接續前面的例子，利用 shell 字串本身就可以延續多行的特性，可以隔出 Python 專用的空間:
+
+.. code:: shell
+
+  'true' '''shell start'
+  echo 'shell'
+  dummy="python start
+  'true' 'shell end'''
+
+  print('python')
+
+  'true' '''shell start'
+  python end"
+  echo 'shell'
+  'true' 'shell end'''
+
 
 C++ & Python
 -----------------------------------------------------------------------------
@@ -110,7 +149,7 @@ C++ & Python
 
 --------
 
-``/*`` / ``*/`` 搭配 ``#`` ，也可以分別隔出 C/C++ 和 Python 的空間:
+利用 ``/*`` / ``*/`` 搭配 ``#`` ，也可以分別隔出 C/C++ 和 Python 專用的空間:
 
 .. code:: python
 
@@ -178,7 +217,7 @@ Python code 裡再放 ``'''`` 的話，可以再反過來排除 Python:
 
 --------
 
-搭配前面的註解方式，Vim 的 ``function!`` 可以用來隔出一段不會被 Vim 執行的區塊:
+搭配前面的註解方式，Vim 的 ``function!`` 可以用來隔出一段 Python 專用的空間:
 
 .. code:: vim
 
