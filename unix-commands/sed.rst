@@ -66,6 +66,7 @@ Command
 * ``s/pattern/replacement/flags`` - 取代
 
   - Pattern 裡面的 group 小括號需要跳脫，i.e. ``\(\)``
+  - POSIX 標準的 ``sed`` 不支援 ``?`` ，不過它支援相等效果的 ``\{0,1\}``
 
 * ``d`` - 刪除
 * ``p`` - 印出 pattern space
