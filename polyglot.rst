@@ -63,6 +63,18 @@ Vim:
 
   " comment
 
+--------
+
+Makefile:
+
+.. code:: make
+
+  # comment
+
+  ifeq (0,1)
+      ignored by make
+  endif
+
 
 Python & Shell
 -----------------------------------------------------------------------------
@@ -121,6 +133,9 @@ Shell script 不只參數，指令也可以可以加引號。用這個特性可�
   python end"
   echo 'shell'
   'true' 'shell end'''
+
+若中間有指令，需要用到特別的 escape sequence (例如 ``sed`` 的 group 需要 ``\(`` ``\)``)，
+可以使用 ``r'''`` 避免讓 Python 發出 ``DeprecationWarning`` 或 ``SyntaxWarning``
 
 
 C++ & Python
@@ -228,3 +243,25 @@ Python code 裡再放 ``'''`` 的話，可以再反過來排除 Python:
   ""; '''
   endfunction
   ""'''
+
+Python & Makefile
+-----------------------------------------------------------------------------
+Makefile 會忽略 ``ifeq(0,1)`` 到 ``endif`` 之間的所有內容
+
+Makefile 與 shell 類似，大部份的字串不需要加上引號 ``'`` ``"``
+
+.. code:: make
+
+  __MAKE__ = r''' '
+
+  all:
+          @echo makefile
+
+  ifeq (0,1)
+  ' '''
+
+  print('python')
+
+  __MAKE__ = r''' '
+  endif
+  __MAKE__ = ' '''
