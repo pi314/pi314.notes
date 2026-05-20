@@ -12,6 +12,17 @@ sh$ brew update
 sh$ brew upgrade FORMULA [...]
 ```
 
+## 列出 formula 安裝的檔案
+```console
+sh$ brew ls coreutils
+/opt/homebrew/Cellar/coreutils/9.10/bin/b2sum
+/opt/homebrew/Cellar/coreutils/9.10/bin/base32
+/opt/homebrew/Cellar/coreutils/9.10/bin/basenc
+/opt/homebrew/Cellar/coreutils/9.10/bin/factor
+/opt/homebrew/Cellar/coreutils/9.10/bin/g[
+...
+```
+
 ## 反查指令所屬的 formula
 
 ```console
